@@ -14,8 +14,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SigInComponent } from './components/sig-in/sig-in.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SpinnerComponent } from './shrared/spinner/spinner.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { CookieService } from 'node_modules/ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}), // ToastrModule added
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

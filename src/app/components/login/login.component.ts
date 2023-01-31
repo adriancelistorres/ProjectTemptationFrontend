@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'node_modules/ngx-cookie-service';
 import { ToastrService } from 'node_modules/ngx-toastr';
 import { ILoginUser } from 'src/app/interfaces/ILoginUser';
+import { ErrorService } from 'src/app/services/error.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -19,6 +21,10 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private _loginService: LoginService,
     private router:Router,
+    private _errorServie:ErrorService,
+    private cookiesService:CookieService,
+    // private localstorage:Storage
+
   ) {}
 
   ngOnInit(): void {}
@@ -34,34 +40,29 @@ export class LoginComponent implements OnInit {
       password: this.password,
     };
     this.loading=true;
-
     this._loginService.login(user).subscribe({
       next: (token) => {
-        if(token==='contraseña incorrecta'|| token==='usuario no encontrado'){
-          this.loading=false;
-          this.toastr.error(token,'ERROR');
-          console.log(token)
-
-        }else{
-          this.loading=true;
-          localStorage.setItem('token',token)
+          // this.localstorage.setItem('token',`${JSON.stringify(token)}`)
+          this.cookiesService.set('token',JSON.stringify(token),1)
           this.router.navigate(['/menu'])
           console.log(token)
-        }
+
       },
       error:(e:HttpErrorResponse)=>{
-        this.msjError(e)
+        this._errorServie.msjError(e)
+        this.loading=false;
+
       }
     });
 
   }
 
 
-  msjError(e:HttpErrorResponse){
-    if(e.error.msg){
-      this.toastr.error(e.error.msg,'ERROR');
-    }else{
-      this.toastr.error('ocurrio un error','Error')
-    }
-  }
+  // msjError(e:HttpErrorResponse){
+  //   if(e.error.msg){
+  //     this.toastr.error(e.error.msg,'ERROR');
+  //   }else{
+  //     this.toastr.error('ocurrio un error','Error')
+  //   }
+  // }
 }
