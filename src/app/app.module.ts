@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CookieService } from 'node_modules/ngx-cookie-service';
+import { ColorComponent } from './components/color/color.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CookieService } from 'node_modules/ngx-cookie-service';
     MenuComponent,
     NavbarComponent,
     SpinnerComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ColorComponent
   ],
   imports: [
     BrowserModule,
