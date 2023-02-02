@@ -10,7 +10,6 @@ export class ErrorService {
 
   constructor(private toastr: ToastrService) { }
 
-
   msjError(e:HttpErrorResponse){
     if(e.error.msg){
       this.toastr.error(e.error.msg,'ERROR');

@@ -21,8 +21,6 @@ export class GuardianGuard implements CanActivate {
     }
 
   }
-
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

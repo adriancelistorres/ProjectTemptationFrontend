@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'node_modules/ngx-cookie-service';
 import { ToastrService } from 'node_modules/ngx-toastr';
 import { ILoginUser } from 'src/app/interfaces/ILoginUser';
-import { ErrorService } from 'src/app/services/error.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -40,11 +40,11 @@ export class LoginComponent implements OnInit {
       password: this.password,
     };
     this.loading=true;
-  
+
     this._loginService.login(user).subscribe({
       next: (token) => {
           // this.localstorage.setItem('token',`${JSON.stringify(token)}`)
-          this.cookiesService.set('token',JSON.stringify(token),1)
+          this.cookiesService.set('token',JSON.stringify(token))
           this.router.navigate(['/menu'])
           console.log(token)
 
@@ -57,6 +57,8 @@ export class LoginComponent implements OnInit {
     });
 
   }
+
+
 
 
   // msjError(e:HttpErrorResponse){

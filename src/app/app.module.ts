@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, TRANSLATIONS } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import{HttpClientModule} from '@angular/common/http'
+import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,10 +14,11 @@ import { LoginComponent } from './components/login/login.component';
 import { SigInComponent } from './components/sig-in/sig-in.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { SpinnerComponent } from './utils/spinner/spinner.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CookieService } from 'node_modules/ngx-cookie-service';
 import { ColorComponent } from './components/color/color.component';
+import { TokenInterceptorService } from './shared/token/token-interceptor.service';
 
 @NgModule({
   declarations: [
