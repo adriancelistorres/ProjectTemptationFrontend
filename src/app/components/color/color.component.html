@@ -1,17 +1,25 @@
-<table class="table">
+<app-navbar></app-navbar>
+<div class="ps-4" style="font-size: 50px;">Color</div>
+<div class="container-sm pt-4 padre">
+<table class="table color ">
   <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">nombre</th>
-      <th scope="col">state</th>
+    <tr >
+      <th  scope="col" class="text-center ">id</th>
+      <th scope="col" class="text-center">nombre</th>
+      <th scope="col" class="text-center">state</th>
+      <th style="width: 10%;"scope="col" class="text-center"></th>
+      <th style="width: 10%;"scope="col" class="text-center"></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody >
     <tr *ngFor="let item of listColor">
-      <th >{{item.idcolor}}</th>
-      <td>{{item.name_col}}</td>
-      <td>{{item.state}}</td>
+      <td class="p-1 text-center ">{{item.idcolor}}</td>
+      <td class="p-1 text-center">{{item.name_col}}</td>
+      <td class="p-1 text-center">{{item.state}}</td>
+      <td style="width: 10%;" class="p-1 text-center"><button class="btn btn-light"><img  class="editar" src="./assets/img/editar.png" alt=""></button></td>
+     <td style="width: 10%;" class="p-1 text-center"><button class="btn btn-light"><img  class="editar" src="./assets/img/eliminar.png" alt=""></button></td>
 
     </tr>
   </tbody>
 </table>
+</div>
