@@ -19,27 +19,19 @@ export class TokenInterceptorService {
     // const nn= document.cookie
     const obj = JSON.parse(token);
     const finalToken = obj['token'];
-    console.log(token);
-    console.log(obj);
 
-    // console.log(Object.values(token));
-    console.log(finalToken);
-    // console.log(JSON.parse(token));
-    // console.log({token:token})
+
+    // console.log(token);
+    // console.log(obj);
+
+
+    // console.log(finalToken);
+
     return {
       headers: new HttpHeaders({
         Authorization: `Bearer ${finalToken}`,
       }),
     };
   }
-  // intercep(
-  //   req: HttpRequest<any>,
-  //   next: HttpHandler
-  // ): Observable<HttpEvent<any>> {
-  //   let token = this.cookiesService.get('token');
-  //   let jwt = req.clone({
-  //     setHeaders: { Authorization: 'bearer ' + token },
-  //   });
-  //   return next.handle(jwt)
-  // }
+
 }

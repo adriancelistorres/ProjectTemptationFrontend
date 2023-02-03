@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container-sm pt-4 ">
+  <div class="container-sm color pt-3 pb-3" style="width: 50%;">
+    <form [formGroup]="formColor2" (ngSubmit)="updateColor()">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input
+          formControlName="name_col"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+        <span
+          *ngIf="
+            formColor2.get('name_col')?.hasError('required') &&
+            formColor2.get('name_col')?.touched
+          "
+          ><strong>El campo nombre es requerido</strong></span
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label">State</label>
+        <input
+          formControlName="state"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+        <span
+          *ngIf="
+            formColor2.get('state')?.hasError('required') &&
+            formColor2.get('name_col')?.touched
+          "
+        >
+          <strong>El campo estado es requerido</strong></span
+        >
+      </div>
+      <div class="modal-footer border-1 pt-4">
+        <button
+          type="submit"
+          class="btn btn-secondary me-1"
+          data-bs-dismiss="modal"
+          routerLink="/color"
+        >
+          cerrar
+        </button>
+        <button type="submit" class="btn btn-success">agregar</button>
+      </div>
+    </form>
+  </div>
+</div>

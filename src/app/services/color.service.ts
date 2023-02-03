@@ -16,7 +16,8 @@ import { TokenInterceptorService } from '../shared/token/token-interceptor.servi
 })
 export class ColorService {
   public myAppUrl: string;
-  // private myApi: string;
+  private myApi: string;
+  private myApi2: string;
 
   constructor(
     private http: HttpClient,
@@ -24,45 +25,43 @@ export class ColorService {
     private _tokenservice: TokenInterceptorService
   ) {
     this.myAppUrl = environment.endpoint;
+    this.myApi = 'colors';
+    this.myApi2 = 'color';
   }
 
-  getColor(): Observable<IColor[]> {
-    const token: any = this.cookiesService.get('token');
-    // console.log(token)
-    // console.log(this.getHttpHeaders())
-    // let token= this.headers.append("Authorization", "Bearer"+ this.cookiesService.get('token'))
+  getColors(): Observable<IColor[]> {
     return this.http.get<IColor[]>(
-      `${this.myAppUrl}colors`,
+      `${this.myAppUrl}${this.myApi}`,
       this._tokenservice.interceptor()
     );
   }
 
-  // getHttpHeaders() {
-  //   const token = this.cookiesService.get('token');
-  //   // const nn= document.cookie
-  //   const obj= JSON.parse(token)
-  //   const finalToken=obj['token']
-  //   console.log(token)
-  //   console.log(obj)
+  deleteColor(id: number):Observable<void> {
+    return this.http.delete<void>(
+      `${this.myAppUrl}${this.myApi2}/${id}`,
+      this._tokenservice.interceptor()
+    );
+  }
 
-  //   // console.log(Object.values(token));
-  //   console.log(finalToken);
-  //   // console.log(JSON.parse(token));
-  //   // console.log({token:token})
-  //   return {
-  //     headers: new HttpHeaders({
-  //       Authorization: `Bearer ${finalToken}`
-  //     })
-  //   };
-  // }
 
-  // getcolor2(): Observable<any> {
-  //   const token = this.cookiesService.get('token');
+  addColor(color:IColor):Observable<void>{
+    return this.http.post<void>(
+      `${this.myAppUrl}${this.myApi2}`,color,
+      this._tokenservice.interceptor())
+  }
 
-  //   const headers = new Headers({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`
-  //   })
-  //   return this.http.get(`${this.myAppUrl}colors`,  headers )
-  // }
+  updateColor(id:number,color:IColor):Observable<void>{
+    return this.http.put<void>(
+      `${this.myAppUrl}${this.myApi2}/${id}`,color,
+      this._tokenservice.interceptor()
+    );
+  }
+
+  getOneColor(id:number):Observable<IColor>{
+    return this.http.get<IColor>(
+      `${this.myAppUrl}${this.myApi2}/${id}`,
+      this._tokenservice.interceptor()
+    );
+  }
+
 }

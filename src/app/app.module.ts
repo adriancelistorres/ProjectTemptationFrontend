@@ -1,6 +1,6 @@
 import { NgModule, TRANSLATIONS } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 
@@ -19,6 +19,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CookieService } from 'node_modules/ngx-cookie-service';
 import { ColorComponent } from './components/color/color.component';
 import { TokenInterceptorService } from './shared/token/token-interceptor.service';
+import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { EditColorComponent } from './components/edit-color/edit-color.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TokenInterceptorService } from './shared/token/token-interceptor.servic
     NavbarComponent,
     SpinnerComponent,
     NotfoundComponent,
-    ColorComponent
+    ColorComponent,
+    ProgressBarComponent,
+    EditColorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import { TokenInterceptorService } from './shared/token/token-interceptor.servic
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}), // ToastrModule added
+      ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

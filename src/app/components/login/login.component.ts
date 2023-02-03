@@ -15,51 +15,48 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
-  loading:boolean=false
+  loading: boolean = false;
 
   constructor(
     private toastr: ToastrService,
     private _loginService: LoginService,
-    private router:Router,
-    private _errorServie:ErrorService,
-    private cookiesService:CookieService,
-    // private localstorage:Storage
+    private router: Router,
+    private _errorServie: ErrorService,
+    private cookiesService: CookieService
+  ) // private localstorage:Storage
 
-  ) {}
+  {}
 
   ngOnInit(): void {}
 
   login() {
     if (this.username == '' || this.password == '') {
       this.toastr.error('todos los campos son obligatorios', 'Error');
-      return
+      return;
     }
 
     const user: ILoginUser = {
       username: this.username,
       password: this.password,
     };
-    this.loading=true;
+    this.loading = true;
 
-    this._loginService.login(user).subscribe({
-      next: (token) => {
+    setTimeout(() => {
+      this._loginService.login(user).subscribe({
+        next: (token) => {
+          // this.loading = true;
           // this.localstorage.setItem('token',`${JSON.stringify(token)}`)
-          this.cookiesService.set('token',JSON.stringify(token))
-          this.router.navigate(['/menu'])
-          console.log(token)
-
-      },
-      error:(e:HttpErrorResponse)=>{
-        this._errorServie.msjError(e)
-        this.loading=false;
-
-      }
-    });
-
+          this.cookiesService.set('token', JSON.stringify(token));
+          this.router.navigate(['/menu']);
+          // console.log(token);
+        },
+        error: (e: HttpErrorResponse) => {
+          this._errorServie.msjError(e);
+          this.loading = false;
+        },
+      });
+    }, 1000);
   }
-
-
-
 
   // msjError(e:HttpErrorResponse){
   //   if(e.error.msg){
