@@ -1,21 +1,67 @@
 <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/color">Color</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+  <div class="container-fluid">
+    <a class="navbar-brand"><img src="./assets/img/Logo.png" alt="Logo" title="Logo" class="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-sharp fa-solid fa-clipboard font"></i><br>
+            DashBoard
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">DashBoard de Producto</a></li>
+            <li><a class="dropdown-item" href="#">DashBoard de Compra</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">DashBoard de Usuarios</a></li>
+          </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-shirt font2"></i><br>
+              Product
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Brand</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="/color">Color</a></li>
+              <li><a class="dropdown-item" href="#">Style</a></li>
+              <li><a class="dropdown-item" href="#">Size</a></li>
+              <li><a class="dropdown-item" href="#">Category</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Product</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-warehouse font"></i> <br>
+             Warehouse 
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Proveider</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Product</a></li>
+          </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-user font2"></i><br>
+          Person
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">User</a></li>
+          <li><a class="dropdown-item" href="#">Rol</a></li>
         </ul>
-      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"><i class="fa-solid fa-credit-card font3"></i> <br> Payment Method</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"> <i class="fa-solid fa-clipboard-question font2"></i><br> Claims</a>
+    </li>
+    
+      </ul>
+      <a href="#" class="btn btn-success text-black rounded-pill">Cerrar Sesion</a>
     </div>
-  </nav>
+  </div>
+</nav>
