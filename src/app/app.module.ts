@@ -51,6 +51,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
       preventDuplicates: true,}), // ToastrModule added
       ReactiveFormsModule,
       
+
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

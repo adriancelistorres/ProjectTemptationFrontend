@@ -6,6 +6,8 @@ import { ToastrService } from 'node_modules/ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-color',
@@ -24,7 +26,9 @@ export class ColorComponent implements OnInit {
     private toastr: ToastrService,
     private fb: FormBuilder,
     private router: Router,
-    private aRouter: ActivatedRoute
+    private aRouter: ActivatedRoute,
+    private _errorServie: ErrorService,
+
   ) {
     this.formColor = this.fb.group({
       name_col: ['', Validators.required],
@@ -66,12 +70,16 @@ export class ColorComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.loading = true;
-        this._colorService.deleteColor(id).subscribe(() => {
+        this._colorService.deleteColor(id).subscribe({next:() => {
           this.getColors();
-          // this.toastr.warning('El color fue eliminado satisfactoriamente');
-        });
-        this.getColors();
-        Swal.fire('Se Elimino Correctamente', 'success');
+          this.toastr.success('El color fue eliminado satisfactoriamente');
+        },
+        error: (e: HttpErrorResponse) => {
+          this._errorServie.msjError(e);
+          this.loading = false;
+        } });
+        // this.getColors();
+        // Swal.fire('Se Elimino Correctamente', 'success');
       }
     });
 
