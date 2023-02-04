@@ -21,6 +21,9 @@ import { ColorComponent } from './components/color/color.component';
 import { TokenInterceptorService } from './shared/token/token-interceptor.service';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 import { EditColorComponent } from './components/edit-color/edit-color.component';
+import { AddColorComponent } from './components/add-color/add-color.component';
+import { PipesPipe } from './shared/pipes/pipes.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -33,10 +36,12 @@ import { EditColorComponent } from './components/edit-color/edit-color.component
     NotfoundComponent,
     ColorComponent,
     ProgressBarComponent,
-    EditColorComponent
+    EditColorComponent,
+    AddColorComponent,
+    PipesPipe
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,Ng2SearchPipeModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -44,7 +49,8 @@ import { EditColorComponent } from './components/edit-color/edit-color.component
     ToastrModule.forRoot({timeOut: 4000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}), // ToastrModule added
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
