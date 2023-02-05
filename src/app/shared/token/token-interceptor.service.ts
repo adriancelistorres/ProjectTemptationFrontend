@@ -20,10 +20,8 @@ export class TokenInterceptorService {
     const obj = JSON.parse(token);
     const finalToken = obj['token'];
 
-
     // console.log(token);
     // console.log(obj);
-
 
     // console.log(finalToken);
 

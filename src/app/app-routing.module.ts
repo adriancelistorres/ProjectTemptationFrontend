@@ -11,13 +11,13 @@ import { EditColorComponent } from './components/edit-color/edit-color.component
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, },
   { path: 'signIn', component: SigInComponent },
   { path: 'menu', component: MenuComponent ,canActivate:[GuardianGuard]},
   { path: 'color', component: ColorComponent ,canActivate:[GuardianGuard]},
   { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
 
-  { path: 'color/:idcolor', component: ColorComponent ,canActivate:[GuardianGuard]},
+  // { path: 'color/:idcolor', component: ColorComponent ,canActivate:[GuardianGuard]},
 
   { path: '**', component: NotfoundComponent },
 

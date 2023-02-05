@@ -22,12 +22,16 @@ export class LoginComponent implements OnInit {
     private _loginService: LoginService,
     private router: Router,
     private _errorServie: ErrorService,
-    private cookiesService: CookieService
-  ) // private localstorage:Storage
+    private cookiesService: CookieService // private localstorage:Storage
+  ) {
+    // this.cookiesService.delete('token');
+    // this.router.navigate(['/']);
+  }
 
-  {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cookiesService.delete('token');
+    this.router.navigate(['/login']);
+  }
 
   login() {
     if (this.username == '' || this.password == '') {
