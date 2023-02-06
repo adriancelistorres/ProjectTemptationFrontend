@@ -42,6 +42,7 @@ export class EditColorComponent implements OnInit {
 }
 
   ngOnInit(): void {
+    this.getOneColor(this.id);
 
   }
 
@@ -64,6 +65,7 @@ export class EditColorComponent implements OnInit {
     this._colorService.updateColor(this.id, color).subscribe(() => {
       this.toastr.success('El color se actualizo correctamente');
     });
+    this.getColors();
 
   }
 
