@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent ,canActivate:[GuardianGuard]},
   { path: 'color', component: ColorComponent ,canActivate:[GuardianGuard]},
   { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
+  
 
   // { path: 'color/:idcolor', component: ColorComponent ,canActivate:[GuardianGuard]},
 
