@@ -42,7 +42,6 @@ export class EditColorComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.getOneColor(this.id);
 
   }
 
