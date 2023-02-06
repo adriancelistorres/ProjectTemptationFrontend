@@ -16,14 +16,11 @@ import { TokenInterceptorService } from '../shared/token/token-interceptor.servi
 })
 export class ColorService {
   private _refreshRequired=new Subject<void>();
-  private _refreshRequired2=new Subject<void>();
 
   get RefreshRequired(){
     return this._refreshRequired;
   }
-  get RefreshRequired2(){
-    return this._refreshRequired;
-  }
+
 
   public myAppUrl: string;
   private myApi: string;
@@ -58,7 +55,7 @@ export class ColorService {
     return this.http.post<void>(
       `${this.myAppUrl}${this.myApi2}`,color,
       this._tokenservice.interceptor()).pipe(tap(()=>{
-        this._refreshRequired.next(),this._refreshRequired.next();
+        this._refreshRequired.next();
       }))
   }
 

@@ -26,13 +26,12 @@ export class EditColorComponent implements OnInit {
       state: ['1', Validators.required],
     });
     this.id = 0;
-    this._colorService.RefreshRequired2.subscribe(result=>{
-      this.getOneColor(this.id)
-    })
-    console.log(this.id);
+  
   }
 
   ngOnInit(): void {
+    this.getOneColor(this.id);
+
   }
 
   getOneColor(id: number) {
@@ -46,7 +45,6 @@ export class EditColorComponent implements OnInit {
   }
 
   updateColor() {
-    this.getOneColor(this.id);
     const color: IColor = {
       name_col: this.formColor2.value.name_col,
       state: this.formColor2.value.state,

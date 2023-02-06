@@ -33,17 +33,16 @@ export class ColorComponent  {
   }
 
   @ViewChild(EditColorComponent) addview!: EditColorComponent ;
-
+  
   ngOnInit(): void {
     this.getColors();
   }
 
   getColors() {
-    setTimeout(() => {
       this._colorService.getColors().subscribe((data: IColor[]) => {
         this.listColor = data;
       });
-    }, 500);
+    ;
   }
 
   edit(id: number) {
