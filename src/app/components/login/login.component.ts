@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     // this.cookiesService.delete('token');
     // this.router.navigate(['/']);
   }
+  
 
   ngOnInit(): void {
     this.cookiesService.delete('token');
