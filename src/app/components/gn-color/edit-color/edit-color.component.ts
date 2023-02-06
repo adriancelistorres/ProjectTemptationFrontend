@@ -14,6 +14,8 @@ import { ColorService } from 'src/app/services/color.service';
 export class EditColorComponent implements OnInit {
   formColor2: FormGroup;
   id: number;
+  listColor: IColor[] = [];
+
 
   constructor(
     private _colorService: ColorService,
@@ -26,8 +28,18 @@ export class EditColorComponent implements OnInit {
       state: ['1', Validators.required],
     });
     this.id = 0;
-  
+    this._colorService.RefreshRequired.subscribe(result=>{
+      this.getColors()
+    })
+
+
   }
+  getColors() {
+    this._colorService.getColors().subscribe((data: IColor[]) => {
+      this.listColor = data;
+    });
+  ;
+}
 
   ngOnInit(): void {
     this.getOneColor(this.id);
