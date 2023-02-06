@@ -74,7 +74,9 @@ export class ColorService {
     return this.http.get<IColor>(
       `${this.myAppUrl}${this.myApi2}/${id}`,
       this._tokenservice.interceptor()
-    );
+    ).pipe(tap(()=>{
+      this._refreshRequired.next();
+    }));
   }
 
 }

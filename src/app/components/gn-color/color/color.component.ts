@@ -47,7 +47,6 @@ export class ColorComponent  {
 
   edit(id: number) {
     this.addview.getOneColor(id);
-    this.getColors();
     console.log(id)
   }
 

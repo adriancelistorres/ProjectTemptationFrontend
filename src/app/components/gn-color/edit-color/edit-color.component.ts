@@ -28,12 +28,14 @@ export class EditColorComponent implements OnInit {
       state: ['1', Validators.required],
     });
     this.id = 0;
-    this._colorService.RefreshRequired.subscribe(result=>{
-      this.getColors()
-    })
-
 
   }
+
+  ngOnInit(): void {
+    // this.getOneColor(this.id);
+
+  }
+
   getColors() {
     this._colorService.getColors().subscribe((data: IColor[]) => {
       this.listColor = data;
@@ -41,10 +43,6 @@ export class EditColorComponent implements OnInit {
   ;
 }
 
-  ngOnInit(): void {
-    this.getOneColor(this.id);
-
-  }
 
   getOneColor(id: number) {
     this._colorService.getOneColor(id).subscribe((data: IColor) => {
@@ -54,9 +52,12 @@ export class EditColorComponent implements OnInit {
       });
     });
     this.id = id;
+    // this.getColors();
+
   }
 
   updateColor() {
+    this.getColors();
     const color: IColor = {
       name_col: this.formColor2.value.name_col,
       state: this.formColor2.value.state,
