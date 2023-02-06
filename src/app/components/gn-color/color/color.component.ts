@@ -33,7 +33,7 @@ export class ColorComponent  {
   }
 
   @ViewChild(EditColorComponent) addview!: EditColorComponent ;
-  
+
   ngOnInit(): void {
     this.getColors();
   }
@@ -64,7 +64,6 @@ export class ColorComponent  {
     }).then((result) => {
       if (result.isConfirmed) {
         this._colorService.deleteColor(id).subscribe({next:() => {
-          this.getColors();
           this.toastr.success('El color fue eliminado satisfactoriamente');
         },
         error: (e: HttpErrorResponse) => {
