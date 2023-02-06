@@ -1,8 +1,6 @@
-
-<div *ngIf="!loading" class="container-sm pt-4">
 <div
   class="modal fade"
-  id="staticBackdrop"
+  id="staticBackdrop2"
   data-backdrop="false"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -10,7 +8,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
         <button
 
           type="button"
@@ -20,7 +18,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formColor" (ngSubmit)="addColor()">
+        <form [formGroup]="formColor2" (ngSubmit)="updateColor()">
           <div class="mb-3">
             <label class="form-label">nombre</label>
             <input
@@ -30,8 +28,8 @@
             />
             <span
               *ngIf="
-                formColor.get('name_col')?.hasError('required') &&
-                formColor.get('name_col')?.touched
+                formColor2.get('name_col')?.hasError('required') &&
+                formColor2.get('name_col')?.touched
               "
               ><strong>El campo nombre es requerido</strong></span
             >
@@ -45,8 +43,8 @@
             />
             <span
               *ngIf="
-                formColor.get('state')?.hasError('required') &&
-                formColor.get('name_col')?.touched
+                formColor2.get('state')?.hasError('required') &&
+                formColor2.get('name_col')?.touched
               "
             >
               <strong>El campo estado es requerido</strong></span
@@ -61,7 +59,7 @@
               cerrar
             </button>
             <button
-              [disabled]="formColor.invalid"
+              [disabled]="formColor2.invalid"
               type="submit"
               class="btn btn-success"
             >
@@ -72,5 +70,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

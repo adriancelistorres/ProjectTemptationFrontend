@@ -1,7 +1,9 @@
 <app-navbar></app-navbar>
-<app-progress-bar *ngIf="loading"></app-progress-bar>
+
 <app-add-color ></app-add-color>
-<div *ngIf="!loading" class="container-sm pt-4">
+<app-edit-color ></app-edit-color>
+
+<div  class="container-sm pt-4">
   <div class="" style="font-size: 50px">Color</div>
   <div class="search-name pt-3 pb-3">
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
@@ -44,7 +46,9 @@
           <button
             data-bs-toggle="modal"
             class="btn btn-outline-warning btn-sm"
-            routerLink="/edit/{{ item.idcolor }}"
+            (click)="edit(item.idcolor)"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop2"
           >
             <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
           </button>

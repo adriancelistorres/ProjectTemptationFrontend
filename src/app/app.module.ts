@@ -17,11 +17,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './utils/spinner/spinner.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { CookieService } from 'node_modules/ngx-cookie-service';
-import { ColorComponent } from './components/color/color.component';
+import { ColorComponent } from './components/gn-color/color/color.component';
 import { TokenInterceptorService } from './shared/token/token-interceptor.service';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
-import { EditColorComponent } from './components/edit-color/edit-color.component';
-import { AddColorComponent } from './components/add-color/add-color.component';
+import { EditColorComponent } from './components/gn-color/edit-color/edit-color.component';
+import { AddColorComponent } from './components/gn-color/add-color/add-color.component';
 import { PipesPipe } from './shared/pipes/pipes.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -50,7 +50,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}), // ToastrModule added
       ReactiveFormsModule,
-      
+
 
   ],
   providers: [CookieService],

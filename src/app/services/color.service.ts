@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IColor } from '../interfaces/IColor';
 import { CookieService } from 'ngx-cookie-service';
@@ -15,6 +15,16 @@ import { TokenInterceptorService } from '../shared/token/token-interceptor.servi
   providedIn: 'root',
 })
 export class ColorService {
+  private _refreshRequired=new Subject<void>();
+  private _refreshRequired2=new Subject<void>();
+
+  get RefreshRequired(){
+    return this._refreshRequired;
+  }
+  get RefreshRequired2(){
+    return this._refreshRequired;
+  }
+
   public myAppUrl: string;
   private myApi: string;
   private myApi2: string;
@@ -47,14 +57,18 @@ export class ColorService {
   addColor(color:IColor):Observable<void>{
     return this.http.post<void>(
       `${this.myAppUrl}${this.myApi2}`,color,
-      this._tokenservice.interceptor())
+      this._tokenservice.interceptor()).pipe(tap(()=>{
+        this._refreshRequired.next(),this._refreshRequired.next();
+      }))
   }
 
   updateColor(id:number,color:IColor):Observable<void>{
     return this.http.put<void>(
       `${this.myAppUrl}${this.myApi2}/${id}`,color,
       this._tokenservice.interceptor()
-    );
+    ).pipe(tap(()=>{
+      this._refreshRequired.next();
+    }));
   }
 
   getOneColor(id:number):Observable<IColor>{
