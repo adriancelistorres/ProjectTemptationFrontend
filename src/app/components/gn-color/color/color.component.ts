@@ -47,6 +47,7 @@ export class ColorComponent  {
 
   edit(id: number) {
     this.addview.getOneColor(id);
+    this.getColors();
     console.log(id)
   }
 
@@ -64,6 +65,7 @@ export class ColorComponent  {
     }).then((result) => {
       if (result.isConfirmed) {
         this._colorService.deleteColor(id).subscribe({next:() => {
+          this.getColors();
           this.toastr.success('El color fue eliminado satisfactoriamente');
         },
         error: (e: HttpErrorResponse) => {
