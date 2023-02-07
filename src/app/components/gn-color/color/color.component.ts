@@ -33,7 +33,7 @@ export class ColorComponent  {
   }
 
   @ViewChild(EditColorComponent) addview!: EditColorComponent ;
-
+  
   ngOnInit(): void {
     this.getColors();
   }
