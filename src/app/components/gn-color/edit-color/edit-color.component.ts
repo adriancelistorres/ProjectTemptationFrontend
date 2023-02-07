@@ -11,7 +11,7 @@ import { ColorService } from 'src/app/services/color.service';
   templateUrl: './edit-color.component.html',
   styleUrls: ['./edit-color.component.css'],
 })
-export class EditColorComponent implements OnInit {
+export class EditColorComponent  {
   formColor2: FormGroup;
   id: number;
   listColor: IColor[] = [];
@@ -31,9 +31,7 @@ export class EditColorComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // this.getOneColor(this.id);
-  }
+
 
   getColors() {
     this._colorService.getColors().subscribe((data: IColor[]) => {

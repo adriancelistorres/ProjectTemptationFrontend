@@ -16,7 +16,7 @@ import { EditColorComponent } from '../edit-color/edit-color.component';
   templateUrl: './color.component.html',
   styleUrls: ['./color.component.css'],
 })
-export class ColorComponent  {
+export class ColorComponent implements OnInit {
   listColor: IColor[] = [];
   searchText: any;
 
@@ -33,7 +33,7 @@ export class ColorComponent  {
   }
 
   @ViewChild(EditColorComponent) addview!: EditColorComponent ;
-  
+
   ngOnInit(): void {
     this.getColors();
   }
