@@ -31,8 +31,6 @@ export class EditColorComponent  {
     });
   }
 
-
-
   getColors() {
     this._colorService.getColors().subscribe((data: IColor[]) => {
       this.listColor = data;
