@@ -24,6 +24,9 @@ import { EditColorComponent } from './components/m-color/edit-color/edit-color.c
 import { AddColorComponent } from './components/m-color/add-color/add-color.component';
 import { PipesPipe } from './shared/pipes/pipes.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { StylessComponent } from './components/m-styles/styless/styless.component';
+import { AddStylesComponent } from './components/m-styles/add-styles/add-styles.component';
+import { EditStylesComponent } from './components/m-styles/edit-styles/edit-styles.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProgressBarComponent,
     EditColorComponent,
     AddColorComponent,
-    PipesPipe
+    PipesPipe,
+    StylessComponent,
+    AddStylesComponent,
+    EditStylesComponent
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

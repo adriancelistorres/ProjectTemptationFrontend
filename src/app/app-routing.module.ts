@@ -8,6 +8,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { GuardianGuard } from './shared/guards/guardian.guard';
 import { ColorComponent } from './components/m-color/color/color.component';
 import { EditColorComponent } from './components/m-color/edit-color/edit-color.component';
+import { StylessComponent } from './components/m-styles/styless/styless.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'signIn', component: SigInComponent },
   { path: 'menu', component: MenuComponent ,canActivate:[GuardianGuard]},
   { path: 'color', component: ColorComponent ,canActivate:[GuardianGuard]},
+  { path: 'style', component: StylessComponent ,canActivate:[GuardianGuard]},
   // { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'product', component: EditColorComponent ,canActivate:[GuardianGuard]},
 
