@@ -1,1 +1,74 @@
-<p>edit-category works!</p>
+<div
+  class="modal fade"
+  id="staticBackdrop2"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+        <button
+
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formCategory2" (ngSubmit)="updateCategory()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+              formControlName="name_cat"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+              formCategory2.get('name_cat')?.hasError('required') &&
+              formCategory2.get('name_cat')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+            <input
+              formControlName="state"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+              formCategory2.get('state')?.hasError('required') &&
+              formCategory2.get('name_cat')?.touched
+              "
+            >
+              <strong>El campo estado es requerido</strong></span
+            >
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"              >
+              cerrar
+            </button>
+            <button
+              [disabled]="formCategory2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
