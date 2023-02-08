@@ -27,6 +27,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StylessComponent } from './components/m-styles/styless/styless.component';
 import { AddStylesComponent } from './components/m-styles/add-styles/add-styles.component';
 import { EditStylesComponent } from './components/m-styles/edit-styles/edit-styles.component';
+import { ProductComponent } from './components/m-product/product/product.component';
+import { AddProductComponent } from './components/m-product/add-product/add-product.component';
+import { EditProductComponent } from './components/m-product/edit-product/edit-product.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +48,10 @@ import { EditStylesComponent } from './components/m-styles/edit-styles/edit-styl
     PipesPipe,
     StylessComponent,
     AddStylesComponent,
-    EditStylesComponent
+    EditStylesComponent,
+    ProductComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,
