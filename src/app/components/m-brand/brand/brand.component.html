@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<app-add-brand></app-add-brand>
+<app-edit-brand></app-edit-brand>
+<div  class="container-sm pt-4">
+    <div class="" style="font-size: 50px">Marca</div>
+    <div class="search-name pt-3 pb-3">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
+    </div>
+    <div class="agregar">
+      <button
+  
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        class="btn btn-outline-success"
+      >
+  
+        <img class="imagen" src="./assets/img/agregar.png" alt="" />
+      </button>
+  
+    </div>
+  
+    <table class="table color">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">id</th>
+          <th scope="col" class="text-center">nombre</th>
+          <th scope="col" class="text-center">state</th>
+          <th style="width: 10%" scope="col" class="text-center"></th>
+          <th style="width: 10%" scope="col" class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listBrand | filter:searchText">
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            0000{{ item.idbrand }}
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            {{ item.name_brand }}
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            {{ item.state }}
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            <button
+              data-bs-toggle="modal"
+              class="btn btn-outline-warning btn-sm"
+              (click)="edit(item.idbrand)"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop2"
+            >
+              <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+            </button>
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            <button
+              (click)="deleteBrand(item.idbrand)"
+              class="btn btn-outline-danger btn-sm"
+            >
+              <img class="imagen" src="./assets/img/eliminar.png" alt="" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

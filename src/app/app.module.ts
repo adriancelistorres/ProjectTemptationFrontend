@@ -27,6 +27,16 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CategoryComponent } from './components/m-category/category/category.component';
 import { AddCategoryComponent } from './components/m-category/add-category/add-category.component';
 import { EditCategoryComponent } from './components/m-category/edit-category/edit-category.component';
+import { StylessComponent } from './components/m-styles/styless/styless.component';
+import { AddStylesComponent } from './components/m-styles/add-styles/add-styles.component';
+import { EditStylesComponent } from './components/m-styles/edit-styles/edit-styles.component';
+import { ProductComponent } from './components/m-product/product/product.component';
+import { AddProductComponent } from './components/m-product/add-product/add-product.component';
+import { EditProductComponent } from './components/m-product/edit-product/edit-product.component';
+import { BrandComponent } from './components/m-brand/brand/brand.component';
+import { AddBrandComponent } from './components/m-brand/add-brand/add-brand.component';
+import { EditBrandComponent } from './components/m-brand/edit-brand/edit-brand.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +54,16 @@ import { EditCategoryComponent } from './components/m-category/edit-category/edi
     PipesPipe,
     CategoryComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    StylessComponent,
+    AddStylesComponent,
+    EditStylesComponent,
+    ProductComponent,
+    AddProductComponent,
+    EditProductComponent,
+    BrandComponent,
+    AddBrandComponent,
+    EditBrandComponent
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

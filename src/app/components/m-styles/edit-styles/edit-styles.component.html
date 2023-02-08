@@ -1,6 +1,6 @@
 <div
   class="modal fade"
-  id="staticBackdrop"
+  id="staticBackdrop2"
   data-backdrop="false"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -8,7 +8,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
         <button
 
           type="button"
@@ -18,20 +18,20 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="formColor" (ngSubmit)="addColor()">
+        <form [formGroup]="formStyle2" (ngSubmit)="updateStyle()">
           <div class="mb-3">
             <label class="form-label">nombre</label>
             <input
-              formControlName="name_col"
+              formControlName="name_sty"
               class="form-control"
               id="exampleInputPassword1"
             />
             <span
               *ngIf="
-                formColor.get('name_col')?.hasError('required') &&
-                formColor.get('name_col')?.touched
+                formStyle2.get('name_sty')?.hasError('required') &&
+                formStyle2.get('name_sty')?.touched
               "
-              ><strong>El campo Nombre es requerido</strong></span
+              ><strong>El campo nombre es requerido</strong></span
             >
           </div>
           <div class="mb-3">
@@ -43,11 +43,11 @@
             />
             <span
               *ngIf="
-                formColor.get('state')?.hasError('required') &&
-                formColor.get('name_col')?.touched
+                formStyle2.get('state')?.hasError('required') &&
+                formStyle2.get('name_sty')?.touched
               "
             >
-              <strong>El campo Estado es requerido</strong></span
+              <strong>El campo estado es requerido</strong></span
             >
           </div>
           <div class="modal-footer border-0 pt-4">
@@ -59,7 +59,7 @@
               cerrar
             </button>
             <button
-              [disabled]="formColor.invalid"
+              [disabled]="formStyle2.invalid"
               type="submit"
               class="btn btn-success"
             >
@@ -71,3 +71,4 @@
     </div>
   </div>
 </div>
+

@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<app-add-styles></app-add-styles>
+<app-edit-styles></app-edit-styles>
+
+<div class="container-sm pt-4">
+    <div class="texto">Estilos</div>
+    <div class="search-name pt-3 pb-3">
+        <input type="text" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar ">
+    </div>
+    <div class="agregar">
+        <button data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        class="btn btn-outline-success">
+            <img  class= "imagen" src="./assets/img/agregar.png" alt="agregar">
+        </button>
+    </div>
+
+    <table class="table color">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">id</th>
+                <th scope="col" class="text-center">nombre</th>
+                <th scope="col" class="text-center">state</th>
+                <th class="text-center " style="width: 10%;" scope="col"></th>
+                <th class="text-center " style="width: 10%;"  scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listStyle | filter: searchText">
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    0000{{item.idstyles}}
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    {{item.name_sty}}
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    {{item.state}}
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    <button
+                        data-bs-target="modal"
+                        class="btn btn-outline-warning btn-sm"
+                        (click)="edit(item.idstyles)"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop2"
+                    >
+                    <a> <img src="./assets/img/editar.png" class="imagen"></a>
+                    </button>
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center"> 
+                    <button
+                    (click)="deleteStyle(item.idstyles)"
+                    class="btn btn-outline-danger btn-sm">
+                        <img class="imagen" src="./assets/img/eliminar.png" alt="">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>

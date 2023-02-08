@@ -1,0 +1,16 @@
+.texto{
+    font-size: 50px;
+}
+.imagen{
+    height: 30px;
+    width:  30px;
+}
+
+.color{
+    background-color: rgb(226, 232, 237);
+    border-radius: 10px;
+}
+.agregar{
+    text-align: end;
+  }
+  
