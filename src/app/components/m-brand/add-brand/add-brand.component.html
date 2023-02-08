@@ -1,0 +1,66 @@
+<div 
+class="modal fade"
+id="staticBackdrop"
+data-backdrop = "false"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
+                <button
+                type="button"
+                class="btn-close"
+                data-base-dismiss="modal"
+                aria-label="Close">
+            </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formBrand" (ngSubmit)="addBrand()">
+                    <div class="mb-3">
+                        <label class="form-label">Nonbre</label>
+                        <input formControlName="name_brand"
+                        class="form-control"
+                        id="exampleInputPassword1">
+                        <span *ngIf="
+                         formBrand.get('name_brand')?.hasError('required') &&
+                         formBrand.get('name_brand')?.touched"
+                        >
+                        <strong>El campo Nombre es Requerido</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">State</label>
+                        <input formControlName="state"
+                        class="form-control"
+                        id="exampleInputPassword1">
+                        <span *ngIf="
+                         formBrand.get('state')?.hasError('required') &&
+                         formBrand.get('name_brand')?.touched"
+                        >
+                        <strong>El campo Estado es Requerido</strong>
+                        </span>
+                    </div>
+                    <div class="modal-footer border-0 pt-4">
+                        <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"              >
+                        cerrar
+                      </button>
+                      <button
+                      [disabled]="formBrand.invalid"
+                      type="submit"
+                      class="btn btn-success"
+                    >
+                      agregar
+                    </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

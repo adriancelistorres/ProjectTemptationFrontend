@@ -30,6 +30,9 @@ import { EditStylesComponent } from './components/m-styles/edit-styles/edit-styl
 import { ProductComponent } from './components/m-product/product/product.component';
 import { AddProductComponent } from './components/m-product/add-product/add-product.component';
 import { EditProductComponent } from './components/m-product/edit-product/edit-product.component';
+import { BrandComponent } from './components/m-brand/brand/brand.component';
+import { AddBrandComponent } from './components/m-brand/add-brand/add-brand.component';
+import { EditBrandComponent } from './components/m-brand/edit-brand/edit-brand.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import { EditProductComponent } from './components/m-product/edit-product/edit-p
     EditStylesComponent,
     ProductComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    BrandComponent,
+    AddBrandComponent,
+    EditBrandComponent
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,
