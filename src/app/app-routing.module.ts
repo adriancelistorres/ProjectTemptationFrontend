@@ -11,6 +11,7 @@ import { EditColorComponent } from './components/m-color/edit-color/edit-color.c
 import { CategoryComponent } from './components/m-category/category/category.component';
 import { StylessComponent } from './components/m-styles/styless/styless.component';
 import { BrandComponent } from './components/m-brand/brand/brand.component';
+import { SizeComponent } from './components/m-size/size/size.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   // { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'product', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'category', component: CategoryComponent ,canActivate:[GuardianGuard]},
-
+   { path: 'size', component: SizeComponent ,canActivate:[GuardianGuard]},
 
   // { path: 'color/:idcolor', component: ColorComponent ,canActivate:[GuardianGuard]},
 
