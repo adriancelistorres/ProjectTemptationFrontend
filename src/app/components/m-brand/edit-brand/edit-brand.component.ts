@@ -65,4 +65,6 @@ export class EditBrandComponent {
       this._errorService.msjError(e);
     }})
   }
+
+
 }

@@ -104,3 +104,113 @@
     </div>
   </div>
 </div>
+
+
+
+<div
+  class="modal fade"
+  id="staticBackdrop3"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Activar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formBrand2" (ngSubmit)="updateBrand()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+               readonly
+              formControlName="name_brand"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+                formBrand2.get('name_brand')?.hasError('required') &&
+                formBrand2.get('name_brand')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+                  <input
+                    disabled
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    value="Desactivado"
+                  />
+                  <span
+                    *ngIf="
+                        formBrand2.get('state')?.hasError('required') &&
+                        formBrand2.get('name_brand')?.touched
+                    "
+                  >
+                    <strong>El campo estado es requerido</strong></span
+                  >
+            <!-- <div class="form-check">
+              <input
+                class="form-check-input"
+                formControlName="state"
+                type="radio"
+                name="state"
+                [value]="1"
+                checked
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                activo
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                formControlName="state"
+                type="radio"
+                name="state"
+                [value]="3"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                suspendido
+              </label>
+            </div> -->
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="formBrand2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              Activar marca
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
