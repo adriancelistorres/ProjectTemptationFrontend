@@ -34,12 +34,11 @@
             >
           </div>
           <div class="mb-3">
-            <label class="form-label">state</label>
+            <!-- <label class="form-label">state</label>
                   <input
-                    disabled
+                    formControlName="state"
                     class="form-control"
                     id="exampleInputPassword1"
-                    value="Activo"
                   />
                   <span
                     *ngIf="
@@ -48,8 +47,8 @@
                     "
                   >
                     <strong>El campo estado es requerido</strong></span
-                  >
-            <!-- <div class="form-check">
+                  > -->
+            <div class="form-check">
               <input
                 class="form-check-input"
                 formControlName="state"
@@ -80,7 +79,7 @@
               <label class="form-check-label" for="flexRadioDefault2">
                 suspendido
               </label>
-            </div> -->
+            </div>
           </div>
           <div class="modal-footer border-0 pt-4">
             <button

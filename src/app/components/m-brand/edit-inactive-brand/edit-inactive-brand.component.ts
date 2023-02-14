@@ -1,17 +1,15 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IBrand } from 'src/app/interfaces/IBrand';
 import { BrandService } from 'src/app/services/brand.service';
-import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
-  selector: 'app-edit-brand',
-  templateUrl: './edit-brand.component.html',
-  styleUrls: ['./edit-brand.component.css']
+  selector: 'app-edit-inactive-brand',
+  templateUrl: './edit-inactive-brand.component.html',
+  styleUrls: ['./edit-inactive-brand.component.css']
 })
-export class EditBrandComponent {
+export class EditInactiveBrandComponent {
   formBrand2: FormGroup;
   id: number;
   listBrand: IBrand[] = [];
@@ -20,9 +18,7 @@ export class EditBrandComponent {
   constructor(
     private _brandService: BrandService,
     private toastr: ToastrService,
-    private fb: FormBuilder,
-    private _errorService: ErrorService,
-
+    private fb: FormBuilder
   ){
     this.formBrand2 = this.fb.group({
       name_brand: ['', Validators.required],
@@ -53,16 +49,12 @@ export class EditBrandComponent {
   updateBrand(){
     const brand: IBrand ={
       name_brand: this.formBrand2.value.name_brand,
-      state: 1,
+      state: this.formBrand2.value.state,
     };
     brand.idbrand = this.id;
     console.log(brand);
-    this._brandService.updateBrand(this.id, brand).subscribe({next:()=>{
-      // console.log(JSON.stringify());
-      this.toastr.success('La marca se actualizo correctamente');
-    } ,
-    error: (e: HttpErrorResponse) =>{
-      this._errorService.msjError(e);
-    }})
+    this._brandService.updateBrand(this.id, brand).subscribe(()=>{
+      this.toastr.success('La marca se actualizo correctamente')
+    });
   }
 }

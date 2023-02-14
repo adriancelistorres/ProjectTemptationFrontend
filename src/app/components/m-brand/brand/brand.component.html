@@ -6,19 +6,27 @@
     <div class="search-name pt-3 pb-3">
       <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
     </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Plus
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" routerLink="/inactivebrand">Marcas Desactivadas</a></li>
+      </ul>
+    </div>
     <div class="agregar">
       <button
-  
+
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
         class="btn btn-outline-success"
       >
-  
+
         <img class="imagen" src="./assets/img/agregar.png" alt="" />
       </button>
-  
+
     </div>
-  
+
     <table class="table color">
       <thead>
         <tr>
@@ -38,7 +46,7 @@
             {{ item.name_brand }}
           </td>
           <td *ngIf="item.state == 1" class="p-1 text-center">
-            {{ item.state }}
+            activo
           </td>
           <td *ngIf="item.state == 1" class="p-1 text-center">
             <button
@@ -63,4 +71,4 @@
       </tbody>
     </table>
   </div>
-  
+

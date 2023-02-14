@@ -39,6 +39,8 @@ import { EditBrandComponent } from './components/m-brand/edit-brand/edit-brand.c
 import { SizeComponent } from './components/m-size/size/size.component';
 import { AddSizeComponent } from './components/m-size/add-size/add-size.component';
 import { EditSizeComponent } from './components/m-size/edit-size/edit-size.component';
+import { InactiveBrandComponent } from './components/m-brand/inactive-brand/inactive-brand.component';
+import { EditInactiveBrandComponent } from './components/m-brand/edit-inactive-brand/edit-inactive-brand.component';
 
 
 @NgModule({
@@ -69,7 +71,9 @@ import { EditSizeComponent } from './components/m-size/edit-size/edit-size.compo
     EditBrandComponent,
     SizeComponent,
     AddSizeComponent,
-    EditSizeComponent
+    EditSizeComponent,
+    InactiveBrandComponent,
+    EditInactiveBrandComponent
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

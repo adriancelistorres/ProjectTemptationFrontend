@@ -1,5 +1,6 @@
+import { Component, ViewChild } from '@angular/core';
  import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IBrand } from 'src/app/interfaces/IBrand';
@@ -7,13 +8,14 @@ import { BrandService } from 'src/app/services/brand.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
 import Swal from 'sweetalert2';
 import { EditBrandComponent } from '../edit-brand/edit-brand.component';
+import { EditInactiveBrandComponent } from '../edit-inactive-brand/edit-inactive-brand.component';
 
 @Component({
-  selector: 'app-brand',
-  templateUrl: './brand.component.html',
-  styleUrls: ['./brand.component.css']
+  selector: 'app-inactive-brand',
+  templateUrl: './inactive-brand.component.html',
+  styleUrls: ['./inactive-brand.component.css']
 })
-export class BrandComponent implements OnInit {
+export class InactiveBrandComponent {
 
   listBrand: IBrand[] = [];
   searchText: any;
@@ -29,7 +31,7 @@ export class BrandComponent implements OnInit {
     })
   }
 
-  @ViewChild(EditBrandComponent)addview!: EditBrandComponent;
+  @ViewChild(EditInactiveBrandComponent)addview!: EditInactiveBrandComponent;
 
   ngOnInit(): void {
     this.getBrands()
@@ -47,29 +49,5 @@ export class BrandComponent implements OnInit {
   }
 
 
-  deleteBrand(id:number){
-    Swal.fire({
-      title: 'Seguro que desea eliminarlo?',
-      text: "Se eliminara el color",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si',
-      cancelButtonText: 'No',
-    }).then((result) =>{
-      if(result.isConfirmed){
-        this._brandService.deleteBrand(id).subscribe({next:() =>{
-          this.getBrands();
-          this.toastr.success('La marca fue eliminada satisfactoriamente');
-        },
-        error: (e: HttpErrorResponse) =>{
-          this._errorService.msjError(e);
-        }
-      })
-      }
-    })
 
-
-  }
 }
