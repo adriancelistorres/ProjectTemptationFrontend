@@ -1,8 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IBrand } from 'src/app/interfaces/IBrand';
 import { BrandService } from 'src/app/services/brand.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-edit-brand',
@@ -17,7 +19,8 @@ export class EditBrandComponent {
   constructor(
     private _brandService: BrandService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _errorService: ErrorService
   ){
     this.formBrand2 = this.fb.group({
       name_brand: ['', Validators.required],
@@ -51,8 +54,12 @@ export class EditBrandComponent {
       state: this.formBrand2.value.state,
     };
     brand.idbrand = this.id;
-    this._brandService.updateBrand(this.id, brand).subscribe(()=>{
+    this._brandService.updateBrand(this.id, brand).subscribe({next: ()=>{
       this.toastr.success('La marca se actualizo correctamente')
+    },
+      error: (e: HttpErrorResponse) =>{
+        this._errorService.msjError(e);
+      }
     });
   }
 }

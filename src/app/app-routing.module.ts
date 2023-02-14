@@ -12,6 +12,8 @@ import { CategoryComponent } from './components/m-category/category/category.com
 import { StylessComponent } from './components/m-styles/styless/styless.component';
 import { BrandComponent } from './components/m-brand/brand/brand.component';
 import { SizeComponent } from './components/m-size/size/size.component';
+import { ProductComponent } from './components/m-product/product/product.component';
+import { PersonComponent } from './components/m-person/person/person.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,7 @@ const routes: Routes = [
   // { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'product', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'category', component: CategoryComponent ,canActivate:[GuardianGuard]},
+   {path: 'person', component: PersonComponent, canActivate:[GuardianGuard]},
    { path: 'size', component: SizeComponent ,canActivate:[GuardianGuard]},
 
   // { path: 'color/:idcolor', component: ColorComponent ,canActivate:[GuardianGuard]},
