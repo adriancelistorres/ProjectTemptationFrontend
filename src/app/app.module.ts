@@ -41,6 +41,7 @@ import { AddSizeComponent } from './components/m-size/add-size/add-size.componen
 import { EditSizeComponent } from './components/m-size/edit-size/edit-size.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,8 @@ import { EditSizeComponent } from './components/m-size/edit-size/edit-size.compo
     EditBrandComponent,
     SizeComponent,
     AddSizeComponent,
-    EditSizeComponent
+    EditSizeComponent,
+
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

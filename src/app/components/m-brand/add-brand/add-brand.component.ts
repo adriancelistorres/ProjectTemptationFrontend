@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IBrand } from 'src/app/interfaces/IBrand';
 import { BrandService } from 'src/app/services/brand.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-add-brand',
@@ -19,20 +21,26 @@ export class AddBrandComponent {
     private toastr: ToastrService,
     private fb: FormBuilder,
     private router: Router,
+    private _errorService: ErrorService,
+
   ){
     this.formBrand =  this.fb.group({
       name_brand: ['', Validators.required],
-      state: ['1',Validators.required],
+      // state: ['',Validators.required],
     });
   }
   addBrand(){
     const brand: IBrand = {
       name_brand: this.formBrand.get('name_brand')?.value,
-      state: this.formBrand.get('state')?.value,
+      state:1,
     };
-    this._brandService.addBrand(brand).subscribe(()=>{
+    this._brandService.addBrand(brand).subscribe({next:()=>{
+      // console.log(JSON.stringify());
       this.toastr.success('La marca se agrego correctamente');
-    })
+    } ,
+    error: (e: HttpErrorResponse) =>{
+      this._errorService.msjError(e);
+    }})
   }
 
 }

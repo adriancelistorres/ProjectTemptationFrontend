@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'color', component: ColorComponent ,canActivate:[GuardianGuard]},
   { path: 'style', component: StylessComponent ,canActivate:[GuardianGuard]},
   {path: 'brand', component: BrandComponent, canActivate:[GuardianGuard]},
+
   // { path: 'edit/:idcolor', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'product', component: EditColorComponent ,canActivate:[GuardianGuard]},
    { path: 'category', component: CategoryComponent ,canActivate:[GuardianGuard]},
