@@ -21,18 +21,24 @@ export class AddBrandComponent {
     private toastr: ToastrService,
     private fb: FormBuilder,
     private router: Router,
+<<<<<<< HEAD
     private _errorService: ErrorService
+=======
+    private _errorService: ErrorService,
+
+>>>>>>> main
   ){
     this.formBrand =  this.fb.group({
       name_brand: ['', Validators.required],
-      state: ['1',Validators.required],
+      // state: ['',Validators.required],
     });
   }
   addBrand(){
     const brand: IBrand = {
       name_brand: this.formBrand.get('name_brand')?.value,
-      state: this.formBrand.get('state')?.value,
+      state:1,
     };
+<<<<<<< HEAD
     this._brandService.addBrand(brand).subscribe({next: () =>{
       this.toastr.success('La marca se agrego correctamente')
     },
@@ -43,6 +49,15 @@ export class AddBrandComponent {
     }
 
     )
+=======
+    this._brandService.addBrand(brand).subscribe({next:()=>{
+      // console.log(JSON.stringify());
+      this.toastr.success('La marca se agrego correctamente');
+    } ,
+    error: (e: HttpErrorResponse) =>{
+      this._errorService.msjError(e);
+    }})
+>>>>>>> main
   }
 
 }

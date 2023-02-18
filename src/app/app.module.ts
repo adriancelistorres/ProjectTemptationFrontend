@@ -45,6 +45,7 @@ import { AddPersonComponent } from './components/m-person/add-person/add-person.
 import { DetailPersonComponent } from './components/m-person/detail-person/detail-person.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,10 +75,14 @@ import { DetailPersonComponent } from './components/m-person/detail-person/detai
     SizeComponent,
     AddSizeComponent,
     EditSizeComponent,
+<<<<<<< HEAD
     PersonComponent,
     EditPersonComponent,
     AddPersonComponent,
     DetailPersonComponent
+=======
+
+>>>>>>> main
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

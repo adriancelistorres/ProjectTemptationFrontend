@@ -15,16 +15,22 @@ export class EditBrandComponent {
   formBrand2: FormGroup;
   id: number;
   listBrand: IBrand[] = [];
+  // st:number=1;
 
   constructor(
     private _brandService: BrandService,
     private toastr: ToastrService,
     private fb: FormBuilder,
+<<<<<<< HEAD
     private _errorService: ErrorService
+=======
+    private _errorService: ErrorService,
+
+>>>>>>> main
   ){
     this.formBrand2 = this.fb.group({
       name_brand: ['', Validators.required],
-      state: ['1',Validators.required],
+      state: ['',Validators.required],
     });
     this.id = 0;
     this._brandService.RefreshRequired.subscribe((result) =>{
@@ -51,9 +57,10 @@ export class EditBrandComponent {
   updateBrand(){
     const brand: IBrand ={
       name_brand: this.formBrand2.value.name_brand,
-      state: this.formBrand2.value.state,
+      state: 1,
     };
     brand.idbrand = this.id;
+<<<<<<< HEAD
     this._brandService.updateBrand(this.id, brand).subscribe({next: ()=>{
       this.toastr.success('La marca se actualizo correctamente')
     },
@@ -61,5 +68,17 @@ export class EditBrandComponent {
         this._errorService.msjError(e);
       }
     });
+=======
+    console.log(brand);
+    this._brandService.updateBrand(this.id, brand).subscribe({next:()=>{
+      // console.log(JSON.stringify());
+      this.toastr.success('La marca se actualizo correctamente');
+    } ,
+    error: (e: HttpErrorResponse) =>{
+      this._errorService.msjError(e);
+    }})
+>>>>>>> main
   }
+
+
 }
