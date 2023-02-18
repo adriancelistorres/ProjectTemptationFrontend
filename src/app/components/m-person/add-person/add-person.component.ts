@@ -29,11 +29,11 @@ export class AddPersonComponent {
         lastname: ['', Validators.required],
         date_b: ['', Validators.required],
         dni: ['', Validators.required],
-        gender: ['', Validators.required],
+        gender: ['4', Validators.required],
         address: ['', Validators.required],
         username: ['', Validators.required],
         password: ['', Validators.required],
-        state: ['1', Validators.required]
+        //state: ['', Validators.required]
       });
   }
 
@@ -48,7 +48,7 @@ export class AddPersonComponent {
       date_b: this.formPerson.get('date_b')?.value,
       username: this.formPerson.get('username')?.value,
       password: this.formPerson.get('password')?.value,
-      state: this.formPerson.get('state')?.value
+      state: 1
     };
     this._personService.addPerson(person).subscribe({next: () =>{
       this.toastr.success('La persona fue registrada correctamente ')

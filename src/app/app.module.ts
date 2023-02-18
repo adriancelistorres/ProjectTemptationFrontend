@@ -75,14 +75,12 @@ import { DetailPersonComponent } from './components/m-person/detail-person/detai
     SizeComponent,
     AddSizeComponent,
     EditSizeComponent,
-<<<<<<< HEAD
+
     PersonComponent,
     EditPersonComponent,
     AddPersonComponent,
     DetailPersonComponent
-=======
 
->>>>>>> main
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

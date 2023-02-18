@@ -46,9 +46,13 @@ aria-hidden="true">
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Rol</label>
-                            <input formControlName="idrol"
-                            class="form-control"
-                            id="exampleInputPassword1">
+                            <select formControlName="idrol"
+                            class="form-select " id="inputState" aria-label=".form-select-lg example">
+                                <option value="1">Administrador</option>
+                                <option value="2">Cliente</option>
+                                <option value="3">Comprador</option>
+                                <option value="4">Almacenero</option>
+                            </select>
                             <span *ngIf="
                             formPerson.get('idrol')?.hasError('required') &&
                             formPerson.get('idrol')?.touched"
@@ -72,6 +76,7 @@ aria-hidden="true">
                             <label class="form-label">Genero</label>
                             <select formControlName="gender"
                             class="form-select " id="inputState" aria-label=".form-select-lg example">
+                                <option value="4">Seleccione un Genero</option>
                                 <option value="masculino">masculino</option>
                                 <option value="femenino">femenino</option>
                                 <option value="No Definido">No Definido</option>
@@ -129,18 +134,6 @@ aria-hidden="true">
                             formPerson.get('password')?.touched"
                             >
                             <strong>El campo Nombre de Usuario es Requerido</strong>
-                            </span>
-                        </div>
-                        <div class="mb-3 col-md-6">
-                            <label class="form-label">State</label>
-                            <input formControlName="state"
-                            class="form-control"
-                            id="exampleInputPassword1">
-                            <span *ngIf="
-                            formPerson.get('state')?.hasError('required') &&
-                            formPerson.get('state')?.touched"
-                            >
-                            <strong>El campo Estado es Requerido</strong>
                             </span>
                         </div>
                         <div class="modal-footer border-0 pt-4">

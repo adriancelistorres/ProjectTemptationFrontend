@@ -21,12 +21,7 @@ export class EditBrandComponent {
     private _brandService: BrandService,
     private toastr: ToastrService,
     private fb: FormBuilder,
-<<<<<<< HEAD
     private _errorService: ErrorService
-=======
-    private _errorService: ErrorService,
-
->>>>>>> main
   ){
     this.formBrand2 = this.fb.group({
       name_brand: ['', Validators.required],
@@ -60,15 +55,7 @@ export class EditBrandComponent {
       state: 1,
     };
     brand.idbrand = this.id;
-<<<<<<< HEAD
-    this._brandService.updateBrand(this.id, brand).subscribe({next: ()=>{
-      this.toastr.success('La marca se actualizo correctamente')
-    },
-      error: (e: HttpErrorResponse) =>{
-        this._errorService.msjError(e);
-      }
-    });
-=======
+
     console.log(brand);
     this._brandService.updateBrand(this.id, brand).subscribe({next:()=>{
       // console.log(JSON.stringify());
@@ -77,7 +64,6 @@ export class EditBrandComponent {
     error: (e: HttpErrorResponse) =>{
       this._errorService.msjError(e);
     }})
->>>>>>> main
   }
 
 
