@@ -31,22 +31,6 @@
                         "
                         ><strong>El campo nombre es requerido</strong></span>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">state</label>
-                            <input
-                            formControlName="state"
-                            class="form-control"
-                            id="exampleInputPassword1"
-                            />
-                            <span
-                            *ngIf="
-                                formStyle.get('state')?.hasError('required') &&
-                                formStyle.get('name_sty')?.touched
-                            "
-                            >
-                            <strong>El campo estado es requerido</strong></span
-                            >
-                    </div>
                     <div class="modal-footer border-0 pt-4">
                         <button
                           type="button"

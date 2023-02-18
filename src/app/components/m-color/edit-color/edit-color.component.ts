@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -5,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { IColor } from 'src/app/interfaces/IColor';
 import { ColorService } from 'src/app/services/color.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-edit-color',
@@ -19,7 +21,8 @@ export class EditColorComponent  {
   constructor(
     private _colorService: ColorService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _errorService: ErrorService
   ) {
     this.formColor2 = this.fb.group({
       name_col: ['', Validators.required],
@@ -51,11 +54,13 @@ export class EditColorComponent  {
   updateColor() {
     const color: IColor = {
       name_col: this.formColor2.value.name_col,
-      state: this.formColor2.value.state,
+      state: 1
     };
     color.idcolor = this.id;
-    this._colorService.updateColor(this.id, color).subscribe(() => {
+    this._colorService.updateColor(this.id, color).subscribe({next:()=>{
       this.toastr.success('El color se actualizo correctamente');
-    });
+    }, error: (e:HttpErrorResponse)=>{
+      this._errorService.msjError(e);
+    }});
   }
 }

@@ -52,7 +52,12 @@ export class EditCategoryComponent {
         state:this.formCategory2.value.state
       };
       category.idcat = this.id;
+      //para QUE SE EJECUTE UN 'Observable' PRIMERO TIENE QUE SUSCRIBIRSE.
+      //YA QUE LUEGO ESTA función de suscriptor define cómo obtener o generar valores o mensajes para ser publicados.
+      //EN ESTA LINEA NOS DICE:
+      //*SUSCRIBETE AL METODO OBSERVABLE 'updateCategory' QUE SE ENCUENTRA EN '_categoryService' PARA ESTE OBJETO('this')
       this._categoryService.updateCategory(this.id,category).subscribe(()=>{
+        //LUEGO DE QUE EL 'subscribe' EJECUTE EL METODO 'updateCategory' CORRECTAMENTE, MANDA UN TOASTR SUCCESS
         this.toastr.success('La categoria se actualizo correctamente');
       })
     }
