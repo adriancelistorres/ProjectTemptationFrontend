@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<app-add-person></app-add-person>
 <div class="container-sm">
     <div class="texto">Usuarios</div>
     <div class="search-name pt-3 pb-3">
@@ -19,6 +20,7 @@
                 <th scope="col" class="text-center">rol</th>
                 <th scope="col" class="text-center">state</th>
                 <th class="text-center " style="width: 10%;" scope="col"></th>
+                <th class="text-center " style="width: 10%;"  scope="col"></th>
                 <th class="text-center " style="width: 10%;"  scope="col"></th>
             </tr>
         </thead>
@@ -44,8 +46,10 @@
                     data-bs-target="#staticBackdrop2"
 
                      >
-                    <a> <img src="./assets/img/editar.png" class="imagen"></a>
+                    <a> <img src="./assets/img/lupa.png" class="imagen"></a>
                     </button>
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
                     <button
                         data-bs-target="modal"
                         class="btn btn-outline-warning btn-sm"

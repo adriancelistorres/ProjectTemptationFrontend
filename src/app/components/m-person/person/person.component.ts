@@ -22,15 +22,15 @@ export class PersonComponent  implements OnInit{
     private _errorService: ErrorService
   ){
     this._personService.RefreshRequired.subscribe(result =>{
-      this.getPerson();
+      this.getPersons();
     })
   }
 
   ngOnInit(): void {
-    this.getPerson();
+    this.getPersons();
   }
 
-  getPerson(){
+  getPersons(){
     this._personService.getPerson().subscribe((data: IPerson[])=>{
       this.listPerson = data;
     })
@@ -49,7 +49,7 @@ export class PersonComponent  implements OnInit{
     }).then((result) =>{
       if(result.isConfirmed){
         this._personService.deletePerson(id).subscribe({next:() =>{
-          this.getPerson();
+          this.getPersons();
           this.toastr.success('La persona fue eliminada Correctamente')
         },error: (e:HttpErrorResponse) =>{
           this._errorService.msjError(e)

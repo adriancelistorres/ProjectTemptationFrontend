@@ -1,1 +1,168 @@
-<p>add-person works!</p>
+<div 
+class="modal fade"
+id="staticBackdrop"
+data-backdrop = "false"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formPerson" (ngSubmit)="addPerson()">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nonbre</label>
+                            <input formControlName="name"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('name')?.hasError('required') &&
+                            formPerson.get('name')?.touched"
+                            >
+                            <strong>El campo Nombre es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Apellido</label>
+                            <input formControlName="lastname"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('lastname')?.hasError('required') &&
+                            formPerson.get('lastname')?.touched"
+                            >
+                            <strong>El campo Apellido es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Rol</label>
+                            <input formControlName="idrol"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('idrol')?.hasError('required') &&
+                            formPerson.get('idrol')?.touched"
+                            >
+                            <strong>El campo Rol es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">dni</label>
+                            <input formControlName="dni"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('dni')?.hasError('required') &&
+                            formPerson.get('dni')?.touched"
+                            >
+                            <strong>El campo DNI es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Genero</label>
+                            <select formControlName="gender"
+                            class="form-select " id="inputState" aria-label=".form-select-lg example">
+                                <option value="masculino">masculino</option>
+                                <option value="femenino">femenino</option>
+                                <option value="No Definido">No Definido</option>
+                            </select>
+                            <span *ngIf="
+                            formPerson.get('gender')?.hasError('required') &&
+                            formPerson.get('gender')?.touched"
+                            >
+                            <strong>El campo Genero es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Direccion</label>
+                            <input formControlName="address"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('address')?.hasError('required') &&
+                            formPerson.get('address')?.touched"
+                            >
+                            <strong>El campo Direccion es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input class="form-select " 
+                            formControlName="date_b" id="inputState" 
+                            type = "date" name = "date">
+                            <span *ngIf="
+                            formPerson.get('date_b')?.hasError('required') &&
+                            formPerson.get('date_b')?.touched"
+                            >
+                            <strong>El campo Fecha de Nacimiento es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nombre de Usuario</label>
+                            <input formControlName="username"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('username')?.hasError('required') &&
+                            formPerson.get('username')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input formControlName="password"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('password')?.hasError('required') &&
+                            formPerson.get('password')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">State</label>
+                            <input formControlName="state"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson.get('state')?.hasError('required') &&
+                            formPerson.get('state')?.touched"
+                            >
+                            <strong>El campo Estado es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          [disabled]="formPerson.invalid"
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          agregar
+                        </button>
+    
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

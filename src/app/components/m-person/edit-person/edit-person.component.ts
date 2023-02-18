@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { IPerson } from 'src/app/interfaces/IPerson';
 
 @Component({
   selector: 'app-edit-person',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-person.component.css']
 })
 export class EditPersonComponent {
+  // formPersona2: FormGroup;
+  // id: number;
+  // ListPerson: IPerson[] = [];
 
+  constructor(){
+
+  }
 }
