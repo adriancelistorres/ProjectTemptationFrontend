@@ -1,8 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IStyles } from 'src/app/interfaces/IStyles';
 import { StylesService } from 'src/app/services/styles.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-edit-styles',
@@ -17,7 +19,8 @@ export class EditStylesComponent {
   constructor(
     private _styleService: StylesService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _errorService: ErrorService
   ){
     this.formStyle2 = this.fb.group({
       name_sty: ['', Validators.required],
@@ -48,11 +51,13 @@ export class EditStylesComponent {
   updateStyle(){
     const style: IStyles ={
       name_sty: this.formStyle2.value.name_sty,
-      state: this.formStyle2.value.state,
+      state: 1,
     };
     style.idstyles = this.id;
-    this._styleService.updateStyle(this.id, style).subscribe(() =>{
-      this.toastr.success("El Estilo se actualizo Correctamente");
-    });
+    this._styleService.updateStyle(this.id, style).subscribe({next:()=>{
+      this.toastr.success('El color se actualizo correctamente');
+    },error:(e:HttpErrorResponse)=>{
+      this._errorService.msjError(e);
+    }});
   }
 }
