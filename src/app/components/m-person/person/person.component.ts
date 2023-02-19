@@ -1,11 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IPerson } from 'src/app/interfaces/IPerson';
 import { PersonService } from 'src/app/services/person.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
 import Swal from 'sweetalert2';
+import { DetailPersonComponent } from '../detail-person/detail-person.component';
+import { EditPersonComponent } from '../edit-person/edit-person.component';
 
 @Component({
   selector: 'app-person',
@@ -15,16 +17,21 @@ import Swal from 'sweetalert2';
 export class PersonComponent  implements OnInit{
   listPerson: IPerson[] =[];
   searchText: any;
+  selectPerson: IPerson[] | any
+  listPersonOne: IPerson[] = [];
   constructor(
     private _personService: PersonService,
     private toastr: ToastrService,
     private fb: FormBuilder,
-    private _errorService: ErrorService
+    private _errorService: ErrorService,
   ){
     this._personService.RefreshRequired.subscribe(result =>{
       this.getPersons();
     })
+
   }
+  @ViewChild(DetailPersonComponent)addview!: DetailPersonComponent;
+  @ViewChild(EditPersonComponent)editview!: EditPersonComponent;
 
   ngOnInit(): void {
     this.getPersons();
@@ -35,6 +42,17 @@ export class PersonComponent  implements OnInit{
       this.listPerson = data;
     })
   }
+
+  edit(id: number){
+    this.editview.getOnePerson(id);
+    console.log(id);
+  }
+
+  GetPeronsOne(id: number) {
+    this.addview.getOnePerson(id);
+    console.log(id)
+  }
+
 
   deletePerson(id: number){
     Swal.fire({
@@ -57,4 +75,5 @@ export class PersonComponent  implements OnInit{
       }
     })
   }
+
 }

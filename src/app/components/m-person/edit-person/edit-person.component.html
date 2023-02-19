@@ -1,1 +1,354 @@
-<p>edit-person works!</p>
+<div 
+class="modal fade"
+id="staticBackdrop2"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop2"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop2">Editar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formPerson2" (ngSubmit)="updatePerson()">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nonbre</label>
+                            <input formControlName="name"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('name')?.hasError('required') &&
+                            formPerson2.get('name')?.touched"
+                            >
+                            <strong>El campo Nombre es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Apellido</label>
+                            <input formControlName="lastname"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('lastname')?.hasError('required') &&
+                            formPerson2.get('lastname')?.touched"
+                            >
+                            <strong>El campo Apellido es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Rol</label>
+                            <select formControlName="idrol"
+                            class="form-select " id="inputState" aria-label=".form-select-lg example">
+                                <option value="1">Administrador</option>
+                                <option value="2">Cliente</option>
+                                <option value="3">Comprador</option>
+                                <option value="4">Almacenero</option>
+                            </select>
+                            <span *ngIf="
+                            formPerson2.get('idrol')?.hasError('required') &&
+                            formPerson2.get('idrol')?.touched"
+                            >
+                            <strong>El campo Rol es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">dni</label>
+                            <input formControlName="dni"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('dni')?.hasError('required') &&
+                            formPerson2.get('dni')?.touched"
+                            >
+                            <strong>El campo DNI es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Genero</label>
+                            <select formControlName="gender"
+                            class="form-select " id="inputState" aria-label=".form-select-lg example">
+                                <option value="4">Seleccione un Genero</option>
+                                <option value="masculino">masculino</option>
+                                <option value="femenino">femenino</option>
+                                <option value="No Definido">No Definido</option>
+                            </select>
+                            <span *ngIf="
+                            formPerson2.get('gender')?.hasError('required') &&
+                            formPerson2.get('gender')?.touched"
+                            >
+                            <strong>El campo Genero es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Direccion</label>
+                            <input formControlName="address"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('address')?.hasError('required') &&
+                            formPerson2.get('address')?.touched"
+                            >
+                            <strong>El campo Direccion es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input class="form-select " 
+                            formControlName="date_b" id="inputState" 
+                            type = "date" name = "date">
+                            <span *ngIf="
+                            formPerson2.get('date_b')?.hasError('required') &&
+                            formPerson2.get('date_b')?.touched"
+                            >
+                            <strong>El campo Fecha de Nacimiento es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nombre de Usuario</label>
+                            <input formControlName="username"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('username')?.hasError('required') &&
+                            formPerson2.get('username')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input formControlName="password"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('password')?.hasError('required') &&
+                            formPerson2.get('password')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">state</label>
+                                  <input
+                                    disabled
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    value="Activo"
+                                  />
+                                  <span
+                                    *ngIf="
+                                    formPerson2.get('state')?.hasError('required') &&
+                                    formPerson2.get('state')?.touched
+                                    "
+                                  >
+                                    <strong>El campo estado es requerido</strong></span
+                                  >
+                          </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          [disabled]="formPerson2.invalid"
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          agregar
+                        </button>
+    
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Edit para desactivar al usuario-->
+<!--==================================================================================-->
+
+<div 
+class="modal fade"
+id="staticBackdrop3"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop3"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop3">Editar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formPerson2" (ngSubmit)="updatePerson()">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nonbre</label>
+                            <input readonly formControlName="name"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('name')?.hasError('required') &&
+                            formPerson2.get('name')?.touched"
+                            >
+                            <strong>El campo Nombre es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Apellido</label>
+                            <input readonly formControlName="lastname"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('lastname')?.hasError('required') &&
+                            formPerson2.get('lastname')?.touched"
+                            >
+                            <strong>El campo Apellido es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Rol</label>
+                            <input readonly formControlName="idrol"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('idrol')?.hasError('required') &&
+                            formPerson2.get('idrol')?.touched"
+                            >
+                            <strong>El campo Rol es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">dni</label>
+                            <input formControlName="dni" readonly
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('dni')?.hasError('required') &&
+                            formPerson2.get('dni')?.touched"
+                            >
+                            <strong>El campo DNI es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Genero</label>
+                            <input readonly formControlName="gender"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('gender')?.hasError('required') &&
+                            formPerson2.get('gender')?.touched"
+                            >
+                            <strong>El campo Genero es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Direccion</label>
+                            <input readonly formControlName="address"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('address')?.hasError('required') &&
+                            formPerson2.get('address')?.touched"
+                            >
+                            <strong>El campo Direccion es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input  readonly class="form-select"
+                            formControlName="date_b" id="inputState" 
+                            type = "date" name = "date">
+                            <span *ngIf="
+                            formPerson2.get('date_b')?.hasError('required') &&
+                            formPerson2.get('date_b')?.touched"
+                            >
+                            <strong>El campo Fecha de Nacimiento es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Username</label>
+                            <input 
+                            readonly
+                            formControlName="username"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('username')?.hasError('required') &&
+                            formPerson2.get('username')?.touched"
+                            >
+                            <strong>El campo Nombre es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Contraseña</label>
+                            <input
+                            readonly formControlName="password"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formPerson2.get('password')?.hasError('required') &&
+                            formPerson2.get('password')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">state</label>
+                                  <input
+                                    disabled
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    value="Desactivado"
+                                  />
+                                  <span
+                                    *ngIf="
+                                    formPerson2.get('state')?.hasError('required') &&
+                                    formPerson2.get('state')?.touched
+                                    "
+                                  >
+                                    <strong>El campo estado es requerido</strong></span
+                                  >
+                          </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          [disabled]="formPerson2.invalid"
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          agregar
+                        </button>
+    
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

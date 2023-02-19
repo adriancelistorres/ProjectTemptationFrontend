@@ -1,43 +1,46 @@
 <app-navbar></app-navbar>
+<app-detail-person></app-detail-person>
 <app-add-person></app-add-person>
+<app-edit-person></app-edit-person>
+
 <div class="container-sm">
     <div class="texto">Usuarios</div>
     <div class="search-name pt-3 pb-3">
         <input type="text" class="form-control"name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" buscar ">
     </div>
-    <div class="modal fade" id="ModalDetalle" tabindex="-1" role="dialog" aria-labelledby="ModalDetalle" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Detalle</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                    <tbody>
-                      <tr *ngFor="let item of listPerson | filter:searchText">
-                        <td *ngIf="item.state == 0" class="p-1 text-center">
-                          0000{{ item.idperson }}
-                        </td>
-                        <td *ngIf="item.state == 0" class="p-1 text-center">
-                          {{ item.name }}
-                        </td>
-                        <td *ngIf="item.state == 0" class="p-1 text-center">
-                          Desactivado
-                        </td>
-                        <td *ngIf="item.state == 0" class="p-1 text-center">
-                        </td>
-                      </tr>
-                    </tbody>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="staticBackdrop3" data-bs-toggle="dropdown" aria-expanded="false">
+        Personas Desactivadas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="staticBackdrop3">
+          <tbody>
+            <tr *ngFor="let item of listPerson | filter:searchText">
+              <td *ngIf="item.state == 0" class="p-1 text-center">
+                0000{{ item.idperson }}
+              </td>
+              <td *ngIf="item.state == 0" class="p-1 text-center">
+                {{ item.username }}
+              </td>
+              <td *ngIf="item.state == 0" class="p-1 text-center">
+                Desactivado
+              </td>
+              <td *ngIf="item.state == 0" class="p-1 text-center">
+                <button
+                  data-bs-toggle="modal"
+                  class="btn btn-outline-warning btn-sm"
+                  (click)="edit(item.idperson)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop3"
+                >
+                  <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+  
+        </ul>
       </div>
+
 
     <div class="agregar">
         <button data-bs-toggle="modal"
@@ -78,6 +81,7 @@
                     class="btn btn-outline-warning btn-sm"
                     data-bs-toggle="modal"
                     data-bs-target="#ModalDetalle"
+                    (click)="GetPeronsOne(item.idperson)"
 
                      >
                     <a> <img src="./assets/img/lupa.png" class="imagen"></a>
@@ -89,6 +93,7 @@
                         class="btn btn-outline-warning btn-sm"
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop2"
+                        (click)="edit(item.idperson)"
    
                     >
                     <a> <img src="./assets/img/editar.png" class="imagen"></a>

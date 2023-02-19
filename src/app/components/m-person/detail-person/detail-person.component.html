@@ -1,1 +1,77 @@
-<p>detail-person works!</p>
+<div
+  class="modal fade"
+  id="ModalDetalle"
+  data-backdrop="false"
+  aria-labelledby="ModalDetalle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticBackdropLabel" >Detalles de Usuario</h5>
+        <button
+
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table color">
+          <thead>
+              <tr>
+                  <th scope="col" class="text-center">id</th>
+                  <th scope="col" class="text-center">idrol</th>
+                  <th scope="col" class="text-center">Nombre</th>
+                  <th scope="col" class="text-center">Apellido</th>
+                  <th scope="col" class="text-center">Fecha de Cumpleaños</th>
+                  <th scope="col" class="text-center">DNI</th>
+                  <th scope="col" class="text-center">Genero</th>
+                  <th scope="col" class="text-center">Direccion</th>
+                  <th scope="col" class="text-center">Nombre de Usuario</th>
+                  <th scope="col" class="text-center">Estado</th>
+              </tr>
+          </thead>
+          <tbody  *ngIf="selectPerson">
+              <tr>
+                  <td  class="p-1 text-center">
+                      {{selectPerson.idperson}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectPerson.idrol}}
+                  </td>    
+                  <td  class="p-1 text-center">
+                      {{selectPerson.name}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectPerson.lastname}}
+                  </td>
+              
+                  <td class="p-1 text-center">
+                      {{selectPerson.date_b}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectPerson.dni}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectPerson.gender}}
+                  </td> 
+                  <td  class="p-1 text-center">
+                    {{selectPerson.address}}
+                  </td>     
+                  <td  class="p-1 text-center">
+                    {{selectPerson.username}}
+                  </td> 
+                  <td  class="p-1 text-center">
+                    {{selectPerson.state}}
+                  </td> 
+              </tr>
+          </tbody>
+  
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
