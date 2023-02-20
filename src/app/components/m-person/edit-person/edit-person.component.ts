@@ -80,7 +80,7 @@ export class EditPersonComponent {
     console.log(person)
     this._personService.updatePerson(this.id, person).subscribe({next:()=>{
       // console.log(JSON.stringify());
-      this.toastr.success('La marca se actualizo correctamente');
+      this.toastr.success('La persona se actualizo correctamente');
     } ,
     error: (e: HttpErrorResponse) =>{
       this._errorService.msjError(e);

@@ -1,8 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ICategory } from 'src/app/interfaces/ICategorty';
 import { CategoryService } from 'src/app/services/category.service';
+import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
   selector: 'app-edit-category',
@@ -18,7 +20,8 @@ export class EditCategoryComponent {
   constructor(
     private _categoryService:CategoryService,
     private toastr: ToastrService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _errorService: ErrorService
     ){
       this.formCategory2=this.fb.group({
         name_cat:['',Validators.required],
@@ -49,24 +52,21 @@ export class EditCategoryComponent {
     updateCategory(){
       const category: ICategory = {
         name_cat: this.formCategory2.value.name_cat,
-        state:this.formCategory2.value.state
+        state:1
       };
       category.idcat = this.id;
       //para QUE SE EJECUTE UN 'Observable' PRIMERO TIENE QUE SUSCRIBIRSE.
       //YA QUE LUEGO ESTA función de suscriptor define cómo obtener o generar valores o mensajes para ser publicados.
       //EN ESTA LINEA NOS DICE:
       //*SUSCRIBETE AL METODO OBSERVABLE 'updateCategory' QUE SE ENCUENTRA EN '_categoryService' PARA ESTE OBJETO('this')
-      this._categoryService.updateCategory(this.id,category).subscribe(()=>{
+      this._categoryService.updateCategory(this.id, category).subscribe({next:()=>{
         //LUEGO DE QUE EL 'subscribe' EJECUTE EL METODO 'updateCategory' CORRECTAMENTE, MANDA UN TOASTR SUCCESS
-        this.toastr.success('La categoria se actualizo correctamente');
-      })
+        this.toastr.success('La Categoria se actualizo correctamente');
+        } ,
+        error: (e: HttpErrorResponse) =>{
+        this._errorService.msjError(e);
+      }})
     }
-
-
-
-
-
-
 }
 
 

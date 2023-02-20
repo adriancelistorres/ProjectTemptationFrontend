@@ -30,7 +30,7 @@ export class PersonComponent  implements OnInit{
     })
 
   }
-  @ViewChild(DetailPersonComponent)addview!: DetailPersonComponent;
+  @ViewChild(DetailPersonComponent)detailview!: DetailPersonComponent;
   @ViewChild(EditPersonComponent)editview!: EditPersonComponent;
 
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class PersonComponent  implements OnInit{
   }
 
   GetPeronsOne(id: number) {
-    this.addview.getOnePerson(id);
+    this.detailview.getOnePerson(id);
     console.log(id)
   }
 
