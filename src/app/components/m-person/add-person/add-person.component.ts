@@ -5,7 +5,9 @@ import { Route } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscriber } from 'rxjs';
 import { IPerson } from 'src/app/interfaces/IPerson';
+import { IRoles } from 'src/app/interfaces/IRoles';
 import { PersonService } from 'src/app/services/person.service';
+import { RolService } from 'src/app/services/roles.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
@@ -16,9 +18,13 @@ import { ErrorService } from 'src/app/utils/error/error.service';
 export class AddPersonComponent {
   listPerson: IPerson[] =[];
   formPerson: FormGroup;
+  listRol: IRoles[] = [];
+  selectedOption: [] = [];
+  
 
   constructor(
     private _personService: PersonService,
+    private _rolesService: RolService,
     private toastr: ToastrService,
     private fb: FormBuilder,
     private _errorService: ErrorService
@@ -59,5 +65,17 @@ export class AddPersonComponent {
 
     })
   }
+
+  ngOnInit() {
+    this._rolesService.getRoles().subscribe(
+      (options: any[]) => {
+        this.listRol = options;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+  
 
 }

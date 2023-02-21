@@ -47,11 +47,10 @@ aria-hidden="true">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Rol</label>
                             <select formControlName="idrol"
-                            class="form-select " id="inputState" aria-label=".form-select-lg example">
-                                <option value="1">Administrador</option>
-                                <option value="2">Cliente</option>
-                                <option value="3">Comprador</option>
-                                <option value="4">Almacenero</option>
+                            class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption">
+                                <option *ngFor="let option of listRol" [value]="option.idrol">
+                                    {{option.namerol}}
+                                </option>
                             </select>
                             <span *ngIf="
                             formPerson.get('idrol')?.hasError('required') &&
