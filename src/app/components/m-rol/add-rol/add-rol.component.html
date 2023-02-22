@@ -24,7 +24,7 @@
             <input
               formControlName="namerol"
               class="form-control"
-              pattern="[A-Za-z]{1,40}"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
             <span *ngIf="formRol.get('namerol')?.hasError('required') && formRol.get('namerol')?.touched">

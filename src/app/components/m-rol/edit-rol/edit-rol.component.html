@@ -10,6 +10,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
         <button
+
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
@@ -23,7 +24,7 @@
             <input
               formControlName="namerol"
               class="form-control"
-              pattern="[A-Za-z]{1,40}"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
             <span *ngIf="formRol2.get('namerol')?.hasError('required') && formRol2.get('namerol')?.touched">
@@ -35,29 +36,27 @@
           </div>
           <div class="mb-3">
             <label class="form-label">state</label>
-                  <input
-                    disabled
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    value="Activo"
-                  />
-                  <span
-                    *ngIf="
-                    formRol2.get('state')?.hasError('required') &&
-                    formRol2.get('namerol')?.touched
-                    "
-                  >
-                    <strong>El campo estado es requerido</strong></span
-                  >
-          
+            <input
+              disabled
+              class="form-control"
+              id="exampleInputPassword1"
+              value="Activo"
+            />
+            <span
+              *ngIf="
+              formRol2.get('state')?.hasError('required') &&
+              formRol2.get('namerol')?.touched
+              "
+            >
+              <strong>El campo estado es requerido</strong></span
+            >
           </div>
           <div class="modal-footer border-0 pt-4">
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
-              aria-label="Close"
-            >
+              aria-label="Close"              >
               cerrar
             </button>
             <button
@@ -73,6 +72,7 @@
     </div>
   </div>
 </div>
+
 
 
 
