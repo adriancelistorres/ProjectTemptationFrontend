@@ -1,1 +1,97 @@
-<p>paymethod works!</p>
+<app-navbar></app-navbar>
+<app-add-paymethod></app-add-paymethod>
+<app-edit-paymethod></app-edit-paymethod>
+<div  class="container-sm pt-4">
+    <div class="" style="font-size: 50px">Marca</div>
+    <div class="search-name pt-3 pb-3">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Marcas Desactivadas
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <tbody>
+          <tr *ngFor="let item of listPayMethod | filter:searchText">
+            <td *ngIf="item.state == 0" class="p-1 text-center">
+              0000{{ item.idpay }}
+            </td>
+            <td *ngIf="item.state == 0" class="p-1 text-center">
+              {{ item.name_pay }}
+            </td>
+            <td *ngIf="item.state == 0" class="p-1 text-center">
+              Desactivado
+            </td>
+            <td *ngIf="item.state == 0" class="p-1 text-center">
+              <button
+                data-bs-toggle="modal"
+                class="btn btn-outline-warning btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop3"
+              >
+                <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+      </ul>
+    </div>
+    <div class="agregar">
+      <button
+
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        class="btn btn-outline-success"
+      >
+
+        <img class="imagen" src="./assets/img/agregar.png" alt="" />
+      </button>
+
+    </div>
+
+    <table class="table color">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">id</th>
+          <th scope="col" class="text-center">nombre</th>
+          <th scope="col" class="text-center">state</th>
+          <th style="width: 10%" scope="col" class="text-center"></th>
+          <th style="width: 10%" scope="col" class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listPayMethod | filter:searchText">
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            0000{{ item.idpay }}
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            {{ item.name_pay }}
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            activo
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            <button
+              data-bs-toggle="modal"
+              class="btn btn-outline-warning btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop2"
+            >
+              <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+            </button>
+          </td>
+          <td *ngIf="item.state == 1" class="p-1 text-center">
+            <button
+              (click)="deletePayMethod(item.idpay)"
+              class="btn btn-outline-danger btn-sm"
+            >
+              <img class="imagen" src="./assets/img/eliminar.png" alt="" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+

@@ -60,7 +60,9 @@ export class PersonService{
     getOnePerson(id: number): Observable<IPerson>{
         return this.http.get<IPerson>(
             `${this.myAppUrl}${this.myApi2}/${id}`
-        );
+        ).pipe(tap(() =>{
+            this._refershRequired.next();
+        }))
     }
 
     
