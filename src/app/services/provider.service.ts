@@ -11,17 +11,18 @@ import { TokenInterceptorService } from "../shared/token/token-interceptor.servi
 })
 export class ProviderService {
 
-  private _refershRequired=  new Subject<void>();
+  private _refreshRequired=  new Subject<void>();
 
     get RefreshRequired(){
-        return this._refershRequired;
+        return this._refreshRequired;
     }
     public myAppUrl: string;
     public myAddApi: string;
     public myApi: string;
     public myApi2: string;
 
-  constructor( private http: HttpClient, private _tokenservice: TokenInterceptorService){
+  constructor( private http: HttpClient,
+    private _tokenservice: TokenInterceptorService){
     this.myAppUrl =  environment.endpoint;
     this.myAddApi = 'addprovider';
     this.myApi = 'providers';
@@ -30,36 +31,42 @@ export class ProviderService {
 
   getProvider(): Observable<IProvider[]>{
     return this.http.get<IProvider[]>(
-        `${this.myAppUrl}${this.myApi}`
+        `${this.myAppUrl}${this.myApi}`,
+        this._tokenservice.interceptor()
     );
 }
 
   deleteProvider(id: number): Observable<void>{
       return this.http.delete<void>(
-          `${this.myAppUrl}${this.myApi2}/${id}`
+          `${this.myAppUrl}${this.myApi2}/${id}`,
+          this._tokenservice.interceptor()
       );
   }
 
   addProvider(person: IProvider): Observable<void>{
       return this.http.post<void>(
-          `${this.myAppUrl}${this.myAddApi}`,person
+          `${this.myAppUrl}${this.myAddApi}`,person,
+          this._tokenservice.interceptor()
       ).pipe(tap(() =>{
-          this._refershRequired.next();
+          this._refreshRequired.next();
       }))
   }
 
   updateProvider(id: number, person: IProvider): Observable<void>{
       return this.http.put<void>(
-          `${this.myAppUrl}${this.myApi2}/${id}`,person
+          `${this.myAppUrl}${this.myApi2}/${id}`,person,
+          this._tokenservice.interceptor()
       ).pipe(tap(() =>{
-          this._refershRequired.next();
+          this._refreshRequired.next();
       }))
   }
 
   getOneProvider(id: number): Observable<IProvider>{
       return this.http.get<IProvider>(
-          `${this.myAppUrl}${this.myApi2}/${id}`
-      );
+          `${this.myAppUrl}${this.myApi2}/${id}`,
+          this._tokenservice.interceptor()).pipe(tap(() =>{
+            this._refreshRequired.next();
+        }));
   }
 
 }
