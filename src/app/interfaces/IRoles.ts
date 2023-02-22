@@ -1,5 +1,5 @@
 export interface IRoles{
-    idrol: number|any,
+    idrol?: number|any,
     namerol: string|any,
     state: number|any
 }
