@@ -21,7 +21,7 @@ aria-hidden="true">
                 <form [formGroup]="formPerson" (ngSubmit)="addPerson()">
                     <div class="row">
                         <div class="mb-3 col-md-6">
-                            <label class="form-label">Nonbre</label>
+                            <label class="form-label">Nombre</label>
                             <input formControlName="name"
                             class="form-control"
                             id="exampleInputPassword1">
@@ -104,7 +104,7 @@ aria-hidden="true">
                             <label class="form-label">Fecha de Nacimiento</label>
                             <input class="form-select " 
                             formControlName="date_b" id="inputState" 
-                            type = "date" name = "date">
+                            type = "date" name = "date" min="1940-01-01" max="2002-12-31">
                             <span *ngIf="
                             formPerson.get('date_b')?.hasError('required') &&
                             formPerson.get('date_b')?.touched"
