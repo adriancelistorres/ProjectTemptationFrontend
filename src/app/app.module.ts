@@ -47,6 +47,10 @@ import { DetailPersonComponent } from './components/m-person/detail-person/detai
 import { RolComponent } from './components/m-rol/rol/rol.component';
 import { AddRolComponent } from './components/m-rol/add-rol/add-rol.component';
 import { EditRolComponent } from './components/m-rol/edit-rol/edit-rol.component';
+import { ProviderComponent } from './components/m-provider/provider/provider.component';
+import { AddProviderComponent } from './components/m-provider/add-provider/add-provider.component';
+import { DetailProviderComponent } from './components/m-provider/detail-provider/detail-provider.component';
+import { EditProviderComponent } from './components/m-provider/edit-provider/edit-provider.component';
 
 
 
@@ -87,7 +91,11 @@ import { EditRolComponent } from './components/m-rol/edit-rol/edit-rol.component
     PersonComponent,
     EditPersonComponent,
     AddPersonComponent,
-    DetailPersonComponent
+    DetailPersonComponent,
+    ProviderComponent,
+    AddProviderComponent,
+    DetailProviderComponent,
+    EditProviderComponent
 
   ],
   imports: [

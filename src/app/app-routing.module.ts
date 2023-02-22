@@ -15,6 +15,7 @@ import { SizeComponent } from './components/m-size/size/size.component';
 import { RolComponent } from './components/m-rol/rol/rol.component';
 import { ProductComponent } from './components/m-product/product/product.component';
 import { PersonComponent } from './components/m-person/person/person.component';
+import { ProviderComponent } from './components/m-provider/provider/provider.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'person', component: PersonComponent, canActivate: [GuardianGuard] },
   { path: 'size', component: SizeComponent, canActivate: [GuardianGuard] },
   { path: 'rol', component: RolComponent ,canActivate:[GuardianGuard]},
+  { path: 'provider', component: ProviderComponent ,canActivate:[GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 

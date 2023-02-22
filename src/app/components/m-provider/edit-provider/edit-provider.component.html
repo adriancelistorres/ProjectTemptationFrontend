@@ -1,0 +1,295 @@
+<div
+class="modal fade"
+id="staticBackdrop2"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop2"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop2">Editar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formProvider2" (ngSubmit)="updateProvider()">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nombre Proveedor</label>
+                            <input formControlName="name_prov"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('name_prov')?.hasError('required') &&
+                            formProvider2.get('name_prov')?.touched"
+                            >
+                            <strong>El campo Nombre es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">RUC</label>
+                            <input formControlName="ruc"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('ruc')?.hasError('required') &&
+                            formProvider2.get('ruc')?.touched"
+                            >
+                            <strong>El campo RUC es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Nombre Compañia Proveedor</label>
+                            <input formControlName="company_name"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('company_name')?.hasError('required') &&
+                            formProvider2.get('company_name')?.touched"
+                            >
+                            <strong>El campo Nombre Compañia Proveedor es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Celular</label>
+                            <input formControlName="phone"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('phone')?.hasError('required') &&
+                            formProvider2.get('phone')?.touched"
+                            >
+                            <strong>El Celular es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Correo</label>
+                            <input formControlName="email"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('email')?.hasError('required') &&
+                            formProvider2.get('email')?.touched"
+                            >
+                            <strong>El campo Correo es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Descripcion</label>
+                            <input formControlName="description"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('description')?.hasError('required') &&
+                            formProvider2.get('description')?.touched"
+                            >
+                            <strong>El campo Descripcion es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Direccion</label>
+                            <input formControlName="address"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formProvider2.get('address')?.hasError('required') &&
+                            formProvider2.get('address')?.touched"
+                            >
+                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">State</label>
+                                  <input
+                                    disabled
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    value="Activo"
+                                  />
+                                  <span
+                                    *ngIf="
+                                    formProvider2.get('state')?.hasError('required') &&
+                                    formProvider2.get('state')?.touched
+                                    "
+                                  >
+                                    <strong>El campo estado es requerido</strong></span
+                                  >
+                          </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          [disabled]="formProvider2.invalid"
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          agregar
+                        </button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Edit para desactivar al usuario-->
+<!--==================================================================================-->
+
+<div
+class="modal fade"
+id="staticBackdrop3"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop3"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop3">Editar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formProvider2" (ngSubmit)="updateProvider()">
+                    <div class="row">
+                      <div class="mb-3 col-md-6">
+                        <label class="form-label">Nombre Proveedor</label>
+                        <input formControlName="name_prov"
+                        class="form-control"
+                        id="exampleInputPassword1">
+                        <span *ngIf="
+                        formProvider2.get('name_prov')?.hasError('required') &&
+                        formProvider2.get('name_prov')?.touched"
+                        >
+                        <strong>El campo Nombre es Requerido</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">RUC</label>
+                        <input formControlName="ruc"
+                        class="form-control"
+                        id="exampleInputPassword1">
+                        <span *ngIf="
+                        formProvider2.get('ruc')?.hasError('required') &&
+                        formProvider2.get('ruc')?.touched"
+                        >
+                        <strong>El campo RUC es Requerido</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                      <label class="form-label">Nombre Compañia Proveedor</label>
+                      <input formControlName="company_name"
+                      class="form-control"
+                      id="exampleInputPassword1">
+                      <span *ngIf="
+                      formProvider2.get('company_name')?.hasError('required') &&
+                      formProvider2.get('company_name')?.touched"
+                      >
+                      <strong>El campo Nombre Compañia Proveedor es Requerido</strong>
+                      </span>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                      <label class="form-label">Celular</label>
+                      <input formControlName="phone"
+                      class="form-control"
+                      id="exampleInputPassword1">
+                      <span *ngIf="
+                      formProvider2.get('phone')?.hasError('required') &&
+                      formProvider2.get('phone')?.touched"
+                      >
+                      <strong>El Celular es Requerido</strong>
+                      </span>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                      <label class="form-label">Correo</label>
+                      <input formControlName="email"
+                      class="form-control"
+                      id="exampleInputPassword1">
+                      <span *ngIf="
+                      formProvider2.get('email')?.hasError('required') &&
+                      formProvider2.get('email')?.touched"
+                      >
+                      <strong>El campo Correo es Requerido</strong>
+                      </span>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                      <label class="form-label">Descripcion</label>
+                      <input formControlName="description"
+                      class="form-control"
+                      id="exampleInputPassword1">
+                      <span *ngIf="
+                      formProvider2.get('description')?.hasError('required') &&
+                      formProvider2.get('description')?.touched"
+                      >
+                      <strong>El campo Descripcion es Requerido</strong>
+                      </span>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                      <label class="form-label">Direccion</label>
+                      <input formControlName="address"
+                      class="form-control"
+                      id="exampleInputPassword1">
+                      <span *ngIf="
+                      formProvider2.get('address')?.hasError('required') &&
+                      formProvider2.get('address')?.touched"
+                      >
+                      <strong>El campo Nombre de Usuario es Requerido</strong>
+                      </span>
+                  </div>
+                  <div class="mb-3 col-md-6">
+                      <label class="form-label">State</label>
+                            <input
+                              disabled
+                              class="form-control"
+                              id="exampleInputPassword1"
+                              value="Desactivado"
+                            />
+                            <span
+                              *ngIf="
+                              formProvider2.get('state')?.hasError('required') &&
+                              formProvider2.get('state')?.touched
+                              "
+                            >
+                              <strong>El campo estado es requerido</strong></span
+                            >
+                    </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          [disabled]="formProvider2.invalid"
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          Activar Usuario
+                        </button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
