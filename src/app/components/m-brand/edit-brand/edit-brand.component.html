@@ -23,15 +23,15 @@
             <input
               formControlName="name_brand"
               class="form-control"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
-            <span
-              *ngIf="
-                formBrand2.get('name_brand')?.hasError('required') &&
-                formBrand2.get('name_brand')?.touched
-              "
-              ><strong>El campo nombre es requerido</strong></span
-            >
+            <span *ngIf="formBrand2.get('name_brand')?.hasError('required') && formBrand2.get('name_brand')?.touched">
+              <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formBrand2.get('name_brand')?.hasError('pattern')">
+              <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
           </div>
           <div class="mb-3">
             <label class="form-label">state</label>
@@ -127,38 +127,6 @@
                   >
                     <strong>El campo estado es requerido</strong></span
                   >
-            <!-- <div class="form-check">
-              <input
-                class="form-check-input"
-                formControlName="state"
-                type="radio"
-                name="state"
-                [value]="1"
-                checked
-                type="radio"
-                name="flexRadioDefault"
-                id="flexRadioDefault1"
-              />
-              <label class="form-check-label" for="flexRadioDefault1">
-                activo
-              </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                formControlName="state"
-                type="radio"
-                name="state"
-                [value]="3"
-                type="radio"
-                name="flexRadioDefault"
-                id="flexRadioDefault2"
-                checked
-              />
-              <label class="form-check-label" for="flexRadioDefault2">
-                suspendido
-              </label>
-            </div> -->
           </div>
           <div class="modal-footer border-0 pt-4">
             <button

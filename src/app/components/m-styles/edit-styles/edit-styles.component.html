@@ -24,13 +24,13 @@
             <input
               formControlName="name_sty"
               class="form-control"
-              pattern="[A-Za-z]{1,40}"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
-            <span *ngIf="formStyle2.get('namerol')?.hasError('required') && formStyle2.get('namerol')?.touched">
+            <span *ngIf="formStyle2.get('name_sty')?.hasError('required') && formStyle2.get('name_sty')?.touched">
               <strong style="color:orangered">El campo Nombre es requerido</strong>
             </span>
-            <span *ngIf="formStyle2.get('namerol')?.hasError('pattern')">
+            <span *ngIf="formStyle2.get('name_sty')?.hasError('pattern')">
               <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
             </span>
           </div>
@@ -73,3 +73,78 @@
   </div>
 </div>
 
+<div
+  class="modal fade"
+  id="staticBackdrop3"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Activar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formStyle2" (ngSubmit)="updateStyle()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+               readonly
+              formControlName="name_sty"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+              formStyle2.get('name_sty')?.hasError('required') &&
+              formStyle2.get('name_sty')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+                  <input
+                    disabled
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    value="Desactivado"
+                  />
+                  <span
+                    *ngIf="
+                    formStyle2.get('state')?.hasError('required') &&
+                    formStyle2.get('name_sty')?.touched
+                    "
+                  >
+                    <strong>El campo estado es requerido</strong></span
+                  >
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="formStyle2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              Activar estilo
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
