@@ -31,7 +31,7 @@
               <strong style="color:orangered">El campo Nombre es requerido</strong>
             </span>
             <span *ngIf="formRol.get('namerol')?.hasError('pattern')">
-              <strong style="color:red">El campo Nombre no debe contener números o más de 40 caracteres</strong>
+              <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
             </span>
           </div>
           <div class="modal-footer border-0 pt-4">
