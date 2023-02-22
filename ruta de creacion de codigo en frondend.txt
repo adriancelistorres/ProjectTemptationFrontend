@@ -1,0 +1,14 @@
+crear interfaz
+
+crear service
+mg g s (nombre de archivo) (spec no se toca)
+
+crear componente
+ng g c (nombre de archivo)
+4 componentes
+componente (comenzar por este)
+add
+detail
+edit
+
+ruta

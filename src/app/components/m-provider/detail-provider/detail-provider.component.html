@@ -1,0 +1,71 @@
+<div
+  class="modal fade"
+  id="ModalDetalle"
+  data-backdrop="false"
+  aria-labelledby="ModalDetalle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticBackdropLabel" >Detalles de Proveedor</h5>
+        <button
+
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table color">
+          <thead>
+              <tr>
+                  <th scope="col" class="text-center">id</th>
+                  <th scope="col" class="text-center">Nombre Proveedor</th>
+                  <th scope="col" class="text-center">RUC</th>
+                  <th scope="col" class="text-center">Compañia Proveedor</th>
+                  <th scope="col" class="text-center">Celular</th>
+                  <th scope="col" class="text-center">Correo</th>
+                  <th scope="col" class="text-center">Dedscripcion</th>
+                  <th scope="col" class="text-center">Direccion</th>
+                  <th scope="col" class="text-center">Estado</th>
+              </tr>
+          </thead>
+          <tbody  *ngIf="selectProvider">
+              <tr>
+                  <td  class="p-1 text-center">
+                    0000{{selectProvider.idprovider}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectProvider.name_prov}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectProvider.ruc}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectProvider.company_name}}
+                  </td>
+                  <td class="p-1 text-center">
+                      {{selectProvider.phone}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectProvider.email}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectProvider.description}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectProvider.address}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectProvider.state}}
+                  </td>
+              </tr>
+          </tbody>
+
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
