@@ -43,6 +43,9 @@ import { PersonComponent } from './components/m-person/person/person.component';
 import { EditPersonComponent } from './components/m-person/edit-person/edit-person.component';
 import { AddPersonComponent } from './components/m-person/add-person/add-person.component';
 import { DetailPersonComponent } from './components/m-person/detail-person/detail-person.component';
+import { PaymethodComponent } from './components/m-payMethod/paymethod/paymethod.component';
+import { AddPaymethodComponent } from './components/m-payMethod/add-paymethod/add-paymethod.component';
+import { EditPaymethodComponent } from './components/m-payMethod/edit-paymethod/edit-paymethod.component';
 
 
 
@@ -79,7 +82,10 @@ import { DetailPersonComponent } from './components/m-person/detail-person/detai
     PersonComponent,
     EditPersonComponent,
     AddPersonComponent,
-    DetailPersonComponent
+    DetailPersonComponent,
+    PaymethodComponent,
+    AddPaymethodComponent,
+    EditPaymethodComponent
 
   ],
   imports: [
