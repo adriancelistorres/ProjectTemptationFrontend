@@ -24,15 +24,15 @@
             <input
               formControlName="namerol"
               class="form-control"
+              pattern="[A-Za-z]{1,40}"
               id="exampleInputPassword1"
             />
-            <span
-              *ngIf="
-              formRol.get('namerol')?.hasError('required') &&
-              formRol.get('namerol')?.touched
-              "
-              ><strong>El campo Nombre es requerido</strong></span
-            >
+            <span *ngIf="formRol.get('namerol')?.hasError('required') && formRol.get('namerol')?.touched">
+              <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formRol.get('namerol')?.hasError('pattern')">
+              <strong style="color:red">El campo Nombre no debe contener números o más de 40 caracteres</strong>
+            </span>
           </div>
           <div class="modal-footer border-0 pt-4">
             <button
