@@ -39,13 +39,20 @@ import { EditBrandComponent } from './components/m-brand/edit-brand/edit-brand.c
 import { SizeComponent } from './components/m-size/size/size.component';
 import { AddSizeComponent } from './components/m-size/add-size/add-size.component';
 import { EditSizeComponent } from './components/m-size/edit-size/edit-size.component';
+
 import { PersonComponent } from './components/m-person/person/person.component';
 import { EditPersonComponent } from './components/m-person/edit-person/edit-person.component';
 import { AddPersonComponent } from './components/m-person/add-person/add-person.component';
 import { DetailPersonComponent } from './components/m-person/detail-person/detail-person.component';
+
 import { PaymethodComponent } from './components/m-payMethod/paymethod/paymethod.component';
 import { AddPaymethodComponent } from './components/m-payMethod/add-paymethod/add-paymethod.component';
 import { EditPaymethodComponent } from './components/m-payMethod/edit-paymethod/edit-paymethod.component';
+
+import { RolComponent } from './components/m-rol/rol/rol.component';
+import { AddRolComponent } from './components/m-rol/add-rol/add-rol.component';
+import { EditRolComponent } from './components/m-rol/edit-rol/edit-rol.component';
+
 
 
 
@@ -78,6 +85,9 @@ import { EditPaymethodComponent } from './components/m-payMethod/edit-paymethod/
     SizeComponent,
     AddSizeComponent,
     EditSizeComponent,
+    RolComponent,
+    AddRolComponent,
+    EditRolComponent,
 
     PersonComponent,
     EditPersonComponent,

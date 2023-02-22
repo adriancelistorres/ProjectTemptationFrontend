@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IPerson } from 'src/app/interfaces/IPerson';
+import { IRoles } from 'src/app/interfaces/IRoles';
 import { PersonService } from 'src/app/services/person.service';
+import { RolService } from 'src/app/services/rol.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
 
 @Component({
@@ -15,9 +17,12 @@ export class EditPersonComponent {
   formPerson2: FormGroup;
   id: number;
   ListPerson: IPerson[] = [];
+  listRol: IRoles[] = [];
+  selectedOption: [] = [];
 
   constructor(
     private _personService: PersonService,
+    private _rolesService: RolService,
     private toastr: ToastrService,
     private fb: FormBuilder,
     private _errorService: ErrorService
@@ -85,5 +90,16 @@ export class EditPersonComponent {
     error: (e: HttpErrorResponse) =>{
       this._errorService.msjError(e);
     }})
+  }
+
+  ngOnInit() {
+    this._rolesService.getRoles().subscribe(
+      (options: any[]) => {
+        this.listRol = options;
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }
