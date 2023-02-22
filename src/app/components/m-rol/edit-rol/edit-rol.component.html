@@ -1,0 +1,154 @@
+<div
+  class="modal fade"
+  id="staticBackdrop2"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formRol2" (ngSubmit)="updateRol()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+              formControlName="namerol"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+              formRol2.get('namerol')?.hasError('required') &&
+              formRol2.get('namerol')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+                  <input
+                    disabled
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    value="Activo"
+                  />
+                  <span
+                    *ngIf="
+                    formRol2.get('state')?.hasError('required') &&
+                    formRol2.get('namerol')?.touched
+                    "
+                  >
+                    <strong>El campo estado es requerido</strong></span
+                  >
+          
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="formRol2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div
+  class="modal fade"
+  id="staticBackdrop3"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Activar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formRol2" (ngSubmit)="updateRol()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+               readonly
+              formControlName="namerol"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+              formRol2.get('namerol')?.hasError('required') &&
+              formRol2.get('namerol')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+                  <input
+                    disabled
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    value="Desactivado"
+                  />
+                  <span
+                    *ngIf="
+                    formRol2.get('state')?.hasError('required') &&
+                    formRol2.get('namerol')?.touched
+                    "
+                  >
+                    <strong>El campo estado es requerido</strong></span
+                  >
+            
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="formRol2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              Activar rol
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

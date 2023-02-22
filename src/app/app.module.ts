@@ -39,6 +39,9 @@ import { EditBrandComponent } from './components/m-brand/edit-brand/edit-brand.c
 import { SizeComponent } from './components/m-size/size/size.component';
 import { AddSizeComponent } from './components/m-size/add-size/add-size.component';
 import { EditSizeComponent } from './components/m-size/edit-size/edit-size.component';
+import { RolComponent } from './components/m-rol/rol/rol.component';
+import { AddRolComponent } from './components/m-rol/add-rol/add-rol.component';
+import { EditRolComponent } from './components/m-rol/edit-rol/edit-rol.component';
 
 
 
@@ -71,6 +74,9 @@ import { EditSizeComponent } from './components/m-size/edit-size/edit-size.compo
     SizeComponent,
     AddSizeComponent,
     EditSizeComponent,
+    RolComponent,
+    AddRolComponent,
+    EditRolComponent,
 
   ],
   imports: [
