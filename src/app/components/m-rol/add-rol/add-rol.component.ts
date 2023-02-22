@@ -35,7 +35,7 @@ export class AddRolComponent {
     };
     this._rolservice.addRol(rol).subscribe({next:()=>{
       // console.log(JSON.stringify());
-      this.toastr.success('La rol se agrego correctamente');
+      this.toastr.success('El rol se agrego correctamente');
     } ,
     error: (e: HttpErrorResponse) =>{
       this._errorService.msjError(e);
