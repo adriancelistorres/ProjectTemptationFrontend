@@ -23,25 +23,27 @@ aria-hidden="true">
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Nonbre</label>
                             <input formControlName="name"
+                            pattern="[A-Za-z ]{1,40}"
                             class="form-control"
                             id="exampleInputPassword1">
-                            <span *ngIf="
-                            formPerson2.get('name')?.hasError('required') &&
-                            formPerson2.get('name')?.touched"
-                            >
-                            <strong>El campo Nombre es Requerido</strong>
+                            <span *ngIf="formPerson2.get('name')?.hasError('required') && formPerson2.get('name')?.touched">
+                                <strong style="color:orangered">El campo Nombre es requerido</strong>
+                            </span>
+                            <span *ngIf="formPerson2.get('name')?.hasError('pattern')">
+                                <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Apellido</label>
                             <input formControlName="lastname"
+                            pattern="[A-Za-z ]{1,40}"
                             class="form-control"
                             id="exampleInputPassword1">
-                            <span *ngIf="
-                            formPerson2.get('lastname')?.hasError('required') &&
-                            formPerson2.get('lastname')?.touched"
-                            >
-                            <strong>El campo Apellido es Requerido</strong>
+                            <span *ngIf="formPerson2.get('lastname')?.hasError('required') && formPerson2.get('lastname')?.touched">
+                                <strong style="color:orangered">El campo Apellido es requerido</strong>
+                            </span>
+                            <span *ngIf="formPerson2.get('lastname')?.hasError('pattern')">
+                                <strong style="color:red">El campo Apellido no debe contener números/signos o más de 40 caracteres</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -56,26 +58,32 @@ aria-hidden="true">
                             formPerson2.get('idrol')?.hasError('required') &&
                             formPerson2.get('idrol')?.touched"
                             >
-                            <strong>El campo Rol es Requerido</strong>
+                            <strong style="color:orangered">El campo Rol es Requerido</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Dni</label>
                             <input formControlName="dni"
+                            type="number"
                             class="form-control"
+                            pattern="[0-9]{1,8}"
+                            max="99999999"
                             id="exampleInputPassword1">
                             <span *ngIf="
                             formPerson2.get('dni')?.hasError('required') &&
                             formPerson2.get('dni')?.touched"
                             >
-                            <strong>El campo DNI es Requerido</strong>
+                            <strong style="color:orangered" >El campo DNI es Requerido</strong>
                             </span>
-                        </div>
+                            <span *ngIf="formPerson2.get('dni')?.hasError('pattern')">
+                                <strong style="color:red">El campo DNI no puede ser mayor a 8 digitos</strong>
+                              </span>
+                        </div> 
                         <div class="mb-3 col-md-6">
                             <label class="form-label">Genero</label>
                             <select formControlName="gender"
                             class="form-select " id="inputState" aria-label=".form-select-lg example">
-                                <option value="4">Seleccione un Genero</option>
+                                <option value="4" disabled >Seleccione un Genero</option>
                                 <option value="masculino">masculino</option>
                                 <option value="femenino">femenino</option>
                                 <option value="No Definido">No Definido</option>
@@ -84,7 +92,7 @@ aria-hidden="true">
                             formPerson2.get('gender')?.hasError('required') &&
                             formPerson2.get('gender')?.touched"
                             >
-                            <strong>El campo Genero es Requerido</strong>
+                            <strong style="color:orangered">El campo Genero es Requerido</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -96,7 +104,7 @@ aria-hidden="true">
                             formPerson2.get('address')?.hasError('required') &&
                             formPerson2.get('address')?.touched"
                             >
-                            <strong>El campo Direccion es Requerido</strong>
+                            <strong style="color:orangered">El campo Direccion es Requerido</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -108,7 +116,7 @@ aria-hidden="true">
                             formPerson2.get('date_b')?.hasError('required') &&
                             formPerson2.get('date_b')?.touched"
                             >
-                            <strong>El campo Fecha de Nacimiento es Requerido</strong>
+                            <strong style="color:orangered">El campo Fecha de Nacimiento es Requerido</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -120,7 +128,7 @@ aria-hidden="true">
                             formPerson2.get('username')?.hasError('required') &&
                             formPerson2.get('username')?.touched"
                             >
-                            <strong>El campo Nombre de Usuario es Requerido</strong>
+                            <strong style="color:orangered">El campo Nombre de Usuario es Requerido</strong>
                             </span>
                         </div>
                         <div class="mb-3 col-md-6">
@@ -137,7 +145,7 @@ aria-hidden="true">
                                     formPerson2.get('state')?.touched
                                     "
                                   >
-                                    <strong>El campo estado es requerido</strong></span
+                                    <strong style="color:orangered">El campo estado es requerido</strong></span
                                   >
                           </div>
                         <div class="modal-footer border-0 pt-4">

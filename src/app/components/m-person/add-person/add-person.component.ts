@@ -30,12 +30,12 @@ export class AddPersonComponent {
     private _errorService: ErrorService
   ){
       this.formPerson = this.fb.group({
-        idrol: ['2', Validators.required],
+        idrol: ['', Validators.required],
         name: ['', Validators.required],
         lastname: ['', Validators.required],
         date_b: ['', Validators.required],
         dni: ['', Validators.required],
-        gender: ['4', Validators.required],
+        gender: ['', Validators.required],
         address: ['', Validators.required],
         username: ['', Validators.required],
         password: ['', Validators.required],

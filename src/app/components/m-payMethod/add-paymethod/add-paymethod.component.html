@@ -20,19 +20,19 @@
       <div class="modal-body">
         <form [formGroup]="formPayMethod" (ngSubmit)="addPayMethods()">
           <div class="mb-3">
-            <label class="form-label">nombre</label>
+            <label class="form-label">Nombre</label>
             <input
               formControlName="name_pay"
               class="form-control"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
-            <span
-              *ngIf="
-              formPayMethod.get('name_pay')?.hasError('required') &&
-              formPayMethod.get('name_pay')?.touched
-              "
-              ><strong>El campo nombre es requerido</strong></span
-            >
+            <span *ngIf="formPayMethod.get('name_pay')?.hasError('required') && formPayMethod.get('name_pay')?.touched">
+              <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formPayMethod.get('name_pay')?.hasError('pattern')">
+              <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
           </div>
           <div class="modal-footer border-0 pt-4">
             <button

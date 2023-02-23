@@ -20,19 +20,19 @@
       <div class="modal-body">
         <form [formGroup]="formCategory" (ngSubmit)="addCategory()">
           <div class="mb-3">
-            <label class="form-label">nombre</label>
+            <label class="form-label">Nombre</label>
             <input
               formControlName="name_cat"
               class="form-control"
+              pattern="[A-Za-z ]{1,40}"
               id="exampleInputPassword1"
             />
-            <span
-              *ngIf="
-              formCategory.get('name_cat')?.hasError('required') &&
-              formCategory.get('name_cat')?.touched
-              "
-              ><strong>El campo nombre es requerido</strong></span
-            >
+            <span *ngIf="formCategory.get('name_cat')?.hasError('required') && formCategory.get('name_cat')?.touched">
+              <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formCategory.get('name_cat')?.hasError('pattern')">
+              <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
           </div>
           <div class="modal-footer border-0 pt-4">
             <button
