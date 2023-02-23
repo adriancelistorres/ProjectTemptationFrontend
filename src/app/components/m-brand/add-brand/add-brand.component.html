@@ -23,26 +23,15 @@ aria-hidden="true">
                         <label class="form-label">Nombre</label>
                         <input formControlName="name_brand"
                         class="form-control"
+                        pattern="[A-Za-z ]{1,40}"
                         id="exampleInputPassword1">
-                        <span *ngIf="
-                         formBrand.get('name_brand')?.hasError('required') &&
-                         formBrand.get('name_brand')?.touched"
-                        >
-                        <strong>El campo Nombre es Requerido</strong>
-                        </span>
+                        <span *ngIf="formBrand.get('name_brand')?.hasError('required') && formBrand.get('name_brand')?.touched">
+                            <strong style="color:orangered">El campo Nombre es requerido</strong>
+                          </span>
+                          <span *ngIf="formBrand.get('name_brand')?.hasError('pattern')">
+                            <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+                          </span>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label">State</label>
-                        <input formControlName="state"
-                        class="form-control"
-                        id="exampleInputPassword1">
-                        <span *ngIf="
-                         formBrand.get('state')?.hasError('required') &&
-                         formBrand.get('name_brand')?.touched"
-                        >
-                        <strong>El campo Estado es Requerido</strong>
-                        </span>
-                    </div> -->
                     <div class="modal-footer border-0 pt-4">
                         <button
                         type="button"
