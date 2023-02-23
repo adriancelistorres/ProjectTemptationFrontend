@@ -64,7 +64,7 @@ export class PaymethodService {
 
   getOnepayMethod(id: number): Observable<IPaymentMethod>{
     return this.http.get<IPaymentMethod>(
-      `${this.myAppUrl}${this.myApi2}${id}`,
+      `${this.myAppUrl}${this.myApi2}/${id}`,
       this._tokenservice.interceptor()
     ).pipe(tap(()=>{
       this._refreshRequired.next();

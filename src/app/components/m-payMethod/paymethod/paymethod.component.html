@@ -2,13 +2,13 @@
 <app-add-paymethod></app-add-paymethod>
 <app-edit-paymethod></app-edit-paymethod>
 <div  class="container-sm pt-4">
-    <div class="" style="font-size: 50px">Marca</div>
+    <div class="" style="font-size: 50px">Metodos de Pago</div>
     <div class="search-name pt-3 pb-3">
       <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
     </div>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      Marcas Desactivadas
+      Metodos de Pago Desactivadas
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <tbody>
@@ -26,6 +26,7 @@
               <button
                 data-bs-toggle="modal"
                 class="btn btn-outline-warning btn-sm"
+                (click)="edit(item.idpay)"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop3"
               >
@@ -75,7 +76,7 @@
             <button
               data-bs-toggle="modal"
               class="btn btn-outline-warning btn-sm"
-              data-bs-toggle="modal"
+              (click)="edit(item.idpay)"data-bs-toggle="modal"
               data-bs-target="#staticBackdrop2"
             >
               <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>

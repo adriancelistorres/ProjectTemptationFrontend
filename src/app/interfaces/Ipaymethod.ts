@@ -1,6 +1,6 @@
 export interface IPaymentMethod{
-    idpay?: number|any|undefined,
-    name_pay: string|any|undefined,
-    state: number|any|undefined,
-    key: string|any|undefined
+    idpay?: number|any,
+    name_pay: string|any,
+    state: number|any,
+    key: string|any,
 }

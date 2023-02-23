@@ -28,16 +28,17 @@ export class PaymethodComponent {
     })
   }
 
+  @ViewChild(EditPaymethodComponent)addview!: EditPaymethodComponent;
 
 
   ngOnInit():void{
     this.getPayMethods()
   }
 
-  // edit(id:number){
-  //   //this.editview.getOnePayMethod(id);
-  //   console.log(id);
-  // }
+  edit(id:number){
+    this.addview.getOnePayMethods(id);
+    console.log(id);
+  }
 
   getPayMethods(){
     this._paymethodService.getpayMethod().subscribe((data: IPaymentMethod[]) =>{
