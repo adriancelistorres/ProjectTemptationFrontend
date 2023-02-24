@@ -57,6 +57,11 @@ import { AddProviderComponent } from './components/m-provider/add-provider/add-p
 import { DetailProviderComponent } from './components/m-provider/detail-provider/detail-provider.component';
 import { EditProviderComponent } from './components/m-provider/edit-provider/edit-provider.component';
 
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 
@@ -116,6 +121,9 @@ import { EditProviderComponent } from './components/m-provider/edit-provider/edi
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,}), // ToastrModule added
       ReactiveFormsModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireDatabaseModule,
+      AngularFireStorageModule
 
 
   ],

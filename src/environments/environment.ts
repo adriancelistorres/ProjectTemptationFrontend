@@ -4,8 +4,19 @@
 
 export const environment = {
   production: false,
-  endpoint: 'http://localhost:3000/'
+  endpoint: 'http://localhost:3000/',
+   firebaseConfig : {
+    apiKey: "AIzaSyCYjoNRGh2G1u05PmHFNrWos31F9KNHiSU",
+    authDomain: "temptationproject-85bb8.firebaseapp.com",
+    databaseURL: "https://temptationproject-85bb8-default-rtdb.firebaseio.com",
+    projectId: "temptationproject-85bb8",
+    storageBucket: "temptationproject-85bb8.appspot.com",
+    messagingSenderId: "470897898622",
+    appId: "1:470897898622:web:2a399456365169301d942f",
+    measurementId: "G-3DK5DHCT03"
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
