@@ -149,12 +149,56 @@
               <strong style="color:orangered" >El campo Color es Requerido</strong>
               </span>
             </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Descripcion</label>
+              <input
+                formControlName="description"
+                class="form-control"
+                pattern="[A-Za-z ]{1,40}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct.get('description')?.hasError('required') && formProduct.get('description')?.touched">
+                <strong style="color:orangered">El campo Descripcion es requerido</strong>
+            </span>
+            <span *ngIf="formProduct.get('description')?.hasError('pattern')">
+                <strong style="color:red">El campo Descripcion no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Precio</label>
+              <input
+                formControlName="price"
+                class="form-control"
+                pattern="[A-Za-z ]{1,40}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct.get('price')?.hasError('required') && formProduct.get('price')?.touched">
+                <strong style="color:orangered">El campo Precio es requerido</strong>
+            </span>
+            <span *ngIf="formProduct.get('price')?.hasError('pattern')">
+                <strong style="color:red">El campo Precio no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>            <div class="mb-3 col-md-6">
+              <label class="form-label">Stock</label>
+              <input
+                formControlName="stock"
+                class="form-control"
+                pattern="[A-Za-z ]{1,40}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct.get('stock')?.hasError('required') && formProduct.get('stock')?.touched">
+                <strong style="color:orangered">El campo Stock es requerido</strong>
+            </span>
+            <span *ngIf="formProduct.get('stock')?.hasError('pattern')">
+                <strong style="color:red">El campo Stock no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>
             
   
   
             <div>
               <div class="row mb-5">
-                <div class="col-8">
+                <div class="col-12">
                   <label>
                     <input
                       type="file"
@@ -190,6 +234,7 @@
               <button
                 [disabled]="!selectedFiles"
                 [disabled]="formProduct.invalid"
+                (click)="upload()"
                 type="submit"
                 class="btn btn-success"
               >
