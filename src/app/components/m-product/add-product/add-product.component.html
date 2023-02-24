@@ -1,64 +1,151 @@
 <div
-class="modal fade"
-id="staticBackdrop"
-data-backdrop = "false"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true">
+  class="modal fade"
+  id="staticBackdrop"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input
+              formControlName="name_brand"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span>
+              <strong>El campo Nombre es Requerido</strong>
+            </span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <select
+              formControlName="idrol"
+              class="form-select"
+              id="inputState"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="selectedOption"
+            >
+              <option
+                *ngFor="let option of listCategory"
+                [value]="option.idcat"
+              >
+                {{ option.name_cat }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">talla</label>
+            <select
+              formControlName="idrol"
+              class="form-select"
+              id="inputState"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="selectedOption"
+            >
+              <option
+                *ngFor="let option of listCategory"
+                [value]="option.idcat"
+              >
+                {{ option.name_cat }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Estilo</label>
+            <select
+              formControlName="idrol"
+              class="form-select"
+              id="inputState"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="selectedOption"
+            >
+              <option
+                *ngFor="let option of listCategory"
+                [value]="option.idcat"
+              >
+                {{ option.name_cat }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <select
+              formControlName="idrol"
+              class="form-select"
+              id="inputState"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="selectedOption"
+            >
+              <option
+                *ngFor="let option of listCategory"
+                [value]="option.idcat"
+              >
+                {{ option.name_cat }}
+              </option>
+            </select>
+          </div>
+          
 
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
-                <button
 
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+          <div>
+            <div class="row mb-5">
+              <div class="col-8">
+                <label>
+                  <input
+                    type="file"
+                    class="text-nowrap text-truncate"
+                    (change)="selectFile($event)"
+                  />
+                </label>
+              </div>
             </div>
-            <div class="modal-body">
-                <form >
-                    <div class="mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input formControlName="name_brand"
-                        class="form-control"
-                        id="exampleInputPassword1">
-                        <span 
-                        >
-                        <strong>El campo Nombre es Requerido</strong>
-                        </span>
-                    </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label">State</label>
-                        <input formControlName="state"
-                        class="form-control"
-                        id="exampleInputPassword1">
-                        <span *ngIf="
-                         formBrand.get('state')?.hasError('required') &&
-                         formBrand.get('name_brand')?.touched"
-                        >
-                        <strong>El campo Estado es Requerido</strong>
-                        </span>
-                    </div> -->
-                    <div class="modal-footer border-0 pt-4">
-                        <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"              >
-                        cerrar
-                      </button>
-                      <button
-                      type="submit"
-                      class="btn btn-success"
-                    >
-                      agregar
-                    </button>
-
-                    </div>
-                </form>
+            <div *ngIf="currentFileUpload" class="progress mt-2">
+              <div
+                class="progress-bar progress-bar-info"
+                role="progressbar"
+                attr.aria-valuenow="{{ percentage }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [ngStyle]="{ width: percentage + '%' }"
+              >
+                {{ percentage }}%
+              </div>
             </div>
-        </div>
+          </div>
+
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="!selectedFiles"
+              (click)="upload()"
+              type="submit"
+              class="btn btn-success"
+            >
+              agregar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

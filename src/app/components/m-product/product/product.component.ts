@@ -41,35 +41,35 @@ export class ProductComponent implements OnInit {
     this.selectedFiles = event.target.files;
   }
 
-  upload(): void {
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      this.selectedFiles = undefined;
+  // upload(): void {
+  //   if (this.selectedFiles) {
+  //     const file: File | null = this.selectedFiles.item(0);
+  //     this.selectedFiles = undefined;
 
-      if (file) {
-        this.currentFileUpload = new FileUpload(file);
+  //     if (file) {
+  //       this.currentFileUpload = new FileUpload(file);
 
-        this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-          (percentage) => {
-            this.percentage = Math.round(percentage ? percentage : 0);
+  //       this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
+  //         (percentage) => {
+  //           this.percentage = Math.round(percentage ? percentage : 0);
 
-            console.log('PERCENTAGE', this.percentage);
+  //           console.log('PERCENTAGE', this.percentage);
 
-            if (this.percentage == 100) {
-              console.log('ID_KEY_POLLO_1', this.uploadService.idFire);
-              setTimeout(() => {
-                console.log('ID_KEY_POLLO_2', this.uploadService.idFire);
-              }, 1500);
-            }
+  //           if (this.percentage == 100) {
+  //             console.log('ID_KEY_POLLO_1', this.uploadService.idFire);
+  //             setTimeout(() => {
+  //               console.log('ID_KEY_POLLO_2', this.uploadService.idFire);
+  //             }, 1500);
+  //           }
 
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-      }
-    }
-  }
+  //         },
+  //         (error) => {
+  //           console.log(error);
+  //         }
+  //       );
+  //     }
+  //   }
+  // }
 
   deleteFileUpload(fileUpload: FileUpload): void {
     this.uploadService.deleteFile(fileUpload);

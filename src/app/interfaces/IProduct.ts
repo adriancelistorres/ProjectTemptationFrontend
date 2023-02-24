@@ -1,6 +1,6 @@
 export interface IProducts {
 
-  idproduc: number|any|undefined,
+  idproduc?: number|any|undefined,
   idcat: number|any|undefined,
   idsize: number|any|undefined,
   idstyles: number|any|undefined,

@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
-<!-- <div  class="container-sm pt-4">
+<app-add-product></app-add-product>
+<div  class="container-sm pt-4">
 <div class="" style="font-size: 50px">Productos</div>
 <div class="search-name pt-3 pb-3">
   <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
@@ -15,75 +16,7 @@
   </button>
 
 </div>
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">uno</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <td class="p-1 text-center">
-      <button
-        data-bs-toggle="modal"
-        class="btn btn-outline-warning btn-sm"
-
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop2"
-      >
-        <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
-      </button>
-    </td>
-    <td  class="p-1 text-center">
-      <button
-        class="btn btn-outline-danger btn-sm"
-      >
-        <img class="imagen" src="./assets/img/eliminar.png" alt="" />
-      </button>
-    </td>
-  </div>
-</div>
-
-</div> -->
-
-<div  class="container-sm pt-4">
-  <div class="" style="font-size: 50px">Productos</div>
-  <div class="search-name pt-3 pb-3">
-
-</div>
-<div class="row mb-5">
-  <div class="col-8">
-    <label>
-      <input
-        type="file"
-        class="text-nowrap text-truncate"
-        (change)="selectFile($event)"
-      />
-    </label>
-  </div>
-
-  <div class="col-4">
-    <button
-      class="btn btn-success btn-sm"
-      [disabled]="!selectedFiles"
-      (click)="upload()"
-    >
-      Upload
-    </button>
-  </div>
-</div>
-
-<div  *ngIf="currentFileUpload" class="progress mt-2 ">
-  <div
-    class="progress-bar progress-bar-info"
-    role="progressbar"
-    attr.aria-valuenow="{{ percentage }}"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    [ngStyle]="{ width: percentage + '%' }"
-  >
-    {{ percentage }}%
-  </div>
-</div>
-
-<div >
+<div class="container-lg">
   <table >
     <thead>
       <tr>
@@ -101,7 +34,7 @@
           {{ file.name }}
         </td>
         <td class="p-1 text-center">
-          <img  style="width: 10px;height: 20px;"  src="{{ file.url }}" alt="">
+          <img  style="width: 50px;height: 50px;"  src="{{ file.url }}" alt="">
         </td>
         <td class="p-1 text-center">
           <!-- <a href="{{ file.url }}"></a> -->
