@@ -5,7 +5,7 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-tittle" id="staticBackdropLabel">Agregar</h5>
@@ -17,132 +17,185 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input
-              formControlName="name_brand"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-            <span>
-              <strong>El campo Nombre es Requerido</strong>
+        <form [formGroup]="formProduct" (ngSubmit)="addProducts()">
+          <div class="row">
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Nombre</label>
+              <input
+                formControlName="name_p"
+                class="form-control"
+                pattern="[A-Za-z ]{1,40}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct.get('name_p')?.hasError('required') && formProduct.get('name_p')?.touched">
+                <strong style="color:orangered">El campo Nombre es requerido</strong>
             </span>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Categoria</label>
-            <select
-              formControlName="idrol"
-              class="form-select"
-              id="inputState"
-              aria-label=".form-select-lg example"
-              [(ngModel)]="selectedOption"
-            >
-              <option
-                *ngFor="let option of listCategory"
-                [value]="option.idcat"
+            <span *ngIf="formProduct.get('name_p')?.hasError('pattern')">
+                <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Categoria</label>
+              <select
+                formControlName="idcat"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption"
               >
-                {{ option.name_cat }}
-              </option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">talla</label>
-            <select
-              formControlName="idrol"
-              class="form-select"
-              id="inputState"
-              aria-label=".form-select-lg example"
-              [(ngModel)]="selectedOption"
-            >
-              <option
-                *ngFor="let option of listCategory"
-                [value]="option.idcat"
+                <option
+                  *ngFor="let item of listCategory"
+                  [value]="item.idcat"
+                >
+                  {{ item.name_cat }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct.get('idcat')?.hasError('required') &&
+              formProduct.get('idcat')?.touched"
               >
-                {{ option.name_cat }}
-              </option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Estilo</label>
-            <select
-              formControlName="idrol"
-              class="form-select"
-              id="inputState"
-              aria-label=".form-select-lg example"
-              [(ngModel)]="selectedOption"
-            >
-              <option
-                *ngFor="let option of listCategory"
-                [value]="option.idcat"
+              <strong style="color:orangered" >El campo Categoria es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">talla</label>
+              <select
+                formControlName="idsize"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption1"
               >
-                {{ option.name_cat }}
-              </option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Categoria</label>
-            <select
-              formControlName="idrol"
-              class="form-select"
-              id="inputState"
-              aria-label=".form-select-lg example"
-              [(ngModel)]="selectedOption"
-            >
-              <option
-                *ngFor="let option of listCategory"
-                [value]="option.idcat"
+                <option
+                  *ngFor="let option of listSize"
+                  [value]="option.idsize"
+                >
+                  {{ option.name_size }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct.get('idsize')?.hasError('required') &&
+              formProduct.get('idsize')?.touched"
               >
-                {{ option.name_cat }}
-              </option>
-            </select>
-          </div>
-          
-
-
-          <div>
-            <div class="row mb-5">
-              <div class="col-8">
-                <label>
-                  <input
-                    type="file"
-                    class="text-nowrap text-truncate"
-                    (change)="selectFile($event)"
-                  />
-                </label>
+              <strong style="color:orangered" >El campo Talla es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Estilo</label>
+              <select
+                formControlName="idstyles"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption2"
+              >
+                <option
+                  *ngFor="let option of listStyle"
+                  [value]="option.idstyles"
+                >
+                  {{ option.name_sty }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct.get('idstyles')?.hasError('required') &&
+              formProduct.get('idstyles')?.touched"
+              >
+              <strong style="color:orangered" >El campo Estilo es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Marca</label>
+              <select
+                formControlName="idbrand"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption3"
+              >
+                <option
+                  *ngFor="let item of listBrand"
+                  [value]="item.idbrand"
+                >
+                  {{ item.name_brand}}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct.get('idbrand')?.hasError('required') &&
+              formProduct.get('idbrand')?.touched"
+              >
+              <strong style="color:orangered" >El campo Marca es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Color</label>
+              <select
+                formControlName="idcolor"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption4"
+              >
+                <option
+                  *ngFor="let item of listColor"
+                  [value]="item.idcolor"
+                >
+                  {{ item.name_col}}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct.get('idcolor')?.hasError('required') &&
+              formProduct.get('idcolor')?.touched"
+              >
+              <strong style="color:orangered" >El campo Color es Requerido</strong>
+              </span>
+            </div>
+            
+  
+  
+            <div>
+              <div class="row mb-5">
+                <div class="col-8">
+                  <label>
+                    <input
+                      type="file"
+                      class="text-nowrap text-truncate"
+                      (change)="selectFile($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="currentFileUpload" class="progress mt-2">
+                <div
+                  class="progress-bar progress-bar-info"
+                  role="progressbar"
+                  attr.aria-valuenow="{{ percentage }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [ngStyle]="{ width: percentage + '%' }"
+                >
+                  {{ percentage }}%
+                </div>
               </div>
             </div>
-            <div *ngIf="currentFileUpload" class="progress mt-2">
-              <div
-                class="progress-bar progress-bar-info"
-                role="progressbar"
-                attr.aria-valuenow="{{ percentage }}"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                [ngStyle]="{ width: percentage + '%' }"
+  
+            <div class="modal-footer border-0 pt-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                aria-label="Close"
               >
-                {{ percentage }}%
-              </div>
+                cerrar
+              </button>
+              <button
+                [disabled]="!selectedFiles"
+                [disabled]="formProduct.invalid"
+                type="submit"
+                class="btn btn-success"
+              >
+                agregar
+              </button>
             </div>
-          </div>
-
-          <div class="modal-footer border-0 pt-4">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              cerrar
-            </button>
-            <button
-              [disabled]="!selectedFiles"
-              (click)="upload()"
-              type="submit"
-              class="btn btn-success"
-            >
-              agregar
-            </button>
           </div>
         </form>
       </div>

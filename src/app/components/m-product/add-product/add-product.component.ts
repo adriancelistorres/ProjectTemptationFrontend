@@ -36,6 +36,10 @@ export class AddProductComponent {
   listBrand: IBrand[] = [];
   listColor: IColor[] = [];
   selectedOption: [] = [];
+  selectedOption1: [] = [];
+  selectedOption2: [] =[];
+  selectedOption3: [] =[];
+  selectedOption4: [] =[];
 
 
 
@@ -70,15 +74,75 @@ export class AddProductComponent {
   }
 
   ngOnInit() {
+    this.miCategoria()
+    this.miBrand()
+    this.miColor()
+    this.miStyle()
+    this.miSize()
+  }
+  // ngOnDestroy(){
+  //   this.miCategoria()
+  //   this.miBrand()
+
+  // }
+
+  miCategoria(){
     this._categoriService.getCategory().subscribe(
       (options: any[]) => {
         this.listCategory = options;
+      
       },
       (error: any) => {
         console.log(error);
       }
-    );
+    )
   }
+
+  miBrand(){
+    this._brandService.getBrands().subscribe(
+      (option2: any[]) =>{
+        this.listBrand = option2
+      },
+      (error: any) =>{
+        console.log(error);
+      }
+    )
+  }
+
+  miColor(){
+    this._colorService.getColors().subscribe(
+      (option3: any[]) =>{
+        this.listColor = option3
+      },
+      (error: any) =>{
+        console.log(error);
+      }
+    )
+  }
+
+  miStyle(){
+    this._styleService.getStyles().subscribe(
+      (option4: any[]) =>{
+        this.listStyle = option4
+      },
+      (error: any) =>{
+        console.log(error);
+      }
+    )
+  }
+
+  miSize(){
+    this._sizeService.getSize().subscribe(
+      (option5: any[]) =>{
+        this.listSize = option5
+      },
+      (error: any) =>{
+        console.log(error);
+      }
+    )
+  }
+
+
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
@@ -112,14 +176,14 @@ export class AddProductComponent {
     }
   }
 
-  addBrand() {
+  addProducts() {
     const product: IProducts = {
-      idcat: this.formProduct.get('name_brand')?.value,
-      idsize: this.formProduct.get('name_brand')?.value,
-      idstyles: this.formProduct.get('name_brand')?.value,
-      idbrand: this.formProduct.get('name_brand')?.value,
-      idcolor: this.formProduct.get('name_brand')?.value,
-      name_p: this.formProduct.get('name_brand')?.value,
+      idcat: this.formProduct.get('idcat')?.value,
+      idsize: this.formProduct.get('idsize')?.value,
+      idstyles: this.formProduct.get('idstyles')?.value,
+      idbrand: this.formProduct.get('idbrand')?.value,
+      idcolor: this.formProduct.get('idcolor')?.value,
+      name_p: this.formProduct.get('name_p')?.value,
       description: this.formProduct.get('name_brand')?.value,
       price: this.formProduct.get('name_brand')?.value,
       stock: this.formProduct.get('name_brand')?.value,
