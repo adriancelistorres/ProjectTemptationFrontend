@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   currentFileUpload?: FileUpload;
   percentage = 0;
   fileUploads?: any[];
-  @Input() fileUpload!: FileUpload;
+  // @Input() fileUpload!: FileUpload;
 
   constructor(private uploadService: FileUploadService) {}
   ngOnInit(): void {
@@ -28,7 +28,6 @@ export class ProductComponent implements OnInit {
       .snapshotChanges()
       .pipe(
         map((changes) =>
-          // store the key
           changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
         )
       )
@@ -62,7 +61,7 @@ export class ProductComponent implements OnInit {
                 console.log('ID_KEY_POLLO_2', this.uploadService.idFire);
               }, 1500);
             }
-           
+
           },
           (error) => {
             console.log(error);
