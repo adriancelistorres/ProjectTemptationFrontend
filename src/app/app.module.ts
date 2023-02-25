@@ -62,6 +62,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { IncomeComponent } from './components/m-income/income/income.component';
 
 
 
@@ -107,7 +108,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     ProviderComponent,
     AddProviderComponent,
     DetailProviderComponent,
-    EditProviderComponent
+    EditProviderComponent,
+    IncomeComponent
 
 
   ],
