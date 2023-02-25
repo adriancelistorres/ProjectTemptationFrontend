@@ -1,0 +1,67 @@
+
+<div  class="container-sm pt-4">
+    <div class="" style="font-size: 50px">Detalle de la Compra</div>
+
+
+    <div class="agregar">
+      <button
+  
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+        class="btn btn-outline-success"
+      >
+  
+        <img class="imagen" src="./assets/img/agregar.png" alt="" />
+      </button>
+  
+    </div>
+  
+    <table class="table color">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">id</th>
+          <th scope="col" class="text-center">idicome</th>
+          <th scope="col" class="text-center">idproduct</th>
+          <th scope="col" class="text-center">precio</th>
+          <th scope="col" class="text-center">Cantidad</th>
+          <th scope="col" class="text-center">precio</th>
+          <th style="width: 10%" scope="col" class="text-center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listDetailIncome">
+          <td class="p-1 text-center">
+            0000{{ item.idincome }}
+          </td>
+          <td class="p-1 text-center">
+            {{ item.idicome }}
+          </td>
+          <td class="p-1 text-center">
+            {{ item.idproduct }}
+          </td>
+          <td class="p-1 text-center">
+            {{ item.price_buy }}
+          </td>
+          <td class="p-1 text-center">
+            {{ item.quantity }}
+          </td>
+          <td class="p-1 text-center">
+            {{ item.igv }}
+          </td>
+          <td class="p-1 text-center">
+            <button
+              data-bs-toggle="modal"
+              class="btn btn-outline-warning btn-sm"
+              
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop2"
+            >
+              <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

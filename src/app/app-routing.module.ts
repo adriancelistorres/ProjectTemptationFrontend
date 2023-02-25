@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +17,7 @@ import { ProductComponent } from './components/m-product/product/product.compone
 import { PersonComponent } from './components/m-person/person/person.component';
 import { ProviderComponent } from './components/m-provider/provider/provider.component';
 import { PaymethodComponent } from './components/m-payMethod/paymethod/paymethod.component';
+import { ComprasComponent } from './components/m-compras/compras/compras.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'rol', component: RolComponent ,canActivate:[GuardianGuard]},
   { path: 'provider', component: ProviderComponent ,canActivate:[GuardianGuard]},
   {path: 'paymethod', component: PaymethodComponent, canActivate: [GuardianGuard]},
+  {path: 'income', component: ComprasComponent, canActivate: [GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 
