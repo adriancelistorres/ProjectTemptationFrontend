@@ -1,13 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IDetailIncome } from 'src/app/interfaces/IDetailIncome';
 import { IProducts } from 'src/app/interfaces/IProduct';
 import { DetailincomeService } from 'src/app/services/detailincome.service';
 import { ProductService } from 'src/app/services/product.service';
+import { IncomeService } from 'src/app/services/income.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
-import { DetailincomeComponent } from '../detailincome/detailincome.component';
+import { IIncome } from 'src/app/interfaces/IIncome';
 
 @Component({
   selector: 'app-add-detailincome',
@@ -19,10 +20,17 @@ export class AddDetailincomeComponent {
     formDetail: FormGroup;
     listProduct: IProducts[] = [];
     selectedOption: [] = [];
+    listIncome: IIncome[] = [];
+    selectedOption2: [] = [];
+    listIncome2: IIncome[] = [];
+    id: number = 0;
+
+  
 
     constructor(
       private _detailincomeservice: DetailincomeService,
       private _producservice: ProductService,
+      private _incomeservice: IncomeService,
       private toastr: ToastrService,
       private fb: FormBuilder,
       private _errorService: ErrorService
@@ -35,11 +43,23 @@ export class AddDetailincomeComponent {
         });
     }
 
+    // obtenerElId(){
+    //   this._incomeservice.getIncome().subscribe((data: IIncome[])=>{
+    //     this.listIncome2 = data;
+    //     const firstIncome = this.listIncome2.shift();
+    //     this.id = firstIncome?.idicome || 0;
+    //     console.log(this.id);
+    //   })
+    // }
+
+
+
+
     addDetailIncome(){
       const detailincome: IDetailIncome ={
         idicome:this.formDetail.get('idicome')?.value,
         idproduc: this.formDetail.get('idproduc')?.value,
-        price_buy: this.formDetail.get('price_boy')?.value,
+        price_buy: this.formDetail.get('price_buy')?.value,
         quantity: this.formDetail.get('quantity')?.value,
         igv: 0.18
       }
@@ -53,6 +73,7 @@ export class AddDetailincomeComponent {
 
     ngOnInit(){
       this.miProduct()
+      this.miIncome()
     }
     miProduct(){
       this._producservice.getProducts().subscribe(
@@ -63,10 +84,16 @@ export class AddDetailincomeComponent {
           console.log(error)
         }
         )
-    
     }
     miIncome(){
-    
+      this._incomeservice.getIncome().subscribe(
+        (option2: any[])=>{
+          this.listIncome = option2;
+        },
+        (error: any)=>{
+          console.log(error);
+        }
+      )
     }
 
 }

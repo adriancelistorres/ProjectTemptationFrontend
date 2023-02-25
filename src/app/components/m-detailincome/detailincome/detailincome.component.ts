@@ -11,6 +11,8 @@ import { ErrorService } from 'src/app/utils/error/error.service';
 })
 export class DetailincomeComponent {
   listDetailIncome: IDetailIncome[] = [];
+  searchText: any;
+
   constructor(
     private _detailincomeService: DetailincomeService,
     private toastr: ToastrService,
@@ -30,6 +32,4 @@ export class DetailincomeComponent {
       console.log(this.listDetailIncome)
     })
   }
-  
-
 }

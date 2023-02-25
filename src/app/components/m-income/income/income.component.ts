@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IIncome } from 'src/app/interfaces/IIncome';
@@ -8,6 +8,7 @@ import { IProvider } from 'src/app/interfaces/IProvider';
 import { IncomeService } from 'src/app/services/income.service';
 import { ProviderService } from 'src/app/services/provider.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
+import { AddDetailincomeComponent } from '../../m-detailincome/add-detailincome/add-detailincome.component';
 
 @Component({
   selector: 'app-income',
@@ -20,6 +21,29 @@ export class IncomeComponent {
     listProvider: IProvider []= [];
     selectedOption: [] = [];
     fechaActual: string = new Date().toLocaleDateString();
+    mostrar : boolean = false;
+  
+
+
+  //   //Metodos para Obtener el IDprov
+  // @ViewChild(AddDetailincomeComponent) addIdprov!: AddDetailincomeComponent;
+
+
+
+  //   valorInput: string = "";
+  //   @Output() enviarValorEvent = new EventEmitter<string>();
+
+  //   enviarValor() {
+  //     this.enviarValorEvent.emit(this.formIncome.value.idprovider);
+  //     console.log(this.formIncome.value.idprovider);
+  //   }
+
+  //   addDetailIncome(id:number){
+  //     id: parseInt(this.formIncome.value.idprovider)
+  //     console.log(id)
+  //     this.addIdprov.getOneColor(id)
+  //     console.log(id)
+  //   }
     
     // fechaActual: Date  = new Date()
     
@@ -65,11 +89,20 @@ export class IncomeComponent {
         },
         (error: any) => {
           console.log(error);
-        }
+        },
       );
+      this.mostrar = false;
     }
 
-
-
+    mostrarComponente(){
+      console.log("Funciones Cosas")
+      if (this.mostrar != false) {
+        `<p>Hola</p>`
+        return this.mostrar = false;
+      }else{
+        console.log("Mostrar Cosas")
+        return this.mostrar = true;
+      } 
+    }
 }
 

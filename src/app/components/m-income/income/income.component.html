@@ -20,7 +20,7 @@
                   formIncome.get('idprovider')?.touched
                 "
               >
-                <strong style="color: orangered">El campo Rol es Requerido</strong>
+                <strong style="color: orangered">El campo Proveedor es Requerido</strong>
               </span>
             </div>
         
@@ -47,9 +47,15 @@
             </div>
           </div>
         
-          <button [disabled]="formIncome.invalid" type="submit" class="btn btn-success">
+          <button [disabled]="formIncome.invalid" (click)="mostrarComponente()" type="submit" class="btn btn-success">
             Agregar
           </button> 
     </form>
-  
 </div>
+<!-- (click)="enviarValor()"  -->
+<div *ngIf="mostrar">
+  <app-add-detailincome></app-add-detailincome>
+</div>
+
+
+

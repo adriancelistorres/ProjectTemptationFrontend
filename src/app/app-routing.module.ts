@@ -18,6 +18,8 @@ import { PersonComponent } from './components/m-person/person/person.component';
 import { ProviderComponent } from './components/m-provider/provider/provider.component';
 import { PaymethodComponent } from './components/m-payMethod/paymethod/paymethod.component';
 import { ComprasComponent } from './components/m-compras/compras/compras.component';
+import { AddDetailincomeComponent } from './components/m-detailincome/add-detailincome/add-detailincome.component';
+import { DetailincomeComponent } from './components/m-detailincome/detailincome/detailincome.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'provider', component: ProviderComponent ,canActivate:[GuardianGuard]},
   {path: 'paymethod', component: PaymethodComponent, canActivate: [GuardianGuard]},
   {path: 'income', component: ComprasComponent, canActivate: [GuardianGuard]},
+  {path:'detailincome', component: AddDetailincomeComponent,canActivate: [GuardianGuard]},
+  {path: 'detalleCompra', component: DetailincomeComponent, canActivate: [GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 

@@ -1,58 +1,48 @@
-<div class="container">
+<app-detailincome></app-detailincome>
+<div class="container mt-3">
   <form [formGroup]="formDetail" (ngSubmit)="addDetailIncome()">
     <div class="row">
         <div class="mb-3 col-md-6">
-            <label class="form-label">Nombre</label>
-            <input formControlName="name"
-            class="form-control"
-            pattern="[A-Za-z ]{1,40}"
-            id="exampleInputPassword1">
-            <span *ngIf="formDetail.get('name')?.hasError('required') && formDetail.get('name')?.touched">
-                <strong style="color:orangered">El campo Nombre es requerido</strong>
-            </span>
-            <span *ngIf="formDetail.get('name')?.hasError('pattern')">
-                <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
-            </span>
-        </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Apellido</label>
-            <input formControlName="lastname"
-            class="form-control"
-            pattern="[A-Za-z ]{1,40}"
-            id="exampleInputPassword1">
-            <span *ngIf="formDetail.get('lastname')?.hasError('required') && formDetail.get('lastname')?.touched">
-                <strong style="color:orangered">El campo Apellido es requerido</strong>
-            </span>
-            <span *ngIf="formDetail.get('lastname')?.hasError('pattern')">
-                <strong style="color:red">El campo Apellido no debe contener números/signos o más de 40 caracteres</strong>
-            </span>
-        </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Rol</label>
-            <select formControlName="idrol"
+            <label class="form-label">Productos</label>
+            <select formControlName="idproduc"
             class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption">
                 <option *ngFor="let option of listProduct" [value]="option.idproduc">
                     {{option.name_p}}
                 </option>
             </select>
             <span *ngIf="
-            formDetail.get('idrol')?.hasError('required') &&
-            formDetail.get('idrol')?.touched"
+            formDetail.get('idproduc')?.hasError('required') &&
+            formDetail.get('idproduc')?.touched"
             >
             <strong style="color:orangered" >El campo Rol es Requerido</strong>
             </span>
         </div>
         <div class="mb-3 col-md-6">
-            <label class="form-label">Dni</label>
-            <input formControlName="dni"
+            <label class="form-label">Income</label>
+            <select formControlName="idicome"
+            class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption2">
+                <option *ngFor="let option of listIncome" [value]="option.idicome">
+                    {{option.idicome}}
+                </option>
+            </select>
+            <span *ngIf="
+            formDetail.get('idicome')?.hasError('required') &&
+            formDetail.get('idicome')?.touched"
+            >
+            <strong style="color:orangered" >El campo Rol es Requerido</strong>
+            </span>
+        </div>
+        <div class="mb-3 col-md-6">
+            <label class="form-label">Precio de Compra</label>
+            <input formControlName="price_buy"
             type="number"
             class="form-control"
             pattern="[0-9]{1,8}"
             max="99999999"
             id="exampleInputPassword1">
             <span *ngIf="
-            formDetail.get('dni')?.hasError('required') &&
-            formDetail.get('dni')?.touched"
+            formDetail.get('price_buy')?.hasError('required') &&
+            formDetail.get('price_buy')?.touched"
             >
             <strong style="color:orangered" >El campo DNI es Requerido</strong>
             </span>
@@ -61,77 +51,25 @@
               </span>
         </div>
         <div class="mb-3 col-md-6">
-            <label class="form-label">Genero</label>
-            <select formControlName="gender"
-            class="form-select " id="inputState" aria-label=".form-select-lg example">
-                <option value="4" disabled>Seleccione un Genero</option>
-                <option value="masculino">masculino</option>
-                <option value="femenino">femenino</option>
-                <option value="No Definido">No Definido</option>
-            </select>
-            <span *ngIf="
-            formDetail.get('gender')?.hasError('required') &&
-            formDetail.get('gender')?.touched"
-            >
-            <strong style="color:orangered" >El campo Genero es Requerido</strong>
-            </span>
-        </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Direccion</label>
-            <input formControlName="address"
+            <label class="form-label">Cantidad</label>
+            <input formControlName="quantity"
+            type="number"
             class="form-control"
+            pattern="[0-9]{1,8}"
+            max="99999999"
             id="exampleInputPassword1">
             <span *ngIf="
-            formDetail.get('address')?.hasError('required') &&
-            formDetail.get('address')?.touched"
+            formDetail.get('quantity')?.hasError('required') &&
+            formDetail.get('quantity')?.touched"
             >
-            <strong style="color:orangered">El campo Direccion es Requerido</strong>
+            <strong style="color:orangered" >El campo DNI es Requerido</strong>
             </span>
+            <span *ngIf="formDetail.get('dni')?.hasError('pattern')">
+                <strong style="color:red">El campo DNI no puede ser mayor a 8 digitos</strong>
+              </span>
         </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Fecha de Nacimiento</label>
-            <input class="form-select " 
-            formControlName="date_b" id="inputState" 
-            type = "date" name = "date" min="1940-01-01" max="2002-12-31">
-            <span *ngIf="
-            formDetail.get('date_b')?.hasError('required') &&
-            formDetail.get('date_b')?.touched"
-            >
-            <strong style="color:orangered">El campo Fecha de Nacimiento es Requerido</strong>
-            </span>
-        </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Nombre de Usuario</label>
-            <input formControlName="username"
-            class="form-control"
-            id="exampleInputPassword1">
-            <span *ngIf="
-            formDetail.get('username')?.hasError('required') &&
-            formDetail.get('username')?.touched"
-            >
-            <strong style="color:orangered">El campo Nombre de Usuario es Requerido</strong>
-            </span>
-        </div>
-        <div class="mb-3 col-md-6">
-            <label class="form-label">Contraseña</label>
-            <input formControlName="password"
-            class="form-control"
-            id="exampleInputPassword1">
-            <span *ngIf="
-            formDetail.get('password')?.hasError('required') &&
-            formDetail.get('password')?.touched"
-            >
-            <strong style="color:orangered">El campo Contraseña es Requerido</strong>
-            </span>
-        </div>
-        <div class="modal-footer border-0 pt-4">
-            <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-            aria-label="Close"              >
-            cerrar
-          </button>
+    
+        <div>
           <button
           [disabled]="formDetail.invalid"
           type="submit"
@@ -143,5 +81,13 @@
         </div>
     </div>
 </form>
+    <button
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+    class="btn btn-outline-success"
+    >
 
+    <img class="imagen" src="./assets/img/lista.png" alt="" />
+    </button>
 </div>
+

@@ -59,9 +59,16 @@
     </li>
     <li class="nav-item">
       <a class="nav-link"> <i class="fa-solid fa-clipboard-question font" id="des"></i><br> Reclamos</a>
-    </li>  <li class="nav-item">
-      <a class="nav-link" id="des"  href="#" routerLink="/income"> <i class="fa-solid fa-bag-shopping font2"></i><br> Comprar</a>
-    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-bag-shopping font2"></i><br>
+        Compras
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" routerLink="/income">Realizar Compras</a></li>
+        <li><a class="dropdown-item" href="#" routerLink="/detalleCompra">Ver Compras</a></li>
+      </ul>
+  </li>
 
 
       </ul>
