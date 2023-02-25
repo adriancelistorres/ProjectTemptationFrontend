@@ -77,7 +77,7 @@ export class EditPersonComponent {
       dni: this.formPerson2.value.dni,
       gender: this.formPerson2.value.gender,
       address: this.formPerson2.value.address,
-      username: this.formPerson2.value.username,
+      // username: this.formPerson2.value.username,
       password: this.formPerson2.value.password,
       state: 1,
     }

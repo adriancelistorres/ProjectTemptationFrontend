@@ -67,6 +67,7 @@ aria-hidden="true">
                             type="number"
                             class="form-control"
                             pattern="[0-9]{1,8}"
+                            maxlength="8"
                             max="99999999"
                             id="exampleInputPassword1">
                             <span *ngIf="
@@ -123,6 +124,7 @@ aria-hidden="true">
                             <label class="form-label">Nombre de Usuario</label>
                             <input formControlName="username"
                             class="form-control"
+                            readonly
                             id="exampleInputPassword1">
                             <span *ngIf="
                             formPerson2.get('username')?.hasError('required') &&

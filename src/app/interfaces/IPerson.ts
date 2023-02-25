@@ -7,7 +7,7 @@ export interface IPerson{
     dni: string|any,
     gender: string|any,
     address: string|any,
-    username: string|any,
+    username?: string|any,
     password: string|any,
     state: number|any,
     key?: string|any
