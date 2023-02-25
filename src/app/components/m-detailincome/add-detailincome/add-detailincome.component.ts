@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { IDetailIncome } from 'src/app/interfaces/IDetailIncome';
+import { IProducts } from 'src/app/interfaces/IProduct';
 import { DetailincomeService } from 'src/app/services/detailincome.service';
+import { ProductService } from 'src/app/services/product.service';
 import { ErrorService } from 'src/app/utils/error/error.service';
 import { DetailincomeComponent } from '../detailincome/detailincome.component';
 
@@ -15,9 +17,12 @@ import { DetailincomeComponent } from '../detailincome/detailincome.component';
 export class AddDetailincomeComponent {
     listDetailIncome: IDetailIncome[] = [];
     formDetail: FormGroup;
+    listProduct: IProducts[] = [];
+    selectedOption: [] = [];
 
     constructor(
       private _detailincomeservice: DetailincomeService,
+      private _producservice: ProductService,
       private toastr: ToastrService,
       private fb: FormBuilder,
       private _errorService: ErrorService
@@ -46,5 +51,22 @@ export class AddDetailincomeComponent {
     })
     }
 
+    ngOnInit(){
+      this.miProduct()
+    }
+    miProduct(){
+      this._producservice.getProducts().subscribe(
+        (options: any[]) =>{
+          this.listProduct = options;
+        },
+        (error: any)=>{
+          console.log(error)
+        }
+        )
+    
+    }
+    miIncome(){
+    
+    }
 
 }
