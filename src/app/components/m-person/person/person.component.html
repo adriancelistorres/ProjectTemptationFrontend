@@ -53,8 +53,8 @@
         <thead>
             <tr>
                 <th scope="col" class="text-center">id</th>
-                <th scope="col" class="text-center">nombre de usuario</th>
-                <th scope="col" class="text-center">rol</th>
+                <th scope="col" class="text-center">nombre</th>
+                <th scope="col" class="text-center">apellido</th>
                 <th scope="col" class="text-center">state</th>
                 <th class="text-center " style="width: 10%;" scope="col"></th>
                 <th class="text-center " style="width: 10%;"  scope="col"></th>
@@ -67,13 +67,13 @@
                     0000{{item.idperson}}
                 </td>
                 <td *ngIf="item.state ==1" class="p-1 text-center">
-                    {{item.username}}
+                    {{item.name}}
                 </td>
                 <td *ngIf="item.state ==1" class="p-1 text-center">
-                    {{item.idrol}}
-                </td>
+                  {{item.lastname}}
+              </td>
                 <td *ngIf="item.state ==1" class="p-1 text-center">
-                    {{item.state}}
+                  Activo
                 </td>
                 <td *ngIf="item.state ==1" class="p-1 text-center">
                     <button
