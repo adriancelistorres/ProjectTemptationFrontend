@@ -1,1 +1,73 @@
-<p>add-detailincome works!</p>
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Agregar</h5>
+        <button
+
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formDetail" (ngSubmit)="addDetailIncome()">
+            <div class="mb-3 col-md-6">
+                <label class="form-label">Rol</label>
+                <!-- <select formControlName="idrol"
+                class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption">
+                    <option *ngFor="let option of list" [value]="option.idrol">
+                        {{option.namerol}}
+                    </option>
+                </select> -->
+                <span *ngIf="
+                formDetail.get('idrol')?.hasError('required') &&
+                formDetail.get('idrol')?.touched"
+                >
+                <strong style="color:orangered" >El campo Rol es Requerido</strong>
+                </span>
+            </div>
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input
+              formControlName="name_cat"
+              class="form-control"
+              pattern="[A-Za-z ]{1,40}"
+              id="exampleInputPassword1"
+            />
+            <span *ngIf="formDetail.get('name_cat')?.hasError('required') && formDetail.get('name_cat')?.touched">
+              <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formDetail.get('name_cat')?.hasError('pattern')">
+              <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"              >
+              cerrar
+            </button>
+            <button
+              [disabled]="formDetail.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              agregar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
