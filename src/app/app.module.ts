@@ -62,10 +62,13 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { DetailincomeComponent } from './components/m-detailincome/detailincome/detailincome.component';
 import { AddDetailincomeComponent } from './components/m-detailincome/add-detailincome/add-detailincome.component';
 import { EditDetailincomeComponent } from './components/m-detailincome/edit-detailincome/edit-detailincome.component';
 import { ComprasComponent } from './components/m-compras/compras/compras.component';
+import { IncomeComponent } from './components/m-income/income/income.component';
+
 
 
 
@@ -112,10 +115,13 @@ import { ComprasComponent } from './components/m-compras/compras/compras.compone
     AddProviderComponent,
     DetailProviderComponent,
     EditProviderComponent,
+
     DetailincomeComponent,
     AddDetailincomeComponent,
     EditDetailincomeComponent,
-    ComprasComponent
+    ComprasComponent,
+    IncomeComponent
+
 
 
   ],

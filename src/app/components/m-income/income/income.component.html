@@ -1,0 +1,55 @@
+<div class="container">
+    <form [formGroup]="formIncome" (ngSubmit)="addIncome()">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Proveedor</label>
+              <select
+                formControlName="idprovider"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption"
+              >
+                <option *ngFor="let option of listProvider" [value]="option.idprovider">
+                  {{ option.name_prov }}
+                </option>
+              </select>
+              <span
+                *ngIf="
+                  formIncome.get('idprovider')?.hasError('required') &&
+                  formIncome.get('idprovider')?.touched
+                "
+              >
+                <strong style="color: orangered">El campo Rol es Requerido</strong>
+              </span>
+            </div>
+        
+            <!-- <div class="mb-3 col-md-6">
+                <label class="form-label">Fecha de Compra</label>
+                <input class="form-select " 
+                formControlName="dateinco" id="inputState" 
+                type = "date" name = "date" min="1940-01-01" max="2002-12-31">
+                <span *ngIf="
+                formIncome.get('dateinco')?.hasError('required') &&
+                formIncome.get('dateinco')?.touched"
+                >
+                <strong style="color:orangered">El campo Fecha de Nacimiento es Requerido</strong>
+                </span>
+            </div> -->
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Fecha de la Compra</label>
+              <input
+                class="form-select"
+                [value]="fechaActual"
+                readonly
+              />
+
+            </div>
+          </div>
+        
+          <button [disabled]="formIncome.invalid" type="submit" class="btn btn-success">
+            Agregar
+          </button> 
+    </form>
+  
+</div>
