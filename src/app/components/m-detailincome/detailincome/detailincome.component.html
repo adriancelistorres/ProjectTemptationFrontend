@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-
+<app-edit-detailincome></app-edit-detailincome>
 
 <div  class="container-sm pt-4">
   <div class="" style="font-size: 50px">Lista de Compras</div>
@@ -7,26 +7,11 @@
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Buscar  ">
   </div>
 
-
-
-  <div class="agregar">
-    <button
-
-      data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
-      class="btn btn-outline-success"
-    >
-
-      <img class="imagen" src="./assets/img/agregar.png" alt="" />
-    </button>
-
-  </div>
-
   <table class="table color">
     <thead>
       <tr>
         <th scope="col" class="text-center">Id cabecera</th>
-        <th scope="col" class="text-center">Id de compra</th>
+        <th scope="col" class="text-center">Id detalle compra</th>
         <th scope="col" class="text-center">Id producto</th>
         <th scope="col" class="text-center">Precio</th>
         <th scope="col" class="text-center">Cantidad</th>
@@ -56,6 +41,7 @@
             data-bs-toggle="modal"
             class="btn btn-outline-warning btn-sm"
             data-bs-toggle="modal"
+            (click)="edit(item.idincome)"
             data-bs-target="#staticBackdrop2"
           >
             <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>

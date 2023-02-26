@@ -1,1 +1,114 @@
-<p>edit-detailincome works!</p>
+<div 
+class="modal fade"
+id="staticBackdrop2"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop2"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop2">Editar</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="container mt-3">
+                    <form [formGroup]="formDetailIncome" (ngSubmit)="updateDetailIncome()">
+                      <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Precio de Compra</label>
+                            <input formControlName="idicome"
+                            readonly
+                            type="number"
+                            class="form-control"
+                            pattern="[0-9]+(\.[0-9]{1,2})?"
+                            max="99999999"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formDetailIncome.get('idicome')?.hasError('required') &&
+                            formDetailIncome.get('idicome')?.touched"
+                            >
+                            <strong style="color:orangered" >El campo idicome es Requerido</strong>
+                            </span>
+                            <span *ngIf="formDetailIncome.get('idicome')?.hasError('pattern')">
+                                <strong style="color:red">El campo idicome no puede ser mayor a 8 digitos</strong>
+                              </span>
+                        </div>
+
+                          <div class="mb-3 col-md-6">
+                              <label class="form-label">Productos</label>
+                              <select formControlName="idproduc"
+                              class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption">
+                                  <option *ngFor="let option of listProduct" [value]="option.idproduc">
+                                      {{option.name_p}}
+                                  </option>
+                              </select>
+                              <span *ngIf="
+                              formDetailIncome.get('idproduc')?.hasError('required') &&
+                              formDetailIncome.get('idproduc')?.touched"
+                              >
+                              <strong style="color:orangered" >El campo Productos es Requerido</strong>
+                              </span>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label">Precio de Compra</label>
+                            <input formControlName="price_buy"
+                            type="number"
+                            class="form-control"
+                            pattern="[0-9]+(\.[0-9]{1,2})?"
+                            max="99999999"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formDetailIncome.get('price_buy')?.hasError('required') &&
+                            formDetailIncome.get('price_buy')?.touched"
+                            >
+                            <strong style="color:orangered" >El campo Precio de Compra buy es Requerido</strong>
+                            </span>
+                            <span *ngIf="formDetailIncome.get('price_buy')?.hasError('pattern')">
+                                <strong style="color:red">El campo Precio de Compra no puede ser mayor a 8 digitos</strong>
+                              </span>
+                        </div>
+                          <div class="mb-3 col-md-6">
+                              <label class="form-label">Cantidad</label>
+                              <input formControlName="quantity"
+                              type="number"
+                              class="form-control"
+                              pattern="[0-9]{1,8}"
+                              max="99999999"
+                              id="exampleInputPassword1">
+                              <span *ngIf="
+                              formDetailIncome.get('quantity')?.hasError('required') &&
+                              formDetailIncome.get('quantity')?.touched"
+                              >
+                              <strong style="color:orangered" >El campo Cantidad es Requerido</strong>
+                              </span>
+                              <span *ngIf="formDetailIncome.get('quantity')?.hasError('pattern')">
+                                  <strong style="color:red">El campo Cantidad no puede ser mayor a 8 digitos</strong>
+                                </span>
+                          </div>
+                      
+                          <div>
+                            <button
+                            [disabled]="formDetailIncome.invalid"
+                            type="submit"
+                            class="btn btn-success"
+                          >
+                            agregar
+                          </button>
+                  
+                          </div>
+                      </div>
+                  </form>
+                  </div>    
+            </div>
+        </div>
+    </div>
+</div>
+

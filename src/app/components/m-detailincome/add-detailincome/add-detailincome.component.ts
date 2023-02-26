@@ -22,8 +22,8 @@ export class AddDetailincomeComponent {
     selectedOption: [] = [];
     listIncome: IIncome[] = [];
     selectedOption2: [] = [];
-    listIncome2: IIncome[] = [];
-    id: number = 0;
+    // listIncome2: IIncome[] = [];
+    // id: number = 0;
 
   
 
