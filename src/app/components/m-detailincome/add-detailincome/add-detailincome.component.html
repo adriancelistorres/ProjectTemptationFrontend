@@ -14,11 +14,11 @@
             formDetail.get('idproduc')?.hasError('required') &&
             formDetail.get('idproduc')?.touched"
             >
-            <strong style="color:orangered" >El campo Rol es Requerido</strong>
+            <strong style="color:orangered" >El campo Producto es Requerido</strong>
             </span>
         </div>
         <div class="mb-3 col-md-6">
-            <label class="form-label">Income</label>
+            <label class="form-label">Cabecera de Compra</label>
             <select formControlName="idicome"
             class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption2">
                 <option *ngFor="let option of listIncome" [value]="option.idicome">
@@ -29,7 +29,7 @@
             formDetail.get('idicome')?.hasError('required') &&
             formDetail.get('idicome')?.touched"
             >
-            <strong style="color:orangered" >El campo Rol es Requerido</strong>
+            <strong style="color:orangered" >El campo Cabecera de Compra es Requerido</strong>
             </span>
         </div>
         <div class="mb-3 col-md-6">
@@ -37,17 +37,17 @@
             <input formControlName="price_buy"
             type="number"
             class="form-control"
-            pattern="[0-9]{1,8}"
+            pattern="[0-9]+(.[0-9]{1,2})?"
             max="99999999"
             id="exampleInputPassword1">
             <span *ngIf="
             formDetail.get('price_buy')?.hasError('required') &&
             formDetail.get('price_buy')?.touched"
             >
-            <strong style="color:orangered" >El campo DNI es Requerido</strong>
+            <strong style="color:orangered" >El campo Precio es Requerido</strong>
             </span>
             <span *ngIf="formDetail.get('dni')?.hasError('pattern')">
-                <strong style="color:red">El campo DNI no puede ser mayor a 8 digitos</strong>
+                <strong style="color:red">El campo Precio no puede ser mayor a 8 digitos</strong>
               </span>
         </div>
         <div class="mb-3 col-md-6">
@@ -62,10 +62,10 @@
             formDetail.get('quantity')?.hasError('required') &&
             formDetail.get('quantity')?.touched"
             >
-            <strong style="color:orangered" >El campo DNI es Requerido</strong>
+            <strong style="color:orangered" >El campo Cantidad es Requerido</strong>
             </span>
             <span *ngIf="formDetail.get('dni')?.hasError('pattern')">
-                <strong style="color:red">El campo DNI no puede ser mayor a 8 digitos</strong>
+                <strong style="color:red">El campo Cantidad no puede ser mayor a 8 digitos</strong>
               </span>
         </div>
     
