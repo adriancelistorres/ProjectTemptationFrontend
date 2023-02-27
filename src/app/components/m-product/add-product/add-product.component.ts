@@ -37,12 +37,9 @@ export class AddProductComponent {
   listColor: IColor[] = [];
   selectedOption: [] = [];
   selectedOption1: [] = [];
-  selectedOption2: [] =[];
-  selectedOption3: [] =[];
-  selectedOption4: [] =[];
-
-
-
+  selectedOption2: [] = [];
+  selectedOption3: [] = [];
+  selectedOption4: [] = [];
 
   constructor(
     private _productService: ProductService,
@@ -54,8 +51,7 @@ export class AddProductComponent {
     private _sizeService: SizeService,
     private _styleService: StylesService,
     private _brandService: BrandService,
-    private _colorService: ColorService,
-
+    private _colorService: ColorService
   ) {
     this.formProduct = this.fb.group({
       idcat: ['', Validators.required],
@@ -74,11 +70,11 @@ export class AddProductComponent {
   }
 
   ngOnInit() {
-    this.miCategoria()
-    this.miBrand()
-    this.miColor()
-    this.miStyle()
-    this.miSize()
+    this.miCategoria();
+    this.miBrand();
+    this.miColor();
+    this.miStyle();
+    this.miSize();
   }
   // ngOnDestroy(){
   //   this.miCategoria()
@@ -86,63 +82,60 @@ export class AddProductComponent {
 
   // }
 
-  miCategoria(){
+  miCategoria() {
     this._categoriService.getCategory().subscribe(
       (options: any[]) => {
         this.listCategory = options;
-      
       },
       (error: any) => {
         console.log(error);
       }
-    )
+    );
   }
 
-  miBrand(){
+  miBrand() {
     this._brandService.getBrands().subscribe(
-      (option2: any[]) =>{
-        this.listBrand = option2
+      (option2: any[]) => {
+        this.listBrand = option2;
       },
-      (error: any) =>{
+      (error: any) => {
         console.log(error);
       }
-    )
+    );
   }
 
-  miColor(){
+  miColor() {
     this._colorService.getColors().subscribe(
-      (option3: any[]) =>{
-        this.listColor = option3
+      (option3: any[]) => {
+        this.listColor = option3;
       },
-      (error: any) =>{
+      (error: any) => {
         console.log(error);
       }
-    )
+    );
   }
 
-  miStyle(){
+  miStyle() {
     this._styleService.getStyles().subscribe(
-      (option4: any[]) =>{
-        this.listStyle = option4
+      (option4: any[]) => {
+        this.listStyle = option4;
       },
-      (error: any) =>{
+      (error: any) => {
         console.log(error);
       }
-    )
+    );
   }
 
-  miSize(){
+  miSize() {
     this._sizeService.getSize().subscribe(
-      (option5: any[]) =>{
-        this.listSize = option5
+      (option5: any[]) => {
+        this.listSize = option5;
       },
-      (error: any) =>{
+      (error: any) => {
         console.log(error);
       }
-    )
+    );
   }
-
-
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
@@ -154,17 +147,17 @@ export class AddProductComponent {
 
       if (file) {
         this.currentFileUpload = new FileUpload(file);
-
         this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
           (percentage) => {
             this.percentage = Math.round(percentage ? percentage : 0);
-
             console.log('PERCENTAGE', this.percentage);
-
             if (this.percentage == 100) {
               console.log('ID_KEY_POLLO_1', this.uploadService.idFire);
               setTimeout(() => {
                 console.log('ID_KEY_POLLO_2', this.uploadService.idFire);
+                console.log('ID_KEY_POLLO_3_URL', this.uploadService.urlFire);
+
+                this.addProducts()
               }, 1500);
             }
           },
@@ -177,29 +170,30 @@ export class AddProductComponent {
   }
 
   addProducts() {
-    const product: IProducts = {
-      idcat: this.formProduct.get('idcat')?.value,
-      idsize: this.formProduct.get('idsize')?.value,
-      idstyles: this.formProduct.get('idstyles')?.value,
-      idbrand: this.formProduct.get('idbrand')?.value,
-      idcolor: this.formProduct.get('idcolor')?.value,
-      name_p: this.formProduct.get('name_p')?.value,
-      description: this.formProduct.get('description')?.value,
-      price: this.formProduct.get('price')?.value,
-      stock: this.formProduct.get('stock')?.value,
-      image_front:this.uploadService.idFire,
-      image_back:this.uploadService.idFire,
-      image_using:this.uploadService.idFire,
-      state: 1,
-    };
-    this._productService.addProduct(product).subscribe({
-      next: () => {
-        // console.log(JSON.stringify());
-        this.toastr.success('La marca se agrego correctamente');
-      },
-      error: (e: HttpErrorResponse) => {
-        this._errorService.msjError(e);
-      },
-    });
+      const product: IProducts = {
+        idcat: this.formProduct.get('idcat')?.value,
+        idsize: this.formProduct.get('idsize')?.value,
+        idstyles: this.formProduct.get('idstyles')?.value,
+        idbrand: this.formProduct.get('idbrand')?.value,
+        idcolor: this.formProduct.get('idcolor')?.value,
+        name_p: this.formProduct.get('name_p')?.value,
+        description: this.formProduct.get('description')?.value,
+        price: this.formProduct.get('price')?.value,
+        stock: this.formProduct.get('stock')?.value,
+        image_front: this.uploadService.idFire,
+        image_back: this.uploadService.idFire,
+        image_using: this.uploadService.urlFire,
+        state: 1,
+      };
+      this._productService.addProduct(product).subscribe({
+        next: () => {
+          console.log('SI SE AGREGO O NO', this.uploadService.urlFire);
+          this.toastr.success('La marca se agrego correctamente');
+        },
+        error: (e: HttpErrorResponse) => {
+          this._errorService.msjError(e);
+        },
+      });
+
   }
 }

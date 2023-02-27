@@ -13,6 +13,8 @@ import { Observable, finalize } from 'rxjs';
 export class FileUploadService {
   private basePath = '/uploads';
   idFire: string|null = '';
+  urlFire: string|null = '';
+
 
   constructor(
     private db: AngularFireDatabase,
@@ -33,6 +35,7 @@ export class FileUploadService {
           storageRef.getDownloadURL().subscribe((downloadURL) => {
             fileUpload.url = downloadURL;
             fileUpload.name = fileUpload.file.name;
+            console.log('LA URL',this.urlFire=downloadURL);
             this.saveFileData(fileUpload);
           });
         })
@@ -45,6 +48,7 @@ export class FileUploadService {
   private saveFileData(fileUpload: FileUpload): void {
     this.db.list(this.basePath).push(fileUpload).then((res) => {
       console.log('resultado', res.key);
+
       this.idFire = res.key;
     });
   }
