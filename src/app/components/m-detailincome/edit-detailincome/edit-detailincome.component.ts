@@ -66,7 +66,7 @@ export class EditDetailincomeComponent {
         quantity: this.formDetailIncome.value.quantity,
         igv: 0.18
       }
-      detail.idicome = this.id;
+      detail.idincome = this.id;
       console.log(detail)
       this._detailincomeService.updateDetailIncome(this.id, detail).subscribe({next: () =>{
         this.toastr.success('El detalle de Compra se Actualizo Correctamente')
