@@ -17,7 +17,7 @@
 
 </div>
 <div class="container-lg">
-  <table >
+  <!-- <table >
     <thead>
       <tr>
         <th scope="col" class="text-center">id</th>
@@ -37,13 +37,63 @@
           <img  style="width: 50px;height: 50px;"  src="{{ file.url }}" alt="">
         </td>
         <td class="p-1 text-center">
-          <!-- <a href="{{ file.url }}"></a> -->
           <button
             (click)="deleteFileUpload(file)"
             class="btn btn-danger btn-sm"
             style="float: right"
           >
             Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+</div>
+
+<div class="container">
+  <table class="table color">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">id</th>
+        <th scope="col" class="text-center">nombre</th>
+        <th scope="col" class="text-center">description</th>
+        <th scope="col" class="text-center">imagen</th>
+        <th style="width: 10%" scope="col" class="text-center"></th>
+        <th style="width: 10%" scope="col" class="text-center"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listProducts | filter:searchText">
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          0000{{ item.idproduc }}
+        </td>
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          {{ item.name_p }}
+        </td>
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          {{ item.description }}
+
+        </td>
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          <img  style="width: 50px;height: 50px;"  src="{{ item.image_using }}" alt="">
+
+        </td>
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          <button
+            data-bs-toggle="modal"
+            class="btn btn-outline-warning btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop2"
+          >
+            <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+          </button>
+        </td>
+        <td *ngIf="item.state == 1" class="p-1 text-center">
+          <button
+          (click)="deleteRol(item.idproduc)"
+            class="btn btn-outline-danger btn-sm"
+          >
+            <img class="imagen" src="./assets/img/eliminar.png" alt="" />
           </button>
         </td>
       </tr>

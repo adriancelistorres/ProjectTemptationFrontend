@@ -10,8 +10,8 @@ export interface IProducts {
   description: string|any|undefined,
   price: number|any|undefined,
   stock: number|any|undefined,
-  image_front: number|any|undefined,
-  image_back: number|any|undefined,
-  image_using: number|any|undefined,
+  image_front: string|any|undefined,
+  image_back: string|any|undefined,
+  image_using: string|any|undefined,
   state: number|any|undefined
 }
