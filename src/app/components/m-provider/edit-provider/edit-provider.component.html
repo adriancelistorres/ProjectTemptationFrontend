@@ -134,7 +134,7 @@ aria-hidden="true">
                           type="submit"
                           class="btn btn-success"
                         >
-                          agregar
+                          Editar
                         </button>
 
                         </div>
@@ -173,6 +173,7 @@ aria-hidden="true">
                         <label class="form-label">Nombre Proveedor</label>
                         <input formControlName="name_prov"
                         class="form-control"
+                        readonly
                         id="exampleInputPassword1">
                         <span *ngIf="
                         formProvider2.get('name_prov')?.hasError('required') &&
@@ -184,6 +185,7 @@ aria-hidden="true">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">RUC</label>
                         <input formControlName="ruc"
+                        readonly
                         class="form-control"
                         id="exampleInputPassword1">
                         <span *ngIf="
@@ -196,6 +198,7 @@ aria-hidden="true">
                     <div class="mb-3 col-md-6">
                       <label class="form-label">Nombre Compañia Proveedor</label>
                       <input formControlName="company_name"
+                      readonly
                       class="form-control"
                       id="exampleInputPassword1">
                       <span *ngIf="
@@ -208,6 +211,7 @@ aria-hidden="true">
                   <div class="mb-3 col-md-6">
                       <label class="form-label">Celular</label>
                       <input formControlName="phone"
+                      readonly
                       class="form-control"
                       id="exampleInputPassword1">
                       <span *ngIf="
@@ -220,6 +224,7 @@ aria-hidden="true">
                   <div class="mb-3 col-md-6">
                       <label class="form-label">Correo</label>
                       <input formControlName="email"
+                      readonly
                       class="form-control"
                       id="exampleInputPassword1">
                       <span *ngIf="
@@ -233,6 +238,7 @@ aria-hidden="true">
                       <label class="form-label">Descripcion</label>
                       <input formControlName="description"
                       class="form-control"
+                      readonly
                       id="exampleInputPassword1">
                       <span *ngIf="
                       formProvider2.get('description')?.hasError('required') &&
@@ -244,6 +250,7 @@ aria-hidden="true">
                   <div class="mb-3 col-md-6">
                       <label class="form-label">Direccion</label>
                       <input formControlName="address"
+                      readonly
                       class="form-control"
                       id="exampleInputPassword1">
                       <span *ngIf="
