@@ -20,9 +20,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listDetailIncome | filter:searchText">
+      <tr *ngFor="let item of listDetailIncome | pipes:searchText">
         <td class="p-1 text-center">
-          0000{{ item.idicome.toString() }}
+          0000{{ item.idicome}}
         </td>
         <td  class="p-1 text-center">
           0000{{ item.idincome }}

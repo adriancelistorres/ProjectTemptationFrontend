@@ -13,6 +13,7 @@ import { EditDetailincomeComponent } from '../edit-detailincome/edit-detailincom
 export class DetailincomeComponent {
   listDetailIncome: IDetailIncome[] = [];
   searchText: any;
+  ColumnB:any="idicome";
 
 
   @ViewChild(EditDetailincomeComponent) editview!: EditDetailincomeComponent;
