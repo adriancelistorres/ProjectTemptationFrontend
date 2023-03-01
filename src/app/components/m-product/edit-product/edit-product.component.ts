@@ -74,14 +74,7 @@ export class EditProductComponent {
       this.getProducts();
     });
   }
-
-  getProducts() {
-    this._productService.getProducts().subscribe((data: IProducts[]) => {
-      this.listProducts = data;
-    });
-  }
-
-  ngOnInit() {
+ngOnInit() {
     this.miCategoria();
     this.miBrand();
     this.miColor();
@@ -93,6 +86,13 @@ export class EditProductComponent {
   //   this.miBrand()
 
   // }
+  getProducts() {
+    this._productService.getProducts().subscribe((data: IProducts[]) => {
+      this.listProducts = data;
+    });
+  }
+
+
 
   miCategoria() {
     this._categoriService.getCategory().subscribe(
