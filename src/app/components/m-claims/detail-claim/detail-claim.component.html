@@ -1,0 +1,62 @@
+<div
+  class="modal fade"
+  id="ModalDetalle"
+  data-backdrop="false"
+  aria-labelledby="ModalDetalle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="staticBackdropLabel" >Detalles de Reclamo</h5>
+        <button
+
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table color">
+          <thead>
+              <tr>
+                  <th scope="col" class="text-center">Id Reclamo</th>
+                  <th scope="col" class="text-center">Id Orden</th>
+                  <th scope="col" class="text-center">Asunto</th>
+                  <th scope="col" class="text-center">descripcion</th>
+                  <th scope="col" class="text-center">Fecha de Reclamo</th>
+                  <th scope="col" class="text-center">state</th>
+              </tr>
+          </thead>
+          <tbody  *ngIf="selectClaim">
+              <tr>
+                  <td  class="p-1 text-center">
+                    0000{{selectClaim.idclaims}}
+                  </td>
+                  <td  class="p-1 text-center">
+                      {{selectClaim.idorder}}
+                  </td>    
+                  <td  class="p-1 text-center">
+                      {{selectClaim.subject}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectClaim.descripcion}}
+                  </td>
+              
+                  <td class="p-1 text-center">
+                      {{selectClaim.date}}
+                  </td>
+                  <td  class="p-1 text-center">
+                    {{selectClaim.state}}
+                  </td> 
+              </tr>
+          </tbody>
+  
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

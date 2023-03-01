@@ -20,6 +20,9 @@ import { PaymethodComponent } from './components/m-payMethod/paymethod/paymethod
 import { ComprasComponent } from './components/m-compras/compras/compras.component';
 import { AddDetailincomeComponent } from './components/m-detailincome/add-detailincome/add-detailincome.component';
 import { DetailincomeComponent } from './components/m-detailincome/detailincome/detailincome.component';
+import {ClaimsComponent} from './components/m-claims/claims/claims.component'
+
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -39,6 +42,7 @@ const routes: Routes = [
   {path: 'income', component: ComprasComponent, canActivate: [GuardianGuard]},
   {path:'detailincome', component: AddDetailincomeComponent,canActivate: [GuardianGuard]},
   {path: 'detalleCompra', component: DetailincomeComponent, canActivate: [GuardianGuard]},
+  {path: 'reclamo', component: ClaimsComponent, canActivate: [GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 

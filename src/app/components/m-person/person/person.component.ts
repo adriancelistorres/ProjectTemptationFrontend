@@ -17,8 +17,8 @@ import { EditPersonComponent } from '../edit-person/edit-person.component';
 export class PersonComponent  implements OnInit{
   listPerson: IPerson[] =[];
   searchText: any;
-  selectPerson: IPerson[] | any
-  listPersonOne: IPerson[] = [];
+  // selectPerson: IPerson[] | any
+  // listPersonOne: IPerson[] = [];
   constructor(
     private _personService: PersonService,
     private toastr: ToastrService,

@@ -1,0 +1,145 @@
+<app-navbar></app-navbar>
+<app-detail-claim></app-detail-claim>
+<app-acept-claim></app-acept-claim>
+
+<div class="container-sm">
+    <div class="texto">Reclamos</div>
+    <div class="search-name pt-3 pb-3">
+        <input type="text" class="form-control"name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar ">
+    </div>
+    <div class="container mb-2">
+      <div class="row ">
+        <div class="col-md-2">
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+            Reclamos Aprobados
+            </button>
+            <ul class="dropdown-menu">
+              <table> 
+              <tbody>
+                <tr *ngFor="let item of listClaim | pipev2:searchText">
+                  <td *ngIf="item.state == 2" class="p-1 text-center">
+                    0000{{ item.idclaims }}
+                  </td>
+                  <td *ngIf="item.state == 2" class="p-1 text-center">
+                    0000{{ item.idorder }}
+                  </td>
+                  <td *ngIf="item.state == 2" class="p-1 text-center">
+                    {{ item.subject }}
+                  </td>
+                  <td *ngIf="item.state == 2" class="p-1 text-center">
+                    Aprobado
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+            Reclamos Rechazados
+            </button>
+            <ul class="dropdown-menu">
+              <tbody>
+                <tr *ngFor="let item of listClaim | filter:searchText">
+                  <td *ngIf="item.state == 0" class="p-1 text-center">
+                    0000{{ item.idclaims }}
+                  </td>
+                  <td *ngIf="item.state == 0" class="p-1 text-center">
+                    0000{{ item.idorder }}
+                  </td>
+                  <td *ngIf="item.state == 0" class="p-1 text-center">
+                    {{ item.subject }}
+                  </td>
+                  <td *ngIf="item.state == 0" class="p-1 text-center">
+                    Rechazado
+                  </td>
+                </tr>
+              </tbody>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table color">
+        <thead>
+            <tr>
+                <th scope="col" class="text-center">id Reclamo</th>
+                <th scope="col" class="text-center">Id Orden</th>
+                <th scope="col" class="text-center">Asunto</th>
+                <th scope="col" class="text-center">Estado</th>
+                <th class="text-center " style="width: 10%;" scope="col"></th>
+                <th class="text-center " style="width: 10%;"  scope="col"></th>
+                <th class="text-center " style="width: 10%;"  scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listClaim | pipev2: searchText">
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    0000{{item.idclaims}}
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    0000{{item.idorder}}
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                  {{item.subject}}
+              </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                  En espera
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    <button
+                    data-bs-target="modal"
+                    class="btn btn-outline-warning btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#ModalDetalle"
+                    (click)="GetOneClaim(item.idclaims)"
+
+                     >
+                    <a> <img src="./assets/img/lupa.png" class="imagen"></a>
+                    </button>
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center">
+                    <button
+                        data-bs-target="modal"
+                        class="btn btn-outline-success btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop3"
+                        (click)="acept(item.idclaims)"
+   
+                    >
+                    <a> <img src="./assets/img/check.png" class="imagen"></a>
+                    </button>
+                </td>
+                <td *ngIf="item.state ==1" class="p-1 text-center"> 
+                    <button
+                    (click)="deleteClaim(item.idclaims)"
+                    class="btn btn-outline-danger btn-sm">
+                        <img class="imagen" src="./assets/img/elim2.png" alt="">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

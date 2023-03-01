@@ -1,0 +1,96 @@
+<div 
+class="modal fade"
+id="staticBackdrop3"
+data-backdrop = "false"
+aria-labelledby="staticBackdrop3"
+aria-hidden="true">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-tittle" id="staticBackdrop3">Aceptar Reclamo</h5>
+                <button
+
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formClaim2" (ngSubmit)="updateClaim()">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Id Orden</label>
+                            <input readonly formControlName="idorder"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formClaim2.get('idorder')?.hasError('required') &&
+                            formClaim2.get('idorder')?.touched"
+                            >
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Asunto</label>
+                            <input readonly formControlName="subject"
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formClaim2.get('subject')?.hasError('required') &&
+                            formClaim2.get('subject')?.touched"
+                            >
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Descripcion</label>
+                            <textarea class="form-control txa" readonly formControlName="descripcion"
+                            ></textarea>
+                            <span *ngIf="
+                            formClaim2.get('descripcion')?.hasError('required') &&
+                            formClaim2.get('descripcion')?.touched"
+                            >
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Fecha de Reclamo</label>
+                            <input formControlName="date" readonly
+                            class="form-control"
+                            id="exampleInputPassword1">
+                            <span *ngIf="
+                            formClaim2.get('date')?.hasError('required') &&
+                            formClaim2.get('date')?.touched"
+                            >
+                            </span>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">state</label>
+                                  <input
+                                    disabled
+                                    class="form-control"
+                                    id="exampleInputPassword1"
+                                    value="En Espera"
+                                  />
+                          </div>
+                        <div class="modal-footer border-0 pt-4">
+                            <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"              >
+                            cerrar
+                          </button>
+                          <button
+                          type="submit"
+                          class="btn btn-success"
+                        >
+                          Aprobar Reclamo
+                        </button>
+    
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

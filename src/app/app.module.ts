@@ -68,6 +68,10 @@ import { AddDetailincomeComponent } from './components/m-detailincome/add-detail
 import { EditDetailincomeComponent } from './components/m-detailincome/edit-detailincome/edit-detailincome.component';
 import { ComprasComponent } from './components/m-compras/compras/compras.component';
 import { IncomeComponent } from './components/m-income/income/income.component';
+import { ClaimsComponent } from './components/m-claims/claims/claims.component';
+import { DetailClaimComponent } from './components/m-claims/detail-claim/detail-claim.component';
+import { AceptClaimComponent } from './components/m-claims/acept-claim/acept-claim.component';
+import { Pipev2Pipe } from './shared/pipes/pipev2.pipe';
 
 
 
@@ -120,7 +124,11 @@ import { IncomeComponent } from './components/m-income/income/income.component';
     AddDetailincomeComponent,
     EditDetailincomeComponent,
     ComprasComponent,
-    IncomeComponent
+    IncomeComponent,
+    ClaimsComponent,
+    DetailClaimComponent,
+    AceptClaimComponent,
+    Pipev2Pipe
 
 
 
