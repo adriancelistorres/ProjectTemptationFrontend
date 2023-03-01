@@ -67,6 +67,12 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  edit(id: number) {
+    this.addview.getOneProduct(id);
+    console.log(id)
+  }
+
+
   deleteFileUpload(fileUpload: FileUpload): void {
     this.uploadService.deleteFile(fileUpload);
   }

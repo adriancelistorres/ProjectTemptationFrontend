@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <app-add-product></app-add-product>
+<app-edit-product></app-edit-product>
 <div  class="container-sm pt-4">
 <div class="" style="font-size: 50px">Productos</div>
 <div class="search-name pt-3 pb-3">
@@ -80,6 +81,8 @@
         </td>
         <td *ngIf="item.state == 1" class="p-1 text-center">
           <button
+          (click)="edit(item.idproduc)"
+
             data-bs-toggle="modal"
             class="btn btn-outline-warning btn-sm"
             data-bs-toggle="modal"

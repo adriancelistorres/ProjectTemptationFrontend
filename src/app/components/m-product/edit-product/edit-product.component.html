@@ -1,1 +1,329 @@
-<p>edit-product works!</p>
+<div
+  class="modal fade"
+  id="staticBackdrop2"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formProduct2" (ngSubmit)="updateProduct()">
+          <div class="row">
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Nombre</label>
+              <input
+                formControlName="name_p"
+                class="form-control"
+                pattern="[A-Za-z ]{1,40}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct2.get('name_p')?.hasError('required') && formProduct2.get('name_p')?.touched">
+                <strong style="color:orangered">El campo Nombre es requerido</strong>
+            </span>
+            <span *ngIf="formProduct2.get('name_p')?.hasError('pattern')">
+                <strong style="color:red">El campo Nombre no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Categoria</label>
+              <select
+                formControlName="idcat"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption"
+              >
+                <option
+                  *ngFor="let item of listCategory"
+                  [value]="item.idcat"
+                >
+                  {{ item.name_cat }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct2.get('idcat')?.hasError('required') &&
+              formProduct2.get('idcat')?.touched"
+              >
+              <strong style="color:orangered" >El campo Categoria es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">talla</label>
+              <select
+                formControlName="idsize"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption1"
+              >
+                <option
+                  *ngFor="let option of listSize"
+                  [value]="option.idsize"
+                >
+                  {{ option.name_size }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct2.get('idsize')?.hasError('required') &&
+              formProduct2.get('idsize')?.touched"
+              >
+              <strong style="color:orangered" >El campo Talla es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Estilo</label>
+              <select
+                formControlName="idstyles"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption2"
+              >
+                <option
+                  *ngFor="let option of listStyle"
+                  [value]="option.idstyles"
+                >
+                  {{ option.name_sty }}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct2.get('idstyles')?.hasError('required') &&
+              formProduct2.get('idstyles')?.touched"
+              >
+              <strong style="color:orangered" >El campo Estilo es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Marca</label>
+              <select
+                formControlName="idbrand"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption3"
+              >
+                <option
+                  *ngFor="let item of listBrand"
+                  [value]="item.idbrand"
+                >
+                  {{ item.name_brand}}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct2.get('idbrand')?.hasError('required') &&
+              formProduct2.get('idbrand')?.touched"
+              >
+              <strong style="color:orangered" >El campo Marca es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Color</label>
+              <select
+                formControlName="idcolor"
+                class="form-select"
+                id="inputState"
+                aria-label=".form-select-lg example"
+                [(ngModel)]="selectedOption4"
+              >
+                <option
+                  *ngFor="let item of listColor"
+                  [value]="item.idcolor"
+                >
+                  {{ item.name_col}}
+                </option>
+              </select>
+              <span *ngIf="
+              formProduct2.get('idcolor')?.hasError('required') &&
+              formProduct2.get('idcolor')?.touched"
+              >
+              <strong style="color:orangered" >El campo Color es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Descripcion</label>
+              <input
+                formControlName="description"
+                class="form-control"
+                pattern="[A-Za-z ]{1,50}"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="formProduct2.get('description')?.hasError('required') && formProduct2.get('description')?.touched">
+                <strong style="color:orangered">El campo Descripcion es requerido</strong>
+            </span>
+            <span *ngIf="formProduct2.get('description')?.hasError('pattern')">
+                <strong style="color:red">El campo Descripcion no debe contener números/signos o más de 40 caracteres</strong>
+            </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Precio</label>
+              <input
+                formControlName="price"
+                class="form-control"
+                type="number"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="
+              formProduct2.get('price')?.hasError('required') &&
+              formProduct2.get('price')?.touched"
+              >
+              <strong style="color:orangered" >El campo Precio es Requerido</strong>
+              </span>
+            </div>
+            <div class="mb-3 col-md-6">
+              <label class="form-label">Stock</label>
+              <input
+                formControlName="stock"
+                class="form-control"
+                type="number"
+                id="exampleInputPassword1"
+              />
+              <span *ngIf="
+              formProduct2.get('stock')?.hasError('required') &&
+              formProduct2.get('stock')?.touched"
+              >
+              <strong style="color:orangered" >El campo Stock es Requerido</strong>
+              </span>
+
+            </div>
+
+
+
+            <div>
+              <div class="row mb-5">
+                <div class="col-12">
+                  <label>
+                    <input
+                      type="file"
+                      class="text-nowrap text-truncate"
+                      (change)="selectFile($event)"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="currentFileUpload" class="progress mt-2">
+                <div
+                  class="progress-bar progress-bar-info"
+                  role="progressbar"
+                  attr.aria-valuenow="{{ percentage }}"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  [ngStyle]="{ width: percentage + '%' }"
+                >
+                  {{ percentage }}%
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer border-0 pt-4">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                cerrar
+              </button>
+              <button
+                [disabled]="!selectedFiles"
+                [disabled]="formProduct2.invalid"
+                (click)="upload()"
+                type="submit"
+                class="btn btn-success"
+              >
+                agregar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div
+  class="modal fade"
+  id="staticBackdrop3"
+  data-backdrop="false"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Activar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formBrand2" (ngSubmit)="updateBrand()">
+          <div class="mb-3">
+            <label class="form-label">nombre</label>
+            <input
+               readonly
+              formControlName="name_brand"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <span
+              *ngIf="
+                formBrand2.get('name_brand')?.hasError('required') &&
+                formBrand2.get('name_brand')?.touched
+              "
+              ><strong>El campo nombre es requerido</strong></span
+            >
+          </div>
+          <div class="mb-3">
+            <label class="form-label">state</label>
+                  <input
+                    disabled
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    value="Desactivado"
+                  />
+                  <span
+                    *ngIf="
+                        formBrand2.get('state')?.hasError('required') &&
+                        formBrand2.get('name_brand')?.touched
+                    "
+                  >
+                    <strong>El campo estado es requerido</strong></span
+                  >
+          </div>
+          <div class="modal-footer border-0 pt-4">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              cerrar
+            </button>
+            <button
+              [disabled]="formBrand2.invalid"
+              type="submit"
+              class="btn btn-success"
+            >
+              Activar marca
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
