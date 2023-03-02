@@ -1,7 +1,8 @@
 .logo{
-    width: 180px;
+    width: 170px;
     padding-left: 15px; 
-    height: 90px;
+    height: 120px;
+    border-radius: 5px;
 }
 .nav-link{
     transition: all .1s ease;
