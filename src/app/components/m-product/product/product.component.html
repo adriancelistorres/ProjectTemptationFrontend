@@ -6,6 +6,39 @@
 <div class="search-name pt-3 pb-3">
   <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" Buscar  ">
 </div>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="staticBackdrop3" data-bs-toggle="dropdown" aria-expanded="false">
+  Personas Desactivadas
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="staticBackdrop3">
+    <tbody>
+      <tr *ngFor="let item of listProducts | filter:searchText">
+        <td *ngIf="item.state == 0" class="p-1 text-center">
+          0000{{ item.idproduc }}
+        </td>
+        <td *ngIf="item.state == 0" class="p-1 text-center">
+          {{ item.name_p }}
+        </td>
+        <td *ngIf="item.state == 0" class="p-1 text-center">
+          Desactivado
+        </td>
+        <td *ngIf="item.state == 0" class="p-1 text-center">
+          <button
+            data-bs-toggle="modal"
+            class="btn btn-outline-warning btn-sm"
+            (click)="edit(item.idproduc)"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop3"
+          >
+            <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </ul>
+</div>
+
 
 <div class="agregar">
   <button

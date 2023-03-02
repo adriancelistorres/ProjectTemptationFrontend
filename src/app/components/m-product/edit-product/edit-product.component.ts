@@ -217,16 +217,51 @@ ngOnInit() {
         image_back: this.uploadService.idFire,
         image_using: this.uploadService.urlFire,
         state: 1,
-      };
+      }
+      product.idproduc = this.id;
+      console.log(product.idproduc)
       this._productService.updateProduct(this.id,product).subscribe({
+        
         next: () => {
           console.log('SI SE AGREGO O NO', this.uploadService.urlFire);
-          this.toastr.success('La marca se actualizo correctamente');
+          this.toastr.success('El Producto se actualizo correctamente');
         },
         error: (e: HttpErrorResponse ) => {
           this._errorService.msjError(e);
         },
       });
+
+  }
+
+  Activate(){
+    const product: IProducts = {
+      // idcat: this.formProduct2.value.idcat,
+      // idsize: this.formProduct2.value.idsize,
+      // idstyles: this.formProduct2.value.idstyles,
+      // idbrand: this.formProduct2.value.idbrand,
+      // idcolor: this.formProduct2.value.idcolor,
+      // name_p: this.formProduct2.value.name_p,
+      // description: this.formProduct2.value.description,
+      // price: this.formProduct2.value.price,
+      // stock: this.formProduct2.value.stock,
+      // // image_front: this.uploadService.idFire,
+      // // image_back: this.uploadService.idFire,
+      // // image_using: this.uploadService.urlFire,
+      state: 1,
+    }
+    product.idproduc = this.id;
+    console.log(product.idproduc)
+    this._productService.updateProduct(this.id,product).subscribe({
+      
+      next: () => {
+        console.log('SI SE AGREGO O NO', this.uploadService.urlFire);
+        this.toastr.success('El Producto se actualizo correctamente');
+      },
+      error: (e: HttpErrorResponse ) => {
+        this._errorService.msjError(e);
+      },
+    });
+    this.getProducts();
 
   }
 

@@ -10,7 +10,7 @@ import { ErrorService } from 'src/app/utils/error/error.service';
   styleUrls: ['./detail-person.component.css']
 })
 export class DetailPersonComponent {
-  id: number;
+
   listPerson2: IPerson[] =[];
   selectPerson: IPerson | any;
 
@@ -18,7 +18,7 @@ export class DetailPersonComponent {
     private _personService: PersonService,
     private _erroService: ErrorService
   ){
-    this.id = 0
+
   }
 
   getOnePerson(id: number){
