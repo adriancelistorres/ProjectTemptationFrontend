@@ -72,6 +72,7 @@ import { ClaimsComponent } from './components/m-claims/claims/claims.component';
 import { DetailClaimComponent } from './components/m-claims/detail-claim/detail-claim.component';
 import { AceptClaimComponent } from './components/m-claims/acept-claim/acept-claim.component';
 import { Pipev2Pipe } from './shared/pipes/pipev2.pipe';
+import { Pipev3Pipe } from './shared/pipes/pipev3.pipe';
 
 
 
@@ -128,7 +129,8 @@ import { Pipev2Pipe } from './shared/pipes/pipev2.pipe';
     ClaimsComponent,
     DetailClaimComponent,
     AceptClaimComponent,
-    Pipev2Pipe
+    Pipev2Pipe,
+    Pipev3Pipe
 
 
 

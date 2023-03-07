@@ -4,11 +4,8 @@
 <div  class="container-sm pt-4">
   <div class="" style="font-size: 50px">Lista de Compras</div>
   <div class="row search-name pt-3 pb-3">
-    <div class="col-lg-6">
-      <input class="form-control" [(ngModel)]="idicome" type="number">
-    </div>
-    <div class="col-lg-6">
-      <button class="w-100 btn btn-primary" id="oculta-tabla" (click)="getTotalById()">Buscar ID</button>
+    <div class="col-lg-12">
+      <input class="form-control" [(ngModel)]="searchText" type="number">
     </div>
     
   </div>
@@ -60,12 +57,8 @@
       </tr>
       <tr>
         <td class="text-center" style="font-weight: bold;" colspan="5">TOTAL</td>
-        <td class="text-start" style="padding-left: 59px;" colspan="2">{{total}}</td>
+        <td class="text-start" style="padding-left: 59px;" colspan="2">{{listDetailIncome|pipev3:searchText}}</td>
       </tr>
     </tbody>
   </table>
 </div>
-
-
-
-
