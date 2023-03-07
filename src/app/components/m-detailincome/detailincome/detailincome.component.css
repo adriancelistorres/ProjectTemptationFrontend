@@ -11,3 +11,8 @@
   .agregar{
     text-align: end;
   }
+
+#oculta-tabla:hover:table{
+  visibility: hidden;
+  
+}

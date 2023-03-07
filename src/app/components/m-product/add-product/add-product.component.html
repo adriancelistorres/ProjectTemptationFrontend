@@ -179,25 +179,6 @@
               <strong style="color:orangered" >El campo Precio es Requerido</strong>
               </span>
             </div>
-            <div class="mb-3 col-md-6">
-              <label class="form-label">Stock</label>
-              <input
-                formControlName="stock"
-                class="form-control"
-                type="number"
-                id="exampleInputPassword1"
-              />
-              <span *ngIf="
-              formProduct.get('stock')?.hasError('required') &&
-              formProduct.get('stock')?.touched"
-              >
-              <strong style="color:orangered" >El campo Stock es Requerido</strong>
-              </span>
-
-            </div>
-
-
-
             <div>
               <div class="row mb-5">
                 <div class="col-12">

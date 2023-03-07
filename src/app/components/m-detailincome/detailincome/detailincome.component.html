@@ -3,8 +3,14 @@
 
 <div  class="container-sm pt-4">
   <div class="" style="font-size: 50px">Lista de Compras</div>
-  <div class="search-name pt-3 pb-3">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Buscar  ">
+  <div class="row search-name pt-3 pb-3">
+    <div class="col-lg-6">
+      <input class="form-control" [(ngModel)]="idicome" type="number">
+    </div>
+    <div class="col-lg-6">
+      <button class="w-100 btn btn-primary" id="oculta-tabla" (click)="getTotalById()">Buscar ID</button>
+    </div>
+    
   </div>
 
   <table class="table color">
@@ -15,6 +21,7 @@
         <th scope="col" class="text-center">Id producto</th>
         <th scope="col" class="text-center">Precio</th>
         <th scope="col" class="text-center">Cantidad</th>
+        <th scope="col" class="text-center">Subtotal</th>
         <th style="width: 10%" scope="col" class="text-center"></th>
         
       </tr>
@@ -36,6 +43,9 @@
         <td  class="p-1 text-center">
           {{ item.quantity }}
         </td>
+        <td  class="p-1 text-center">
+          {{item.price_buy * item.quantity}}
+        </td>
         <td class="p-1 text-center">
           <button
             data-bs-toggle="modal"
@@ -47,6 +57,10 @@
             <a> <img class="imagen" src="./assets/img/editar.png" alt="" /></a>
           </button>
         </td>
+      </tr>
+      <tr>
+        <td class="text-center" style="font-weight: bold;" colspan="5">TOTAL</td>
+        <td class="text-start" style="padding-left: 59px;" colspan="2">{{total}}</td>
       </tr>
     </tbody>
   </table>

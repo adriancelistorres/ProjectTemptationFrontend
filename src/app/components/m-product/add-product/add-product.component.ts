@@ -179,7 +179,7 @@ export class AddProductComponent {
         name_p: this.formProduct.get('name_p')?.value,
         description: this.formProduct.get('description')?.value,
         price: this.formProduct.get('price')?.value,
-        stock: this.formProduct.get('stock')?.value,
+        stock: 0,
         image_front: this.uploadService.idFire,
         image_back: this.uploadService.idFire,
         image_using: this.uploadService.urlFire,

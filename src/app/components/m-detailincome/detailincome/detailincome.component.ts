@@ -14,6 +14,8 @@ export class DetailincomeComponent {
   listDetailIncome: IDetailIncome[] = [];
   searchText: any;
   ColumnB:any="idicome";
+  total:number=0;
+  idicome?:number
 
 
   @ViewChild(EditDetailincomeComponent) editview!: EditDetailincomeComponent;
@@ -33,12 +35,37 @@ export class DetailincomeComponent {
   }
   ngOnInit():void{
     this.getDetailIncome();
+    
+  }
+
+  llamarPipe(){
+
   }
 
   getDetailIncome(){
     this._detailincomeService.getDetailIncomes().subscribe((data: IDetailIncome[]) =>{
       this.listDetailIncome = data;
       console.log(this.listDetailIncome)
+      
+      this.total = this.listDetailIncome.reduce((
+      acc,
+      obj,
+    ) => acc + (obj.price_buy * obj.quantity),
+    0);
+    console.log("Total: ", this.total)
     })
   }
+
+  getTotalById() {
+    this._detailincomeService.getDetailIncomes().subscribe((data: IDetailIncome[]) => {
+      // Filtrar los elementos que coincidan con el ID
+      const filteredData = data.filter(d => d.idicome === this.idicome);
+      console.log('Filtered data:', filteredData);
+  
+      // Sumar los elementos filtrados
+      const total = filteredData.reduce((acc, obj) => acc + (obj.price_buy * obj.quantity), 0);
+      console.log('Total:', total);
+    });
+  }
 }
+
