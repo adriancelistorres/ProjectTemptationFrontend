@@ -97,7 +97,7 @@ ngOnInit() {
   miCategoria() {
     this._categoriService.getCategory().subscribe(
       (options: any[]) => {
-        this.listCategory = options;
+        this.listCategory =  options.filter(option=>option.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -108,7 +108,7 @@ ngOnInit() {
   miBrand() {
     this._brandService.getBrands().subscribe(
       (option2: any[]) => {
-        this.listBrand = option2;
+        this.listBrand =  option2.filter(option2=>option2.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -119,7 +119,7 @@ ngOnInit() {
   miColor() {
     this._colorService.getColors().subscribe(
       (option3: any[]) => {
-        this.listColor = option3;
+        this.listColor = option3.filter(option3=>option3.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -130,7 +130,7 @@ ngOnInit() {
   miStyle() {
     this._styleService.getStyles().subscribe(
       (option4: any[]) => {
-        this.listStyle = option4;
+        this.listStyle = option4.filter(option4=>option4.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -141,7 +141,7 @@ ngOnInit() {
   miSize() {
     this._sizeService.getSize().subscribe(
       (option5: any[]) => {
-        this.listSize = option5;
+        this.listSize = option5.filter(option5=>option5.state == 1);
       },
       (error: any) => {
         console.log(error);

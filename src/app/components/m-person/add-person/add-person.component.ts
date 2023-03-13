@@ -69,7 +69,7 @@ export class AddPersonComponent {
   ngOnInit() {
     this._rolesService.getRoles().subscribe(
       (options: any[]) => {
-        this.listRol = options;
+        this.listRol = options.filter(options=>options.state == 1);
       },
       (error: any) => {
         console.log(error);
