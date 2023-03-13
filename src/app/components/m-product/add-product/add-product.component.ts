@@ -85,7 +85,8 @@ export class AddProductComponent {
   miCategoria() {
     this._categoriService.getCategory().subscribe(
       (options: any[]) => {
-        this.listCategory = options;
+        this.listCategory = options.filter(option=>option.state == 1);
+        console.log("LOG1",this.listCategory)
       },
       (error: any) => {
         console.log(error);
@@ -96,7 +97,7 @@ export class AddProductComponent {
   miBrand() {
     this._brandService.getBrands().subscribe(
       (option2: any[]) => {
-        this.listBrand = option2;
+        this.listBrand = option2.filter(op=>op.state == 1);
       },
       (error: any) => {
         console.log(error);
@@ -107,7 +108,7 @@ export class AddProductComponent {
   miColor() {
     this._colorService.getColors().subscribe(
       (option3: any[]) => {
-        this.listColor = option3;
+        this.listColor = option3.filter(op=>op.state == 1);;
       },
       (error: any) => {
         console.log(error);
@@ -118,7 +119,7 @@ export class AddProductComponent {
   miStyle() {
     this._styleService.getStyles().subscribe(
       (option4: any[]) => {
-        this.listStyle = option4;
+        this.listStyle = option4.filter(op=>op.state == 1);;
       },
       (error: any) => {
         console.log(error);
@@ -129,7 +130,7 @@ export class AddProductComponent {
   miSize() {
     this._sizeService.getSize().subscribe(
       (option5: any[]) => {
-        this.listSize = option5;
+        this.listSize = option5.filter(op=>op.state == 1);;
       },
       (error: any) => {
         console.log(error);
