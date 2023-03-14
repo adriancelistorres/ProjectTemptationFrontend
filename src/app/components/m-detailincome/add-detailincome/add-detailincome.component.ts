@@ -24,6 +24,7 @@ export class AddDetailincomeComponent {
     selectedOption2: [] = [];
     // listIncome2: IIncome[] = [];
     // id: number = 0;
+    newItem:any
 
   
 
@@ -89,6 +90,19 @@ export class AddDetailincomeComponent {
       this._incomeservice.getIncome().subscribe(
         (option2: any[])=>{
           this.listIncome = option2;
+          this.newItem= this.listIncome[this.listIncome.length-1]
+          console.log("lenght:",this.newItem)
+          this.newItem=this.newItem.idicome+1
+          console.log(" nuevo Id Icome",this.newItem)
+          this.newItem={
+            idicome: this.newItem,
+            idprovider: "",
+            dateinco: "",
+            state: ""
+          }
+          console.log("nueva Lista Icome : ",this.newItem)
+          this.listIncome.push(this.newItem)
+          console.log("Insertado")
         },
         (error: any)=>{
           console.log(error);
