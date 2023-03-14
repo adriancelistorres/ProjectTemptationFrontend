@@ -73,6 +73,7 @@ import { DetailClaimComponent } from './components/m-claims/detail-claim/detail-
 import { AceptClaimComponent } from './components/m-claims/acept-claim/acept-claim.component';
 import { Pipev2Pipe } from './shared/pipes/pipev2.pipe';
 import { Pipev3Pipe } from './shared/pipes/pipev3.pipe';
+import { DashproductComponent } from './components/m-dashboard/dashproduct/dashproduct.component';
 
 
 
@@ -130,7 +131,8 @@ import { Pipev3Pipe } from './shared/pipes/pipev3.pipe';
     DetailClaimComponent,
     AceptClaimComponent,
     Pipev2Pipe,
-    Pipev3Pipe
+    Pipev3Pipe,
+    DashproductComponent
 
 
 

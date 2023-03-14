@@ -21,6 +21,7 @@ import { ComprasComponent } from './components/m-compras/compras/compras.compone
 import { AddDetailincomeComponent } from './components/m-detailincome/add-detailincome/add-detailincome.component';
 import { DetailincomeComponent } from './components/m-detailincome/detailincome/detailincome.component';
 import {ClaimsComponent} from './components/m-claims/claims/claims.component'
+import { DashproductComponent } from './components/m-dashboard/dashproduct/dashproduct.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:'detailincome', component: AddDetailincomeComponent,canActivate: [GuardianGuard]},
   {path: 'detalleCompra', component: DetailincomeComponent, canActivate: [GuardianGuard]},
   {path: 'reclamo', component: ClaimsComponent, canActivate: [GuardianGuard]},
+  {path: 'dashbproduct',component: DashproductComponent,canActivate: [GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 
