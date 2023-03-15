@@ -37,7 +37,7 @@ export class AddDetailincomeComponent {
       private _errorService: ErrorService
     ){
         this.formDetail = this.fb.group({
-          idicome: ['', Validators.required],
+          //idicome: ['', Validators.required],
           idproduc: ['', Validators.required],
           price_buy: ['', Validators.required],
           quantity: ['', Validators.required],
@@ -58,7 +58,7 @@ export class AddDetailincomeComponent {
 
     addDetailIncome(){
       const detailincome: IDetailIncome ={
-        idicome:this.formDetail.get('idicome')?.value,
+        idicome:this.newItem,
         idproduc: this.formDetail.get('idproduc')?.value,
         price_buy: this.formDetail.get('price_buy')?.value,
         quantity: this.formDetail.get('quantity')?.value,
@@ -94,15 +94,6 @@ export class AddDetailincomeComponent {
           console.log("lenght:",this.newItem)
           this.newItem=this.newItem.idicome+1
           console.log(" nuevo Id Icome",this.newItem)
-          this.newItem={
-            idicome: this.newItem,
-            idprovider: "",
-            dateinco: "",
-            state: ""
-          }
-          console.log("nueva Lista Icome : ",this.newItem)
-          this.listIncome.push(this.newItem)
-          console.log("Insertado")
         },
         (error: any)=>{
           console.log(error);

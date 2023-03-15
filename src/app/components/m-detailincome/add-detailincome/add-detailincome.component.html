@@ -19,18 +19,8 @@
         </div>
         <div class="mb-3 col-md-6">
             <label class="form-label">Cabecera de Compra</label>
-            <select formControlName="idicome"
-            class="form-select " id="inputState" aria-label=".form-select-lg example" [(ngModel)]="selectedOption2">
-                <option *ngFor="let option of listIncome" [value]="option.idicome">
-                    {{option.idicome}}
-                </option>
-            </select>
-            <span *ngIf="
-            formDetail.get('idicome')?.hasError('required') &&
-            formDetail.get('idicome')?.touched"
-            >
-            <strong style="color:orangered" >El campo Cabecera de Compra es Requerido</strong>
-            </span>
+            <input
+            class="form-control" id="inputState" aria-label=".form-control-lg example"[value]="newItem"[readOnly]="true">
         </div>
         <div class="mb-3 col-md-6">
             <label class="form-label">Precio de Compra</label>
