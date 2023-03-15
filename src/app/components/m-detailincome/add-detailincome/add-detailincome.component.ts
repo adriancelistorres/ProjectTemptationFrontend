@@ -24,6 +24,7 @@ export class AddDetailincomeComponent {
     selectedOption2: [] = [];
     // listIncome2: IIncome[] = [];
     // id: number = 0;
+    newItem:any
 
   
 
@@ -36,7 +37,7 @@ export class AddDetailincomeComponent {
       private _errorService: ErrorService
     ){
         this.formDetail = this.fb.group({
-          idicome: ['', Validators.required],
+          //idicome: ['', Validators.required],
           idproduc: ['', Validators.required],
           price_buy: ['', Validators.required],
           quantity: ['', Validators.required],
@@ -57,7 +58,7 @@ export class AddDetailincomeComponent {
 
     addDetailIncome(){
       const detailincome: IDetailIncome ={
-        idicome:this.formDetail.get('idicome')?.value,
+        idicome:this.newItem,
         idproduc: this.formDetail.get('idproduc')?.value,
         price_buy: this.formDetail.get('price_buy')?.value,
         quantity: this.formDetail.get('quantity')?.value,
@@ -89,6 +90,10 @@ export class AddDetailincomeComponent {
       this._incomeservice.getIncome().subscribe(
         (option2: any[])=>{
           this.listIncome = option2;
+          this.newItem= this.listIncome[this.listIncome.length-1]
+          console.log("lenght:",this.newItem)
+          this.newItem=this.newItem.idicome+1
+          console.log(" nuevo Id Icome",this.newItem)
         },
         (error: any)=>{
           console.log(error);

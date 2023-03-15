@@ -41,7 +41,7 @@
           {{ item.quantity }}
         </td>
         <td  class="p-1 text-center">
-          {{item.price_buy * item.quantity}}
+          {{(item.price_buy * item.quantity).toFixed(2)}}
         </td>
         <td class="p-1 text-center">
           <button
