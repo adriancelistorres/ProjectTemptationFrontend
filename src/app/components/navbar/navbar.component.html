@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="rol == 1">
           <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-sharp fa-solid fa-clipboard font" id="des"></i><br>
             DashBoards
@@ -17,13 +17,12 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">DashBoard de Ventas</a></li>
           </ul>
-        </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="rol == 1 || rol==3" >
             <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-shirt font2"id="des"></i><br>
               Producto
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" >
               <li><a class="dropdown-item" href="#" routerLink="/brand">Marca</a></li>
               <li><a class="dropdown-item" href="#" routerLink="/color">Color</a></li>
               <li><a class="dropdown-item" href="#" routerLink="/style">Estilos</a></li>
@@ -33,7 +32,7 @@
               <li><a class="dropdown-item" href="#" routerLink="/product">Productos</a></li>
             </ul>
         </li>
-      <li class="nav-item dropdown">
+      <li  class="nav-item dropdown"  *ngIf="rol == 1">
         <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-user font2" id="des"></i><br>
           Personal
@@ -43,12 +42,12 @@
           <li><a class="dropdown-item" href="#" routerLink="/rol">Rol</a></li>
         </ul>
     </li>
-    <li class="nav-item">
+    <li class="nav-item"  *ngIf="rol == 1">
       <a class="nav-link" id="des"  href="#" routerLink="/paymethod"><i class="fa-solid fa-credit-card font3"></i><br> Metodo de Pago</a>
     </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="rol == 1">
         <a class="nav-link" routerLink="/reclamo"> <i class="fa-solid fa-clipboard-question font"  id="des"></i><br> Reclamos</a>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown"  *ngIf="rol == 1|| rol==4">
             <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-bag-shopping font2"></i><br>
               Compras
@@ -69,3 +68,7 @@
     </div>
   </div>
 </nav>
+<div>
+  <p>Tu rol es: {{rol}}</p>
+  <button [disabled]="rol == 2">Crear usuario</button>
+</div>
