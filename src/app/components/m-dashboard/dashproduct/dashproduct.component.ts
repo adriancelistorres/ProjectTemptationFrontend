@@ -31,8 +31,7 @@ export class DashproductComponent {
 
 
   ngOnInit():void{
-    this.getProductColors();
-    this.renderChart(this.labeldata,this.realdata);
+    this.getProduct()
   }
 
   renderChart(labels: any, data: any) {
@@ -43,7 +42,7 @@ export class DashproductComponent {
       data: {
         labels: labels,
         datasets: [{
-          label: '# of Votes',
+          label: 'Cantidad de Productos',
           data: data,
           backgroundColor: [
             'rgb(255, 99, 132)',
@@ -61,27 +60,14 @@ export class DashproductComponent {
       }
     });
   }
-
-
-  getProductColors() {
-    this._productservice.getProducts().subscribe(products => {
-
-      products.forEach(product => {
-        this._colorservice.getOneColor(product.idcolor).subscribe(color => {
-          const colorName = color.name_col;
-
-          if (this.colorCounts[colorName]) {
-            this.colorCounts[colorName]++;
-          } else {
-            this.colorCounts[colorName] = 1;
-          }
-
-          this.labeldata = Object.keys(this.colorCounts) as Array<keyof typeof this.colorCounts>;
-          this.realdata = this.labeldata.map(label => this.colorCounts[label]);
-          this.renderChart(this.labeldata,this.realdata)
-        });
-      });
-    });
+  getProduct(){
+    this._productservice.getProducts().subscribe((data: IProducts[])=>{
+      this.realdata = data.map(product => product.stock);
+      this.labeldata = data.map(product =>product.name_p);
+      console.log("realdata",this.realdata);
+      console.log("LabelDAta",this.realdata);
+      this.renderChart(this.labeldata,this.realdata);
+    })
   }
 
 }

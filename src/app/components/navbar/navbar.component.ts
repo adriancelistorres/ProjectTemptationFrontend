@@ -10,6 +10,7 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class NavbarComponent implements OnInit {
   rol:any|number;
+  person: any | string
   isDisabled: boolean|any;
 
   constructor(  private cookiesService: CookieService,  private router: Router ){}
@@ -25,6 +26,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.rol = localStorage.getItem('rollogin');
+    console.log('LOGmenu', this.rol);
+    this.person = localStorage.getItem('username');
     console.log('LOGmenu', this.rol);
     // this.isDisabled = this.rol === 2;
   }
