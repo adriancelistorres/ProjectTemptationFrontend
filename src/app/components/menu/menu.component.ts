@@ -14,9 +14,9 @@ export class MenuComponent implements OnInit{
   constructor(public sharedService: DatasharingService) {}
 
   ngOnInit(): void {
-    this.rol = localStorage.getItem('rollogin');
-    console.log('LOGmenu', this.rol);
-    
+    // this.rol = localStorage.getItem('rollogin');
+    // console.log('LOGmenu', this.rol);
+
   }
 
   // getadata(){

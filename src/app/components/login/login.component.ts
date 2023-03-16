@@ -66,10 +66,25 @@ export class LoginComponent implements OnInit {
           const decodedToken:any = jwt_decode(finalToken);
           // console.log('tres',decodedToken);
           const role = decodedToken.rol;
+          const name = decodedToken.name;
+          const lastname = decodedToken.lastname;
+          const username = decodedToken.username;
+          const dni = decodedToken.dni;
+
           // console.log('rol:', role);
           this.rol = role;
           localStorage.setItem('rollogin', this.rol);
+          localStorage.setItem('username', username);
+          localStorage.setItem('name', name);
+          localStorage.setItem('lastname', lastname);
+          localStorage.setItem('dni', dni);
+
           let rolAlmacenado = localStorage.getItem('rollogin');
+          let nameAlmacenado = localStorage.getItem('rollogin');
+          let lastnameAlmacenado = localStorage.getItem('rollogin');
+          let usernameAlmacenado = localStorage.getItem('rollogin');
+          let dniAlmacenado = localStorage.getItem('rollogin');
+
           console.log('LOGlogin',rolAlmacenado);
           console.log('El rol guardado en la clase es:', rolAlmacenado); // mostramos el valor del rol en la consola
 
