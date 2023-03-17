@@ -32,7 +32,7 @@ export class DashproductComponent {
 
 
   ngOnInit():void{
-    this.getProduct()
+    this.getProductGrafico()
   }
 
   renderChart(labels: any, data: any) {
@@ -66,7 +66,7 @@ export class DashproductComponent {
   }
 
 
-  getProduct(){
+  getProductGrafico(){
     this._productservice.getProducts().subscribe((data: IProducts[])=>{
       this.realdata = data.map(product => product.stock);
       this.labeldata = data.map(product =>product.name_p);
