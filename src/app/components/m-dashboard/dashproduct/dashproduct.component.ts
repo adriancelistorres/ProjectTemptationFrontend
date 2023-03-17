@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js'
 import { forkJoin, map } from 'rxjs';
+import { IColor } from 'src/app/interfaces/IColor';
 import { IProducts } from 'src/app/interfaces/IProduct';
 import { CategoryService } from 'src/app/services/category.service';
 import { ColorService } from 'src/app/services/color.service';
@@ -45,9 +46,12 @@ export class DashproductComponent {
           label: 'Cantidad de Productos',
           data: data,
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+          'rgba(255, 99, 132)',
+          'rgba(54, 162, 235)',
+          'rgba(255, 206, 86)',
+          'rgba(75, 192, 192)',
+          'rgba(153, 102, 255)',
+          'rgba(255, 159, 64)'
           ],
         }]
       },
@@ -60,6 +64,8 @@ export class DashproductComponent {
       }
     });
   }
+
+
   getProduct(){
     this._productservice.getProducts().subscribe((data: IProducts[])=>{
       this.realdata = data.map(product => product.stock);
@@ -69,5 +75,6 @@ export class DashproductComponent {
       this.renderChart(this.labeldata,this.realdata);
     })
   }
+
 
 }

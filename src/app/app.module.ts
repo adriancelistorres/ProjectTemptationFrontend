@@ -74,6 +74,7 @@ import { AceptClaimComponent } from './components/m-claims/acept-claim/acept-cla
 import { Pipev2Pipe } from './shared/pipes/pipev2.pipe';
 import { Pipev3Pipe } from './shared/pipes/pipev3.pipe';
 import { DashproductComponent } from './components/m-dashboard/dashproduct/dashproduct.component';
+import { DashcomprasComponent } from './components/m-dashboard/dashcompras/dashcompras.component';
 
 
 
@@ -132,7 +133,8 @@ import { DashproductComponent } from './components/m-dashboard/dashproduct/dashp
     AceptClaimComponent,
     Pipev2Pipe,
     Pipev3Pipe,
-    DashproductComponent
+    DashproductComponent,
+    DashcomprasComponent
 
 
 
