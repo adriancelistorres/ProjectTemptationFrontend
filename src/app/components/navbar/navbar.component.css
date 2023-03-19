@@ -49,3 +49,9 @@ nav{
   pointer-events: none;
   opacity: 0.5;
 }
+
+
+.label {
+  font-weight: bold;
+  color: #7d4901;
+}

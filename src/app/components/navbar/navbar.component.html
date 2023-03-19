@@ -1,88 +1,185 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/menu"><img src="./assets/img/icont2.png" alt="Logo"  title="Logo" class="logo"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" routerLink="/menu"
+      ><img src="./assets/img/icont2.png" alt="Logo" title="Logo" class="logo"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarSupportedContent"
+    >
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item dropdown" [ngClass]="{ 'disabled': rol == 3 || rol == 4}">
-          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-sharp fa-solid fa-clipboard font" id="des"></i><br>
+        <li
+          class="nav-item dropdown"
+          [ngClass]="{ disabled: rol == 3 || rol == 4 }"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-sharp fa-solid fa-clipboard font" id="des"></i><br />
             DashBoards
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" routerLink="/dashbproduct">DashBoard de Producto</a></li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/dashbproduct"
+                >DashBoard de Producto</a
+              >
+            </li>
             <li><a class="dropdown-item" href="#">DashBoard de Compra</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">DashBoard de Ventas</a></li>
           </ul>
-          <li class="nav-item dropdown" [ngClass]="{ 'disabled': rol == 4}" >
-            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-shirt font2"id="des"></i><br>
-              Producto
-            </a>
-            <ul class="dropdown-menu" >
-              <li><a class="dropdown-item" href="#" routerLink="/brand">Marca</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/color">Color</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/style">Estilos</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/size">Tamaño</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/category">Categoria</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#" routerLink="/product">Productos</a></li>
-            </ul>
-        </li>    
-      <li  class="nav-item dropdown"  [ngClass]="{ 'disabled': rol == 3 || rol == 4}">
-        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-users font2"></i><br>
-          Personal
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#" routerLink="/person">Usuario</a></li>
-          <li><a class="dropdown-item" href="#" routerLink="/rol">Rol</a></li>
-        </ul>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'disabled': rol == 3 || rol == 4}">
-      <a class="nav-link" id="des"  href="#" routerLink="/paymethod"><i class="fa-solid fa-credit-card font3"></i><br> Metodo de Pago</a>
-    </li>
-      <li class="nav-item" [ngClass]="{ 'disabled': rol == 3 || rol == 4}">
-        <a class="nav-link" routerLink="/reclamo"> <i class="fa-solid fa-clipboard-question font"  id="des"></i><br> Reclamos</a>
-          <li class="nav-item dropdown"  [ngClass]="{ 'disabled': rol == 3}">
-            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-bag-shopping font2"></i><br>
-              Compras
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" routerLink="/provider">Proveedor</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/income">Realizar Compras</a></li>
-              <li><a class="dropdown-item" href="#" routerLink="/detalleCompra">Ver Compras</a></li>
-            </ul>
         </li>
-        <li  class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-user font2" id="des"></i><br>
-            Usuario
+
+        <li class="nav-item dropdown" [ngClass]="{ disabled: rol == 4 }">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-shirt font2" id="des"></i><br />
+            Producto
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" routerLink="/person">Crear Usuario</a></li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/brand">Marca</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/color">Color</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/style">Estilos</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/size">Tamaño</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/category"
+                >Categoria</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/product"
+                >Productos</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li
+          class="nav-item dropdown"
+          [ngClass]="{ disabled: rol == 3 || rol == 4 }"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-users font2"></i><br />
+            Personal
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/person">Usuario</a>
+            </li>
             <li><a class="dropdown-item" href="#" routerLink="/rol">Rol</a></li>
           </ul>
-      </li>
-      <li  class="nav-item dropdown ">
-        <p class="mt-2 mb-1">Bienvenido Usuario:</p>
-        <p class="mt-0 pt-0 text-danger">{{person}}</p> 
-    </li>
- </ul>
+        </li>
+        <li class="nav-item" [ngClass]="{ disabled: rol == 3 || rol == 4 }">
+          <a class="nav-link" id="des" href="#" routerLink="/paymethod"
+            ><i class="fa-solid fa-credit-card font3"></i><br />
+            Metodo de Pago</a
+          >
+        </li>
+        <li class="nav-item" [ngClass]="{ disabled: rol == 3 || rol == 4 }">
+          <a class="nav-link" routerLink="/reclamo">
+            <i class="fa-solid fa-clipboard-question font" id="des"></i><br />
+            Reclamos</a
+          >
+        </li>
 
+        <li class="nav-item dropdown" [ngClass]="{ disabled: rol == 3 }">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-bag-shopping font2"></i><br />
+            Compras
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/provider"
+                >Proveedor</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/income"
+                >Realizar Compras</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#" routerLink="/detalleCompra"
+                >Ver Compras</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-circle-user font2" style="color: #7d4901;" id="des"></i><br />
+            PERFIL
+          </a>
+          <ul class="dropdown-menu" style="padding: 20px">
+            <li><span class="label">Username:</span> {{ username }}</li>
+            <li><span class="label">Nombre:</span> {{ name }}</li>
+            <li><span class="label">Apellido:</span> {{ lastname }}</li>
+            <li><span class="label">DNI:</span> {{ dni }}</li>
+            <li *ngIf="rol == 1"><span class="label">Rol:</span> Administrador</li>
+            <li *ngIf="rol == 3"><span class="label">Rol:</span> Almacenero</li>
+            <li *ngIf="rol == 4"><span class="label">Rol:</span> Comprador</li>
+          </ul>
+        </li>
+        <!-- <li  class="nav-item dropdown ">
+        <p class="mt-2 mb-1">Bienvenido Usuario:</p>
+        <p class="mt-0 pt-0 text-danger">{{username}}</p>
+    </li> -->
+      </ul>
     </div>
     <div class="me-5">
-    <button style= "background-color: #5a3400;"  class="btn">
-      <a (click)="deleteCookie()" style="color: white" class="btn rounded-pill">Cerrar Sesion</a>
+      <button style="background-color: #5a3400" class="btn">
+        <a
+          (click)="deleteCookie()"
+          style="color: white"
+          class="btn rounded-pill"
+          >Cerrar Sesion</a
+        >
       </button>
     </div>
   </div>
 </nav>
-<div>
-  <p>Tu rol es: {{rol}}</p>
+<!-- <div>
+  <p>Tu rol es: {{ rol }}</p>
   <button [disabled]="rol == 2">Crear usuario</button>
-</div>
+</div> -->
