@@ -35,10 +35,10 @@ export class DashproductComponent implements OnInit {
   colordata: any [] = []
 
   //Pruebas
-  listColor: any [] = []
-  listcategory: any [] = []
-  listsize: any [] = []
-  liststyle: any [] = []
+  listColor: IColor [] = []
+  listcategory: ICategory [] = []
+  listsize: ISize [] = []
+  liststyle: IStyles [] = []
 
   listProduct: any[] = []
 
@@ -311,7 +311,7 @@ export class DashproductComponent implements OnInit {
           let count = 0
           for (let a = 0; a < this.listProduct.length; a++) {
             if(this.liststyle[i].idstyles == this.listProduct[a].idstyles){
-              console.log("SIZE ID",this.liststyle[i].idsize)
+              console.log("STYLE ID",this.liststyle[i].idstyles)
               count++;
             }
           }   
