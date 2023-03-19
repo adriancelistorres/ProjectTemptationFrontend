@@ -219,7 +219,7 @@ export class DashproductComponent implements OnInit {
         this.listColor = dataC;
         let labeldataArray = [];
         let ProductCount = []
-        for (let i = 0; i < this.listColor.length; i++) {
+        for (let i = 0; i < this.listColor.length; i++){
           let count = 0
           for (let a = 0; a < this.listProduct.length; a++) {
             if(this.listColor[i].idcolor == this.listProduct[a].idcolor){
@@ -232,7 +232,6 @@ export class DashproductComponent implements OnInit {
             labeldataArray.push(this.listColor[i].name_col)
             console.log("PRoduct Count",ProductCount)
           }
-
         }
         console.log("COLOR-Product RealData",ProductCount)
         console.log("COLOR-Product LableDATA",labeldataArray)
