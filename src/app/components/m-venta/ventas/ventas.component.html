@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+
+<div  class="container-sm pt-4">
+  <div class="" style="font-size: 50px">Lista de Ventas</div>
+  <div class="row search-name pt-3 pb-3">
+    <div class="col-lg-12">
+      <input class="form-control" [(ngModel)]="searchText" type="number">
+    </div>
+    
+  </div>
+
+  <table class="table color">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Id DETALLE VENTA</th>
+        <th scope="col" class="text-center">Id ORDER</th>
+        <th scope="col" class="text-center">Producto</th>
+        <th scope="col" class="text-center">Precio</th>
+        <th scope="col" class="text-center">Cantidad</th>
+        <th scope="col" class="text-center">Subtotal</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of SaleOrderList | pipes5:searchText">
+        <td class="p-1 text-center">
+          0000{{ item.idsale}}
+        </td>
+        <td  class="p-1 text-center">
+          0000{{ item.idorder }}
+        </td>
+        <td  class="p-1 text-center">
+          {{ item.name_p}}
+        </td>
+        <td  class="p-1 text-center">
+          {{ item.price_sale}}
+        </td>
+        <td  class="p-1 text-center">
+          {{ item.quantity }}
+        </td>
+        <td  class="p-1 text-center">
+          {{(item.price_sale * item.quantity).toFixed(2)}}
+        </td>
+      </tr>
+      <tr>
+        <td class="text-center" style="font-weight: bold;" colspan="5">TOTAL</td>
+        <td class="text-start" style="padding-left: 59px;" colspan="2">{{SaleOrderList|pipe4:searchText}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

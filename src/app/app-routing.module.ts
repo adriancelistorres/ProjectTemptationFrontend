@@ -24,6 +24,7 @@ import {ClaimsComponent} from './components/m-claims/claims/claims.component'
 import { DashproductComponent } from './components/m-dashboard/dashproduct/dashproduct.component';
 import { DashcomprasComponent } from './components/m-dashboard/dashcompras/dashcompras.component';
 import { DashventasComponent } from './components/m-dashboard/dashventas/dashventas.component';
+import { VentasComponent } from './components/m-venta/ventas/ventas.component';
 
 
 
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path: 'dashbproduct',component: DashproductComponent,canActivate: [GuardianGuard]},
   {path: 'dashcompras',component: DashcomprasComponent, canActivate: [GuardianGuard]},
   {path: 'dashventas',component: DashventasComponent,canActivate: [GuardianGuard]},
+  {path: 'ventas',component: VentasComponent,canActivate: [GuardianGuard]},
   { path: '**', component: NotfoundComponent },
 ];
 

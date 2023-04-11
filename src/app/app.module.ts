@@ -76,6 +76,9 @@ import { Pipev3Pipe } from './shared/pipes/pipev3.pipe';
 import { DashproductComponent } from './components/m-dashboard/dashproduct/dashproduct.component';
 import { DashcomprasComponent } from './components/m-dashboard/dashcompras/dashcompras.component';
 import { DashventasComponent } from './components/m-dashboard/dashventas/dashventas.component';
+import { VentasComponent } from './components/m-venta/ventas/ventas.component';
+import { Pipe4Pipe } from './shared/pipes/pipe4.pipe';
+import { Pipes5Pipe } from './shared/pipes/pipes5.pipe';
 
 
 
@@ -136,7 +139,10 @@ import { DashventasComponent } from './components/m-dashboard/dashventas/dashven
     Pipev3Pipe,
     DashproductComponent,
     DashcomprasComponent,
-    DashventasComponent
+    DashventasComponent,
+    VentasComponent,
+    Pipe4Pipe,
+    Pipes5Pipe
 
 
 

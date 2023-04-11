@@ -1,0 +1,18 @@
+.color{
+    background-color: rgb(226, 232, 237);
+    border-radius: 10px;
+  }
+  
+  .imagen{
+    height: 30px;
+    width:  30px;
+  }
+  
+  .agregar{
+    text-align: end;
+  }
+
+#oculta-tabla:hover:table{
+  visibility: hidden;
+  
+}
